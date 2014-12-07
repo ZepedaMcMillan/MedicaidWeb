@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="address" type="address"/>
+
+  <xs:element name="authorizedRep" type="authorizedRep"/>
+
+  <xs:element name="claimedOnOther" type="claimedOnOther"/>
+
+  <xs:element name="contactInfo" type="contactInfo"/>
+
+  <xs:element name="coverageRenewal" type="coverageRenewalAPTC"/>
+
+  <xs:element name="deduction" type="deductionItem"/>
+
+  <xs:element name="deductions" type="deductions"/>
+
+  <xs:element name="dependant" type="dependent"/>
+
+  <xs:element name="familyMembersCovered" type="familyMembersCovered"/>
+
+  <xs:element name="generalInfo" type="generalInfo"/>
+
+  <xs:element name="healthInsuranceInfo" type="healthInsuranceInfo"/>
+
+  <xs:element name="houseHold" type="houseHold"/>
+
+  <xs:element name="houseHoldInfo" type="houseHoldInfo"/>
+
+  <xs:element name="incarceration" type="incarceration"/>
+
+  <xs:element name="income" nillable="true" type="xs:anyType"/>
+
+  <xs:element name="incomeInfo" type="incomeInfo"/>
+
+  <xs:element name="insuranceDetails" type="otherInsuranceItem"/>
+
+  <xs:element name="insuranceFromJobs" type="insuranceFromJobs"/>
+
+  <xs:element name="jobDetails" type="jobDetails"/>
+
+  <xs:element name="jobInsuranceContact" type="jobInsuranceContact"/>
+
+  <xs:element name="memberInfo" type="memberInfo"/>
+
+  <xs:element name="newYearPlanChanges" type="newYearPlanChanges"/>
+
+  <xs:element name="otherAssistance" type="otherAssistance"/>
+
+  <xs:element name="otherIncome" type="otherIncome"/>
+
+  <xs:element name="otherInfo" type="otherInfo"/>
+
+  <xs:element name="otherInsurance" type="otherInsurance"/>
+
+  <xs:element name="personCovered" type="peopleCovered"/>
+
+  <xs:element name="raceEthnicity" type="raceEthnicity"/>
+
+  <xs:element name="taxInfo" type="taxInfo"/>
+
+  <xs:element name="yearlyIncome" type="yearlyIncome"/>
+
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element name="apartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+      <xs:element name="state" type="xs:string" minOccurs="0"/>
+      <xs:element name="street" type="xs:string" minOccurs="0"/>
+      <xs:element name="zip" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dependent">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="childCare">
+    <xs:sequence>
+      <xs:element name="childName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deductions">
+    <xs:sequence>
+      <xs:element name="deductionItems" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="deductionItem" type="deductionItem" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="haveDeductions" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deductionItem">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:string" minOccurs="0"/>
+      <xs:element name="frequency" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="incomeInfoItem">
+    <xs:sequence>
+      <xs:element name="employerAddress" type="address" minOccurs="0"/>
+      <xs:element name="employerName" type="xs:string" minOccurs="0"/>
+      <xs:element name="employerPhone" type="xs:string" minOccurs="0"/>
+      <xs:element name="isSelfEmployed" type="xs:string" minOccurs="0"/>
+      <xs:element name="monthlyNetIncome" type="xs:string" minOccurs="0"/>
+      <xs:element name="payFrequency" type="xs:string" minOccurs="0"/>
+      <xs:element name="typeOfWork" type="xs:string" minOccurs="0"/>
+      <xs:element name="wagesPerPayPeriod" type="xs:string" minOccurs="0"/>
+      <xs:element name="weekHoursWorked" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="otherAssistance">
+    <xs:sequence>
+      <xs:element name="ageWhenLeft" type="xs:string" minOccurs="0"/>
+      <xs:element name="applyingForOther" type="xs:string" minOccurs="0"/>
+      <xs:element name="beenInFosterCare" type="xs:string" minOccurs="0"/>
+      <xs:element name="billMonths" type="xs:string" minOccurs="0"/>
+      <xs:element name="childCare" type="xs:string" minOccurs="0"/>
+      <xs:element name="hasEligibleImmigration" type="xs:string" minOccurs="0"/>
+      <xs:element name="hasPastMedicalBills" type="xs:string" minOccurs="0"/>
+      <xs:element name="hasPublicEmployeeCoverage" type="xs:string" minOccurs="0"/>
+      <xs:element name="hasSSI" type="xs:string" minOccurs="0"/>
+      <xs:element name="immigrationIdNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="immigrationType" type="xs:string" minOccurs="0"/>
+      <xs:element name="isDisabledBlind" type="xs:string" minOccurs="0"/>
+      <xs:element name="isNative" type="xs:string" minOccurs="0"/>
+      <xs:element name="isPrimaryCareTaker" type="xs:string" minOccurs="0"/>
+      <xs:element name="isStudent" type="xs:string" minOccurs="0"/>
+      <xs:element name="isUSCitizen" type="xs:string" minOccurs="0"/>
+      <xs:element name="isVeteran" type="xs:string" minOccurs="0"/>
+      <xs:element name="livedSince1996" type="xs:string" minOccurs="0"/>
+      <xs:element name="needsDailyAssistance" type="xs:string" minOccurs="0"/>
+      <xs:element name="receivedHealthcare" type="xs:string" minOccurs="0"/>
+      <xs:element name="ssn" type="xs:string" minOccurs="0"/>
+      <xs:element name="stateFosterCare" type="xs:string" minOccurs="0"/>
+      <xs:element name="tribe" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="coverageRenewalAPTC">
+    <xs:sequence>
+      <xs:element name="allowReturnAccess" type="xs:string" minOccurs="0"/>
+      <xs:element name="numberOfYears" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="houseHoldInfo">
+    <xs:sequence>
+      <xs:element ref="contactInfo" minOccurs="0"/>
+      <xs:element name="houseHoldMembers" type="xs:string" minOccurs="0"/>
+      <xs:element name="members" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="member" type="memberInfo" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="contactInfo">
+    <xs:sequence>
+      <xs:element name="birthDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="gender" type="xs:string" minOccurs="0"/>
+      <xs:element name="householdAddress" type="address" minOccurs="0"/>
+      <xs:element name="isEmailNeeded" type="xs:string" minOccurs="0"/>
+      <xs:element name="isEnglishPreferred" type="xs:string" minOccurs="0"/>
+      <xs:element name="isInterpreterNeeded" type="xs:string" minOccurs="0"/>
+      <xs:element name="isMailingAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="mailingAddress" type="address" minOccurs="0"/>
+      <xs:element name="middleName" type="xs:string" minOccurs="0"/>
+      <xs:element name="otherLanguage" type="xs:string" minOccurs="0"/>
+      <xs:element name="primaryExtension" type="xs:string" minOccurs="0"/>
+      <xs:element name="primaryPhone" type="xs:string" minOccurs="0"/>
+      <xs:element name="secondaryExtension" type="xs:string" minOccurs="0"/>
+      <xs:element name="secondaryPhone" type="xs:string" minOccurs="0"/>
+      <xs:element name="spanishOrOther" type="xs:string" minOccurs="0"/>
+      <xs:element name="suffix" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="memberInfo">
+    <xs:sequence>
+      <xs:element ref="deductions" minOccurs="0"/>
+      <xs:element ref="generalInfo" minOccurs="0"/>
+      <xs:element ref="incomeInfo" minOccurs="0"/>
+      <xs:element name="isCaseHOH" type="xs:string" minOccurs="0"/>
+      <xs:element ref="otherAssistance" minOccurs="0"/>
+      <xs:element ref="otherIncome" minOccurs="0"/>
+      <xs:element ref="raceEthnicity" minOccurs="0"/>
+      <xs:element ref="taxInfo" minOccurs="0"/>
+      <xs:element ref="yearlyIncome" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="generalInfo">
+    <xs:sequence>
+      <xs:element name="age" type="xs:int"/>
+      <xs:element name="birthDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="gender" type="xs:string" minOccurs="0"/>
+      <xs:element name="isPregnant" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="livesWithSpouse" type="xs:string" minOccurs="0"/>
+      <xs:element name="maritalStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="middleName" type="xs:string" minOccurs="0"/>
+      <xs:element name="numberOfBabies" type="xs:string" minOccurs="0"/>
+      <xs:element name="pregnancyDueDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="relationship" type="xs:string" minOccurs="0"/>
+      <xs:element name="ssn" type="xs:string" minOccurs="0"/>
+      <xs:element name="suffix" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="incomeInfo">
+    <xs:sequence>
+      <xs:element name="incomeItems" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="incomeItem" type="incomeInfoItem" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isEmployed" type="xs:string" minOccurs="0"/>
+      <xs:element name="pastThreeMonthsValues" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="pastThreeMonths" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="otherIncome">
+    <xs:sequence>
+      <xs:element name="expectedIncomeNextYear" type="xs:string" minOccurs="0"/>
+      <xs:element name="expectedIncomeThisYear" type="xs:string" minOccurs="0"/>
+      <xs:element name="isIncomeSteady" type="xs:string" minOccurs="0"/>
+      <xs:element name="incomeItems" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="incomeItem" type="otherIncomeItem" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="otherIncomeReceived" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="otherIncomeItem">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:string" minOccurs="0"/>
+      <xs:element name="frequency" type="xs:string" minOccurs="0"/>
+      <xs:element name="isTribal" type="xs:string" minOccurs="0"/>
+      <xs:element name="otherIncomeType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="raceEthnicity">
+    <xs:sequence>
+      <xs:element name="hispanicCategories" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="hispanicCategory" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hispanicCategoryOther" type="xs:string" minOccurs="0"/>
+      <xs:element name="isHispanicLatino" type="xs:string" minOccurs="0"/>
+      <xs:element name="raceValues" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="race" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="raceOther" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="taxInfo">
+    <xs:sequence>
+      <xs:element ref="claimedOnOther" minOccurs="0"/>
+      <xs:element name="dependents" type="xs:string" minOccurs="0"/>
+      <xs:element name="filingFederalTax" type="xs:string" minOccurs="0"/>
+      <xs:element name="filingJoint" type="xs:string" minOccurs="0"/>
+      <xs:element name="isClaimedOnOther" type="xs:string" minOccurs="0"/>
+      <xs:element name="isClaimingDependents" type="xs:string" minOccurs="0"/>
+      <xs:element name="spouseName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="claimedOnOther">
+    <xs:sequence>
+      <xs:element name="otherFilerName" type="xs:string" minOccurs="0"/>
+      <xs:element name="relationToFiler" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="yearlyIncome">
+    <xs:sequence>
+      <xs:element name="currentAnnualIncome" type="xs:string" minOccurs="0"/>
+      <xs:element name="nextAnnualIncome" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="incarceration">
+    <xs:sequence>
+      <xs:element name="dispositionPending" type="xs:string" minOccurs="0"/>
+      <xs:element name="personName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="otherInsurance">
+    <xs:sequence>
+      <xs:element name="hasOtherInsurance" type="xs:string" minOccurs="0"/>
+      <xs:element name="otherInsuranceDetails" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="otherInsuranceItem" type="otherInsuranceItem" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="otherInsuranceItem">
+    <xs:sequence>
+      <xs:element name="insuranceType" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="planName" type="xs:string" minOccurs="0"/>
+      <xs:element name="policyNumber" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="healthInsuranceInfo">
+    <xs:sequence>
+      <xs:element name="hasHealthCoverage" type="xs:string" minOccurs="0"/>
+      <xs:element name="insuranceFromJobs" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="insuranceFromJob" type="insuranceFromJobs" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element ref="otherInsurance" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insuranceFromJobs">
+    <xs:sequence>
+      <xs:element name="coverageDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="employeeName" type="xs:string" minOccurs="0"/>
+      <xs:element name="employeeSSN" type="xs:string" minOccurs="0"/>
+      <xs:element name="employerAddress" type="address" minOccurs="0"/>
+      <xs:element name="employerEIN" type="xs:string" minOccurs="0"/>
+      <xs:element name="employerName" type="xs:string" minOccurs="0"/>
+      <xs:element name="employerPhone" type="xs:string" minOccurs="0"/>
+      <xs:element name="familyMembersCovered" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="familyMemberCovered" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isCoveredNext3Months" type="xs:string" minOccurs="0"/>
+      <xs:element name="isCoveredNextYear" type="xs:string" minOccurs="0"/>
+      <xs:element name="isEligible" type="xs:string" minOccurs="0"/>
+      <xs:element ref="jobInsuranceContact" minOccurs="0"/>
+      <xs:element name="lowCostPremium" type="xs:string" minOccurs="0"/>
+      <xs:element name="meetsMinimumStandards" type="xs:string" minOccurs="0"/>
+      <xs:element ref="newYearPlanChanges" minOccurs="0"/>
+      <xs:element name="peopleCovered" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="personCovered" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="premiumFrequency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="jobInsuranceContact">
+    <xs:sequence>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="phone" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="newYearPlanChanges">
+    <xs:sequence>
+      <xs:element name="minCoverageDateChange" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="minCoverageOffered" type="xs:string" minOccurs="0"/>
+      <xs:element name="minCoveragePremium" type="xs:string" minOccurs="0"/>
+      <xs:element name="minPremiumFrequency" type="xs:string" minOccurs="0"/>
+      <xs:element name="noCoverageOffered" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="peopleCovered">
+    <xs:sequence>
+      <xs:element name="coverageDropDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="eligibilityStartDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="enrollmentStartDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="enrollmentStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="futureChanges" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="middleName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="jobDetails">
+    <xs:sequence>
+      <xs:element name="businessObjectId" type="xs:string" minOccurs="0"/>
+      <xs:element name="channels" type="channels" minOccurs="0"/>
+      <xs:element name="templateId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="channels">
+    <xs:sequence>
+      <xs:element name="print" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="otherInfo">
+    <xs:sequence>
+      <xs:element name="agreeCSECoop" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreeInfoRelease" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreeMedEstate" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreePrivacy" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreeReadSign" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreeResp" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreeReviews" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreeRights" type="xs:string" minOccurs="0"/>
+      <xs:element name="agreeThirdParty" type="xs:string" minOccurs="0"/>
+      <xs:element name="applicantIncarcerated" type="xs:string" minOccurs="0"/>
+      <xs:element name="authorizedReps" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="authorizedRep" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="coverageRenewalAPTC" type="coverageRenewalAPTC" minOccurs="0"/>
+      <xs:element name="incarcerations" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="incarceration" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isAuthorizedRepNeeded" type="xs:string" minOccurs="0"/>
+      <xs:element name="otherReferral" type="xs:string" minOccurs="0"/>
+      <xs:element name="parentLivesOutside" type="xs:string" minOccurs="0"/>
+      <xs:element name="referralInfo" type="xs:string" minOccurs="0"/>
+      <xs:element name="registeredToVote" type="xs:string" minOccurs="0"/>
+      <xs:element name="selectedHealthPlan" type="xs:string" minOccurs="0"/>
+      <xs:element name="swear" type="xs:string" minOccurs="0"/>
+      <xs:element name="understand" type="xs:string" minOccurs="0"/>
+      <xs:element name="verballySigning" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authorizedRep">
+    <xs:sequence>
+      <xs:element name="doYouAgree" type="xs:string" minOccurs="0"/>
+      <xs:element name="repAddress" type="address" minOccurs="0"/>
+      <xs:element name="repName" type="xs:string" minOccurs="0"/>
+      <xs:element name="repPhone" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="familyMembersCovered">
+    <xs:sequence>
+      <xs:element name="familyMember" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="houseHold">
+    <xs:sequence>
+      <xs:element ref="healthInsuranceInfo" minOccurs="0"/>
+      <xs:element ref="houseHoldInfo" minOccurs="0"/>
+      <xs:element ref="otherInfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

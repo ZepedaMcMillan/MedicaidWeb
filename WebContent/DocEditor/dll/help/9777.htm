@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title> Data Entry View </title>
+<meta name="Generator" content="Author-it">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Keywords" content="Data Entry View, Keyboard Shortcuts, Previewing a Document, Toolbar">
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" href="stylesheet.css">
+<!-- <link rel="stylesheet" href="44.css"> -->
+<base target="BODY">
+</head>
+<SCRIPT>
+// Only run the loadParent function if it exists (i.e. open_parent.js has executed)
+function checkParent() {
+	if(typeof loadParent == 'function') { 
+	loadParent(); 
+	}
+}
+</SCRIPT>
+<body onload="checkParent()" text="#000000" link="#0000A0" alink="#008000" vlink="#FF0000">
+<table border="0" width="100%">
+  <tr valign="top"><td height="100%" > 
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="11807.htm" target="_self"><img src="125.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="16179.htm" target="_self"><img src="124.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="toc.htm" target="TOC"><img src="122.gif" alt="Book Contents" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="123.gif" alt="Book Index" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+</tr>
+</table>
+<h1 class="heading1">Data Entry View</h1>
+<p class="bodytextkeepwithnext">During the document review process, you may need to amend the underlying transaction data. The Data Entry view enables you to change the data to apply a potentially different set of assembly rules and regenerate the Review Case from the original Document Template. </p>
+<p class="bodytext">If you wish to make additional edits in the Data Entry View, for example, to change Review Case text, do these edits after changing the Data Items and regenerating your Review Case, otherwise all your other edits will be lost. This is because when you change Data Items and then regenerate your document, this is done from the original Document Template, resulting in the loss of any other changes.</p>
+<p class="bodytext">By default, when regenerating a review case, the effective version of the resources will be used. A system property is available which can change this functionality so that the resource versions that were used to create the original review case will be used instead of the current effective versions. </p>
+<p class="bodytext">The property <em class="emphasis"><em class="emphasis">com.thunderhead.assembly.jobprocessor.regenerateforceversions</em></em> can be added to the <em class="emphasis"><em class="emphasis">Other </em></em>tab in the <em class="emphasis"><em class="emphasis">Configuration </em></em>page in Diagnostics. When set to <em class="emphasis"><em class="emphasis">true </em></em>this property allows you to use the original resource versions.</p>
+<p class="bodytextkeepwithnext">Please note the following when using original resource versions:</p>
+<ul class="listbullet"><li class="listbullet">Even if the resource version has been withdrawn then it will still be used. If the resource version has been deleted then the effective version will be used instead.</li><li class="listbullet">If you are using inline shared content, and the review case has been opened in the Document Editor, then the effective version will always be used.</li></ul><p class="bodytextkeepwithnext">The Data Entry view enables you to:</p>
+<ul class="listbullet"><li class="listbullet">Amend existing Business Object property values</li><li class="listbullet">Add 'missing' properties</li><li class="listbullet">Add new array items.</li></ul><p class="bodytextkeepwithnext">To display the <em class="emphasis"><em class="emphasis">Data Entry</em></em> view, select a Data Item in the tree view and then either:</p>
+<ul class="listbullet"><li class="listbullet">Click the <strong class="bold">Data Entry</strong> icon <img src="9845.png" alt="" height="21px" width="19px" vspace="0" hspace="0" align="bottom" border="0"></li><li class="listbullet">Press <strong class="bold">F3</strong>.</li></ul><p class="graphicignorecentered"><img src="10000.png" alt="" height="417px" width="618px" vspace="0" hspace="0" align="bottom" border="0"></p>
+<p class="bodytext">Thunderhead applies basic validation, to ensure conformity to rules such as those governing Data Types, Enumeration and Maxima/Minima for array items.</p>
+<p class="bodytext">The Thunderhead configuration determines how Review Cases are distributed by the Thunderhead Engine. For further information, refer to the PDF document <em class="emphasis">TH Integration - 6.0 API</em>, which can be found in your Thunderhead Platform <em class="emphasis"><em class="emphasis">docs</em></em> folder. Within that document, see <em class="emphasis"><em class="emphasis">Appendix B: JMS Configuration</em></em>.</p>
+<p class="subheading">Toolbar</p>
+<table class="tableintopic" width="605" cellpadding="2" cellspacing="0" border="0" style="border-collapse:collapse">
+<tr>
+<td width="60" height="0"></td>
+<td width="83" height="0"></td>
+<td width="461" height="0"></td>
+</tr>
+<tr align="left" valign="top">
+<th bgcolor="#C0C0C0" style="border:1px solid #010101;" width="60"><p class="tableheading">Icon</p>
+</th>
+<th bgcolor="#C0C0C0" style="border:1px solid #010101;" colspan="2" width="544"><p class="tableheading">Function</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #010101;" width="60"><p class="tablebodytext">-</p>
+</td>
+<td style="border:1px solid #010101;" width="83"><p class="tablebodytext">Apply</p>
+</td>
+<td style="border:1px solid #010101;" width="461"><p class="tablebodytext">Apply (save) any changes made since the last Apply. You can change focus (e.g. switch to the Edit view and back), without having to Apply your changes</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #010101;" width="60"><p class="tablebodytext">-</p>
+</td>
+<td style="border:1px solid #010101;" width="83"><p class="tablebodytext">Cancel</p>
+</td>
+<td style="border:1px solid #010101;" width="461"><p class="tablebodytext">Cancel any changes made to the document since the last Apply</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #010101;" width="60"><p class="tablebodytext"><img src="10001.png" alt="" height="19px" width="19px" vspace="0" hspace="0" align="bottom" border="0"></p>
+</td>
+<td style="border:1px solid #010101;" width="83"><p class="tablebodytext">Regenerate Review Case (F5)</p>
+<p class="tablebodytext">&nbsp;</p>
+<p class="tablebodytext">&nbsp;</p>
+</td>
+<td style="border:1px solid #010101;" width="461"><p class="tablebodytext">Once the Business Object properties have been amended, click <strong class="bold">Regenerate</strong> to regenerate the document. You are prompted to confirm the Regeneration.</p>
+<p class="tablenote">If you have made changes other than to Data Items, these will be lost when you regenerate. If you wish to make additional edits to the document, do so after regeneration.</p>
+<p class="tablenote">Thunderhead supports the updating of Business Object properties that are embedded in content. However, a Review Case is designated as operating in one of two modes, allowing data amendment either via the tree, or via data items embedded in the document. The Business Object property can only be re-generated if it is updated via the tree.</p>
+<p class="tablenote">Regeneration will only work for Document Templates that take a single Business Object. It will not work for Document Templates that take multiple arguments. This is because the additional arguments are not stored within the Review Case, and cannot therefore be re-supplied to the engine when the Review Case is regenerated.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Icons</p>
+<table class="tableintopic" width="605" cellpadding="2" cellspacing="0" border="1" style="border-collapse:collapse; border:1px solid #010101">
+<tr align="left" valign="top">
+<th bgcolor="#C0C0C0" style="border:1px solid #010101;" width="60"><p class="tableheading">Icon</p>
+</th>
+<th bgcolor="#C0C0C0" style="border:1px solid #010101;" width="544"><p class="tableheading">Function</p>
+</th>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #010101;" width="60"><p class="tablebodytext"><img src="10002.png" alt="" height="17px" width="20px" vspace="0" hspace="0" align="bottom" border="0"></p>
+</td>
+<td style="border:1px solid #010101;" width="544"><p class="tablebodytext">Indicates a property for which you have Edit Rights</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #010101;" width="60"><p class="tablebodytext"><img src="9810.png" alt="" height="12px" width="12px" vspace="0" hspace="0" align="bottom" border="0"></p>
+</td>
+<td style="border:1px solid #010101;" width="544"><p class="tablebodytext">Indicates a property that has been changed since the last Apply</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td style="border:1px solid #010101;" width="60"><p class="tablebodytext"><img src="10003.png" alt="" height="9px" width="9px" vspace="0" hspace="0" align="bottom" border="0"></p>
+</td>
+<td style="border:1px solid #010101;" width="544"><p class="tablebodytext">Indicates a Required field, as defined in the Business Object.</p>
+</td>
+</tr>
+
+</table>
+<p class="subheading">Minimum Date Limitation</p>
+<p class="bodytext">The minimum date value that can be handled by the calendar within the client is 01/01/1753. This is a limitation of the Microsoft calendar control.</p>
+<p class="bodytext">Input transaction data may include valid date values earlier than the minimum supported date value. Any such value will be displayed in the calendar control as today's date.</p>
+<p class="graphicignorecentered"><img src="14318.png" alt="UGDocEd 151" height="189.6" width="605.6" vspace="0" hspace="0" align="bottom" border="0"></p>
+<p class="bodytext">Any date earlier than 01/01/1753 that is edited within the client will be corrupted. Any such date, if left un-edited, will not be corrupted.</p>
+<p class="bodytext">No date earlier than 01/01/1753 can be entered in the date calendar control.</p>
+<p class="subheading">See also</p>
+<ul class="listbullet"><li class="listbullet"><a id="h10020" class="jumptemplate" title="Toolbar" href="9742.htm" target="_self">Content Editor</a> toolbar</li><li class="listbullet"><a id="h9835" class="jumptemplate" title="Previewing a Document" href="9779.htm" target="_self">Preview</a> mode toolbar</li><li class="listbullet"><a id="h9888" class="jumptemplate" title="Keyboard Shortcuts" href="9725.htm" target="_self">Keyboard Shortcuts</a>.</li></ul>
+
+
+  </td></tr>
+  <tr valign="bottom"><td>
+    <!-- Insert Your Footer Here -->
+  </td></tr>
+</table>
+</body>
+</html>

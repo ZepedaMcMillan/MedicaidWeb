@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>MedicaidWeb</display-name>
+    
+    <context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	
+	<listener> 
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+    </listener> 
+    
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+	
+	<mime-mapping>
+		<extension>DLL</extension>
+		<mime-type>application/x-msdownload</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>config</extension>
+		<mime-type>application/octet-stream</mime-type>
+	</mime-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>ExecutePreview</display-name>
+		<servlet-name>ExecutePreview</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.ExecutePreview</servlet-class>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>ExecutePreview</servlet-name>
+		<url-pattern>/ExecutePreview</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>HouseHoldInformation</display-name>
+		<servlet-name>HouseHoldInformationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.HouseHoldInformationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HouseHoldInformationServlet</servlet-name>
+		<url-pattern>/HouseHoldInformation</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>ContactInformation</display-name>
+		<servlet-name>ContactInformationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ContactInformationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ContactInformationServlet</servlet-name>
+		<url-pattern>/ContactInformation</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>ResetForm</display-name>
+		<servlet-name>ResetFormServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ResetFormServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ResetFormServlet</servlet-name>
+		<url-pattern>/ResetForm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>GeneralInformation</display-name>
+		<servlet-name>GeneralInformationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.GeneralInformationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>GeneralInformationServlet</servlet-name>
+		<url-pattern>/GeneralInformation</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>TaxInformation</display-name>
+		<servlet-name>TaxInformationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.TaxInformationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>TaxInformationServlet</servlet-name>
+		<url-pattern>/TaxInformation</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>OtherAssistance</display-name>
+		<servlet-name>OtherAssistanceServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.OtherAssistanceServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>OtherAssistanceServlet</servlet-name>
+		<url-pattern>/OtherAssistance</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>MemberIncome</display-name>
+		<servlet-name>MemberIncomeServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.MemberIncomeServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>MemberIncomeServlet</servlet-name>
+		<url-pattern>/MemberIncome</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>OtherIncome</display-name>
+		<servlet-name>OtherIncomeServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.OtherIncomeServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>OtherIncomeServlet</servlet-name>
+		<url-pattern>/OtherIncome</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>Deductions</display-name>
+		<servlet-name>DeductionsServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeductionsServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeductionsServlet</servlet-name>
+		<url-pattern>/Deductions</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>RaceEthnicity</display-name>
+		<servlet-name>RaceEthnicityServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.RaceEthnicityServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>RaceEthnicityServlet</servlet-name>
+		<url-pattern>/RaceEthnicity</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>HealthInsuranceInformation</display-name>
+		<servlet-name>HealthInsuranceInformationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.HealthInsuranceInformationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>HealthInsuranceInformationServlet</servlet-name>
+		<url-pattern>/HealthInsuranceInformation</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>OtherHealthInsurance</display-name>
+		<servlet-name>OtherHealthInsuranceServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.OtherHealthInsuranceServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>OtherHealthInsuranceServlet</servlet-name>
+		<url-pattern>/OtherHealthInsurance</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>AuthorizedRep</display-name>
+		<servlet-name>AuthorizedRepServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.AuthorizedRepServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>AuthorizedRepServlet</servlet-name>
+		<url-pattern>/AuthorizedRep</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>Incarceration</display-name>
+		<servlet-name>IncarcerationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.IncarcerationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>IncarcerationServlet</servlet-name>
+		<url-pattern>/Incarceration</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>MedicaidEstateRecoveryProgram</display-name>
+		<servlet-name>MedicaidEstateRecoveryProgramServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.MedicaidEstateRecoveryProgramServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>MedicaidEstateRecoveryProgramServlet</servlet-name>
+		<url-pattern>/MedicaidEstateRecoveryProgram</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>ThirdPartyLiability</display-name>
+		<servlet-name>ThirdPartyLiabilityServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ThirdPartyLiabilityServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ThirdPartyLiabilityServlet</servlet-name>
+		<url-pattern>/ThirdPartyLiability</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>ReferralInformation</display-name>
+		<servlet-name>ReferralInformationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ReferralInformationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ReferralInformationServlet</servlet-name>
+		<url-pattern>/ReferralInformation</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>NonDiscrimination</display-name>
+		<servlet-name>NonDiscriminationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.NonDiscriminationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>NonDiscriminationServlet</servlet-name>
+		<url-pattern>/NonDiscrimination</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>VoterRegistration</display-name>
+		<servlet-name>VoterRegistrationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.VoterRegistrationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>VoterRegistrationServlet</servlet-name>
+		<url-pattern>/VoterRegistration</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>ReviewsAndInvestigations</display-name>
+		<servlet-name>ReviewsAndInvestigationsServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ReviewsAndInvestigationsServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ReviewsAndInvestigationsServlet</servlet-name>
+		<url-pattern>/ReviewsAndInvestigations</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>YourRights</display-name>
+		<servlet-name>YourRightsServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.YourRightsServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>YourRightsServlet</servlet-name>
+		<url-pattern>/YourRights</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>YourResponsibilities</display-name>
+		<servlet-name>YourResponsibilitiesServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.YourResponsibilitiesServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>YourResponsibilitiesServlet</servlet-name>
+		<url-pattern>/YourResponsibilities</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>ReleaseOfInformation</display-name>
+		<servlet-name>ReleaseOfInformationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ReleaseOfInformationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ReleaseOfInformationServlet</servlet-name>
+		<url-pattern>/ReleaseOfInformation</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>ChildSupport</display-name>
+		<servlet-name>ChildSupportServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ChildSupportServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ChildSupportServlet</servlet-name>
+		<url-pattern>/ChildSupport</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>PrivacyPolicy</display-name>
+		<servlet-name>PrivacyPolicyServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.PrivacyPolicyServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>PrivacyPolicyServlet</servlet-name>
+		<url-pattern>/PrivacyPolicy</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>HealthPlan</display-name>
+		<servlet-name>HealthPlanServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.HealthPlanServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>HealthPlanServlet</servlet-name>
+		<url-pattern>/HealthPlan</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<description />
+		<display-name>ReadAndSign</display-name>
+		<servlet-name>ReadAndSignServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ReadAndSignServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ReadAndSignServlet</servlet-name>
+		<url-pattern>/ReadAndSign</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>RenewalOfCoverage</display-name>
+		<servlet-name>RenewalOfCoverageServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.RenewalOfCoverageServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>RenewalOfCoverageServlet</servlet-name>
+		<url-pattern>/RenewalOfCoverage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>editMember</display-name>
+		<servlet-name>editMemberServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.editMemberServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>editMemberServlet</servlet-name>
+		<url-pattern>/editMember</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>editMemberIncome</display-name>
+		<servlet-name>editMemberIncomeServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.editMemberIncomeServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>editMemberIncomeServlet</servlet-name>
+		<url-pattern>/editMemberIncome</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>editOtherInsurance</display-name>
+		<servlet-name>editOtherInsuranceServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.editOtherInsuranceServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>editOtherInsuranceServlet</servlet-name>
+		<url-pattern>/editOtherInsurance</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>editPeopleCovered</display-name>
+		<servlet-name>editPeopleCoveredServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.editPeopleCoveredServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>editPeopleCoveredServlet</servlet-name>
+		<url-pattern>/editPeopleCovered</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>editAuthorizedRep</display-name>
+		<servlet-name>editAuthorizedRepServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.editAuthorizedRepServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>editAuthorizedRepServlet</servlet-name>
+		<url-pattern>/editAuthorizedRep</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Detail Screens -->
+	<servlet>
+		<description />
+		<display-name>MemberDetail</display-name>
+		<servlet-name>MemberDetailServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.MemberDetailServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>MemberDetailServlet</servlet-name>
+		<url-pattern>/MemberDetail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>MemberIncomeDetail</display-name>
+		<servlet-name>MemberIncomeDetailServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.MemberIncomeDetailServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>MemberIncomeDetailServlet</servlet-name>
+		<url-pattern>/MemberIncomeDetail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>HealthInsuranceDetail</display-name>
+		<servlet-name>HealthInsuranceDetailServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.HealthInsuranceDetailServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>HealthInsuranceDetailServlet</servlet-name>
+		<url-pattern>/HealthInsuranceDetail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>AuthorizedRepDetail</display-name>
+		<servlet-name>AuthorizedRepDetailServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.AuthorizedRepDetailServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>AuthorizedRepDetailServlet</servlet-name>
+		<url-pattern>/AuthorizedRepDetail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>IncarcerationDetail</display-name>
+		<servlet-name>IncarcerationDetailServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.IncarcerationDetailServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>IncarcerationDetailServlet</servlet-name>
+		<url-pattern>/IncarcerationDetail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>PeopleCoveredDetail</display-name>
+		<servlet-name>PeopleCoveredDetailServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.PeopleCoveredDetailServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>PeopleCoveredDetailServlet</servlet-name>
+		<url-pattern>/PeopleCoveredDetail</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete Screens -->
+	<servlet>
+		<description />
+		<display-name>DeleteMember</display-name>
+		<servlet-name>DeleteMemberServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeleteMemberServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeleteMemberServlet</servlet-name>
+		<url-pattern>/DeleteMember</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>DeleteMemberIncome</display-name>
+		<servlet-name>DeleteMemberIncomeServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeleteMemberIncomeServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeleteMemberIncomeServlet</servlet-name>
+		<url-pattern>/DeleteMemberIncome</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>DeleteHealthInsuranceInfo</display-name>
+		<servlet-name>DeleteHealthInsuranceInfoServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeleteHealthInsuranceInfoServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeleteHealthInsuranceInfoServlet</servlet-name>
+		<url-pattern>/DeleteHealthInsuranceInfo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>DeleteIncarceration</display-name>
+		<servlet-name>DeleteIncarcerationServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeleteIncarcerationServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeleteIncarcerationServlet</servlet-name>
+		<url-pattern>/DeleteIncarceration</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>DeletePeopleCovered</display-name>
+		<servlet-name>DeletePeopleCoveredServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeletePeopleCoveredServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeletePeopleCoveredServlet</servlet-name>
+		<url-pattern>/DeletePeopleCovered</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>DeleteAuthorizedRep</display-name>
+		<servlet-name>DeleteAuthorizedRepServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeleteAuthorizedRepServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeleteAuthorizedRepServlet</servlet-name>
+		<url-pattern>/DeleteAuthorizedRep</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

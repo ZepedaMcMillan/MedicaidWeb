@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title> Style Matching Rules </title>
+<meta name="Generator" content="Author-it">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Keywords" content="Style Matching Rules">
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" href="stylesheet.css">
+<!-- <link rel="stylesheet" href="44.css"> -->
+<base target="BODY">
+</head>
+<SCRIPT>
+// Only run the loadParent function if it exists (i.e. open_parent.js has executed)
+function checkParent() {
+	if(typeof loadParent == 'function') { 
+	loadParent(); 
+	}
+}
+</SCRIPT>
+<body onload="checkParent()" text="#000000" link="#0000A0" alink="#008000" vlink="#FF0000">
+<table border="0" width="100%">
+  <tr valign="top"><td height="100%" > 
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="BCSCopyAndPaste.htm" target="_self"><img src="125.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="BCSPasteSpecial.htm" target="_self"><img src="124.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="toc971934.htm" target="TOC"><img src="122.gif" alt="Book Contents" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="123.gif" alt="Book Index" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+</tr>
+</table>
+<h3 class="heading3">Style Matching Rules</h3>
+<p class="bodytext">All pasted content is matched with, and assigned, a default style from those defined in the Styleset that is associated with the Document Definition. For tables and table cells, one style is assigned to the table as a whole, while cell sub-styles of the table style are assigned to cells. List items are assigned a default style based on their type (numbered or bulleted).</p>
+<p class="bodytext">When pasting RTF from the clipboard, the program will query the style set for a suitable style match according to the following rules.</p>
+<p class="subheading">Named Paragraph or Table Styles</p>
+<ol class="listnumber"><li class="listnumber">Query the style set for a style with a matching name</li><li class="listnumber">If a matching name is found, then apply this style to the pasted content</li><li class="listnumber">If a matching name is not found, then select a default style using the logic described below.</li></ol><p class="subheading">Paragraphs of no Named Style</p>
+<ol class="listnumber"><li class="listnumber">Look for a default style, and if available use that</li><li class="listnumber">Where no default is set, then look for one called <em class="emphasis">Body</em></li><li class="listnumber">Where there is no style named <em class="emphasis">Body</em>, look for the first paragraph style without a heading level</li><li class="listnumber">Where there is no paragraph style without a heading level, use the first paragraph style encountered within the style set.</li></ol><p class="subheading">Lists</p>
+<ol class="listnumber"><li class="listnumber">Query the style set for a style with a matching name</li><li class="listnumber">If a matching name is found, then apply this style to the list<p class="listcontinue">The list style type takes precedence over the list type in the pasted content. For example, where the style name of a numbered list matches the name of a bulleted list in the Styleset, then the list will be pasted as a bulleted list</p>
+</li><li class="listnumber">If a matching name is not found, then Select the first list style of the appropriate type, e.g. bulleted or numbered.</li></ol><p class="bodytext">Bulleted and Numbered list styles usually have a style assigned to them in the Document Definition. It is therefore important when pasting a list from MS Word that there be at least one list style of the correct type defined in the styleset. For example, when pasting a numbered list there must be at least one numbered list style defined in the styleset. If this requirement is not observed, then the document will not preview correctly and unpredictable results can occur when editing the list within the Content Editor. To correct this situation if it occurs the user must define the correct type of list style within the styleset and either redo the paste or manually set the style on the list in question.</p>
+<p class="subheading">Tables</p>
+<p class="bodytext">Select the first table Style in the Styleset.</p>
+<p class="bodytext">The table Style type takes precedence over the table type in the pasted content. For example, where a table with no border is pasted from MS Word but the paste Style selected by Thunderhead includes a border, then the resulting table will have a border.</p>
+
+
+  </td></tr>
+  <tr valign="bottom"><td>
+    <!-- Insert Your Footer Here -->
+  </td></tr>
+</table>
+</body>
+</html>

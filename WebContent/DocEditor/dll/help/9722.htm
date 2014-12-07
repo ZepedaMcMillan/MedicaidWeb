@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title> Portable Review Cases </title>
+<meta name="Generator" content="Author-it">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Keywords" content="Portable Review Cases">
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" href="stylesheet.css">
+<!-- <link rel="stylesheet" href="44.css"> -->
+<base target="BODY">
+</head>
+<SCRIPT>
+// Only run the loadParent function if it exists (i.e. open_parent.js has executed)
+function checkParent() {
+	if(typeof loadParent == 'function') { 
+	loadParent(); 
+	}
+}
+</SCRIPT>
+<body onload="checkParent()" text="#000000" link="#0000A0" alink="#008000" vlink="#FF0000">
+<table border="0" width="100%">
+  <tr valign="top"><td height="100%" > 
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="9721.htm" target="_self"><img src="125.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="9723.htm" target="_self"><img src="124.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="toc97196.htm" target="TOC"><img src="122.gif" alt="Book Contents" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="123.gif" alt="Book Index" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+</tr>
+</table>
+<h2 class="heading2">Portable Review Cases</h2>
+<p class="bodytext">A Thunderhead Review Case can be fully self-contained and portable, and can be opened on any Thunderhead System, with no dependencies on the Thunderhead System on which it was generated. Indeed, a Portable Review Case can be edited on any stand-alone PC that has a connection to a Thunderhead System.</p>
+<p class="bodytextkeepwithnext">To make the Review Case portable, the following entities are embedded in it:</p>
+<ul class="listbullet"><li class="listbullet">Jurisdiction</li><li class="listbullet">Brand</li><li class="listbullet">Language</li><li class="listbullet">Channel<p class="listnote">XML Data Channels are not supported in Review Cases</p>
+</li><li class="listbullet">Device</li><li class="listbullet">Idiom</li><li class="listbullet">Destination</li><li class="listbullet">Resource Versions (e.g. StyleSet, Layout, Document Definition).</li></ul><p class="subheading">Required Properties</p>
+<p class="bodytextkeepwithnext">The server will only produce Review Cases with embedded resources and images if the required System Property or Channel Job property is enabled. These properties are:</p>
+<ul class="listbullet"><li class="listbullet"><strong class="bold">System Property</strong><p class="listcontinue"><code class="monospace">com.thunderhead.assembly.review.ReviewCaseGenerator.generatePortable</code></p>
+</li><li class="listbullet"><strong class="bold">Channel Job Property</strong><p class="listcontinue"><code class="monospace">review.portable</code></p>
+</li></ul><p class="bodytext">If the System Property is not defined, then the system will behave as if the property had been defined with a value of false. If the Channel Job Property is not defined, then the value of the System Property will control  whether or not Review Cases are portable. But, where the Channel Job Property is defined, its value takes precedence over the System Property.</p>
+<p class="bodytext">As a Review Case could contain multiple Channels, it is possible for the Channel Job Property to be defined in several Channels, and for these properties to have conflicting values. In this case, if the Channel Job Property in any of the channels requests the production of portable Review Cases, then the Review Case generated will be a Portable Review Case.</p>
+<p class="subheading">Authentication and Authorization</p>
+<p class="bodytext">In order to secure the Review Case and predetermine a user's login and access rights, Review Cases are generated for a designated user or user group.</p>
+<p class="subheading">Portability Limitation</p>
+<p class="bodytext">The right to edit Data Items is set in the Business Object, not in the Review Case. Although the Business Object <em class="emphasis">values</em> form part of the Portable Review Case, the Business Object <em class="emphasis">definition</em> does not. Where the need arises to amend the Business Object data and subsequently regenerate a Review Case, then the Review Case must connect to the originating host system in order to load that Business Object, and in doing so to determine the user's access rights i.e. which data items they have rights to edit.</p>
+
+
+  </td></tr>
+  <tr valign="bottom"><td>
+    <!-- Insert Your Footer Here -->
+  </td></tr>
+</table>
+</body>
+</html>

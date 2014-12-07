@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title> Edit a Data Item Value </title>
+<meta name="Generator" content="Author-it">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="Keywords" content="Data Entry View, Data Values Tab, Edit a Data Item Value, Insert a Data Item Value">
+<script type="text/javascript" src="dhtml_toc.js"></script>
+<script type="text/javascript" src="open_parent.js"></script>
+<link rel="stylesheet" href="stylesheet.css">
+<!-- <link rel="stylesheet" href="44.css"> -->
+<base target="BODY">
+</head>
+<SCRIPT>
+// Only run the loadParent function if it exists (i.e. open_parent.js has executed)
+function checkParent() {
+	if(typeof loadParent == 'function') { 
+	loadParent(); 
+	}
+}
+</SCRIPT>
+<body onload="checkParent()" text="#000000" link="#0000A0" alink="#008000" vlink="#FF0000">
+<table border="0" width="100%">
+  <tr valign="top"><td height="100%" > 
+    <table class="relatedtopics aboveheading" cellpadding="0" cellspacing="0" border="0">
+<tr valign="top">
+<td width= "18">
+<p class="bodytext"><a href="9765.htm" target="_self"><img src="125.gif" alt="Previous Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "18">
+<p class="bodytext"><a href="9745.htm" target="_self"><img src="124.gif" alt="Next Topic" height="17" width="18" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="toc971927.htm" target="TOC"><img src="122.gif" alt="Book Contents" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+<td width= "48">
+<p class="bodytext"><a href="indexpage.htm" target="TOC"><img src="123.gif" alt="Book Index" height="17" width="48" vspace="0" hspace="0" align="bottom" border="0"></a></p></td>
+</tr>
+</table>
+<h2 class="heading2">Edit a Data Item Value</h2>
+<p class="bodytextkeepwithnext">When viewed inline, any Data Items that can be edited are highlighted in blue:</p>
+<p class="listcontinue"><img src="9962.png" alt="" height="29px" width="90px" vspace="0" hspace="0" align="bottom" border="0"></p>
+<p class="bodytextkeepwithnext">Any Data Items that cannot be edited are highlighted in yellow:</p>
+<p class="listcontinue"><img src="9963.png" alt="" height="25px" width="92px" vspace="0" hspace="0" align="bottom" border="0"></p>
+<p class="bodytextkeepwithnext">To edit an inline Data Item value:</p>
+<ol class="listnumber"><li class="listnumber">Double-click the highlighted Data Item to display the <em class="emphasis">Edit Data Item</em> dialog.<p class="graphicignorelistcentered"><img src="10024.png" alt="UGDocEd 109" height="164" width="362" vspace="0" hspace="0" align="bottom" border="0"></p>
+</li><li class="listnumber">Specify the data item's value.<p class="listnote">The type of control in the window is specific to the data type. Validation is applied as specified for the Business Object Property.</p>
+<p class="listcontinue">Click <img src="4723.png" alt="" height="9.75" width="9" vspace="0" hspace="0" align="bottom" border="0"> to set the data item value to null.</p>
+<p class="listnote">Where a null value is edited to a positive value any default values specified on the data item in the Business Object will take precedence.  </p>
+</li><li class="listnumber"><strong class="bold">Update All Occurrences</strong> - This option enables pan-document updates of Business Object values within Review Cases. If the checkbox is not selected your edits will be applied to this data item only. If the checkbox is selected your edits will apply to all occurrences of the data item within the document. The default is for your edits to apply to all data items (checkbox selected). </li><li class="listnumber">Enter the new value in the free text field</li><li class="listnumber">Click <strong class="bold">OK</strong> <p class="listcontinue">Your edits are applied. If you selected <strong class="bold">Update All Occurrences</strong> and security restrictions mean that not all occurrences could updated a message is displayed stating how many data item were updated, and how many not updated.</p>
+</li></ol><p class="subheading">Date/Time Format</p>
+<p class="bodytext">If you amend in the Document Editor a Data Item of type 'Date' or 'Time' for which formatting has been applied via the Template in Business Content Studio, then that formatting is not persisted.</p>
+<p class="bodytext">For example, you may have a Data Item of type 'Date' or 'Time' for which formatting has been defined, e.g. an amount defined with the Format #,##0.00;(#,##0.00). If you edit that Date Item value here, then the amount will be displayed unformatted, exactly as it is entered into this field.</p>
+<p class="bodytext">See also the <strong class="bold">Minimum Date Limitation</strong> entry in the topic <a id="h9823" class="jumptemplate" title="Data Entry View" href="9777.htm" target="_self">Data Entry View</a>.</p>
+<p class="subheading">Multi-line Editing</p>
+<p class="bodytext">When Multi-line Editing is enabled (this is configured in Business Content Studio, and is enabled by default), any line breaks passed in the transaction data for the Data Item are supported, as are any line breaks inserted when the resolved value is edited within the Document Editor. In the context of a Review Case, within the <em class="emphasis">Edit Data Item</em> window, a line break can be inserted by pressing the Enter key.</p>
+<p class="subheading">See also</p>
+<ul class="listbullet"><li class="listbullet"><a id="h9794" class="jumptemplate" title="Data Values Tab" href="9730.htm" target="_self">Data Values Tab</a> </li><li class="listbullet"><a id="h9821" class="jumptemplate" title="Insert a Data Item Value" href="9765.htm" target="_self">Inserting a Data Item Value</a></li></ul>
+
+
+  </td></tr>
+  <tr valign="bottom"><td>
+    <!-- Insert Your Footer Here -->
+  </td></tr>
+</table>
+</body>
+</html>

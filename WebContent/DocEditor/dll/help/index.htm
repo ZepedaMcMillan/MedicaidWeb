@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+  "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>Thunderhead Guide - Document Editor </title>
+<meta name="Generator" content="AuthorIT">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script language="JavaScript"><!--
+function loadTopic(){
+  // Function to load the topic specified in the Query, and its associated toc
+  var strLocation="?"+location+"?none?none";
+  var locarray = strLocation.split("?");
+  var strTocURL=""+locarray[2];
+  var strBodyURL=""+locarray[3];
+
+  if (strTocURL != "none") {
+    window.TOC.location=strTocURL
+  }
+  if (strBodyURL != "none") {
+    window.BODY.location=strBodyURL
+  }
+}
+//--></script>
+<meta name="SuperTitle" content="Thunderhead Guide - Document Editor">
+</head>
+<frameset rows="63,*" border="1" framespacing="0" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" onload="loadTopic()">
+	<frame name="HEAD" src="heading.htm" scrolling="no" border="0" frameborder="no" noresize topmargin="0" leftmargin="0" marginheight="0" marginwidth="0"></frame>
+        	<frameset cols="25%,*" border="1" frameborder="1" framespacing="2" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+		<frameset rows="22,*" border="0" frameborder="0" framespacing="0" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+			<frame name="TAB" src="tab_toc.htm" marginwidth="0" marginheight="0" scrolling="no" border="0" frameborder="no" border="0" bordercolor="#EAEAFF">
+			<frame name="TOC" src="toc.htm" scrolling="yes" border="0" bordercolor="#EAEAFF">
+		</frameset>
+      	<frame name="BODY" src="10896.htm" frameborder="no" border="0" bordercolor="#CCCCFF"></frame>
+	</frameset>
+</frameset>
+</html>
