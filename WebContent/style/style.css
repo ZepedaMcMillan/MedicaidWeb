@@ -52,7 +52,7 @@ a:hover {
 
 
 .enable-nav-bg {
-	background-image:url(../images/enable-nav-bg.jpg);
+	background-color: #fff;
 	background-repeat:repeat-x;
 	height:30px;
 	padding:2px 10px;

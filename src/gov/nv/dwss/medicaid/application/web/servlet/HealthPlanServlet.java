@@ -1,5 +1,6 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
 
@@ -22,13 +23,21 @@ public class HealthPlanServlet extends HttpServlet {
 
 	@Autowired
 	private OtherInfoBean otherInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();
 		
-		request.setAttribute("info", otherInfo);
+		request.setAttribute("info", otherInfo);		
+
+		navBean.setNavItemSelected("");		
+		request.setAttribute("navBean", navBean);
+		
 		request.getRequestDispatcher("HealthPlan.jsp").forward(request, response);
 	}
 

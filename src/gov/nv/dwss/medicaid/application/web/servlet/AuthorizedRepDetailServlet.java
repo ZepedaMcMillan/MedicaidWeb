@@ -1,5 +1,6 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.Address;
 import gov.nv.dwss.medicaid.application.web.model.AuthorizedRep;
@@ -26,7 +27,10 @@ public class AuthorizedRepDetailServlet extends HttpServlet {
 	
 	@Autowired
 	private OtherInfoBean otherInfoBean;
-
+	
+	@Autowired
+	private NavigationBean navBean;
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -39,7 +43,10 @@ public class AuthorizedRepDetailServlet extends HttpServlet {
 		AuthorizedRep authorizedRep = (index >= 0 ? repList.get(index) : new AuthorizedRep());
 		
 		request.setAttribute("info", authorizedRep);
-		request.setAttribute("itemIndex", index);
+		request.setAttribute("itemIndex", index);	
+
+		navBean.setNavItemSelected("AuthRep");		
+		request.setAttribute("navBean", navBean);
 
 		request.getRequestDispatcher("AuthorizedRepDetail.jsp").forward(request, response);	
 	}

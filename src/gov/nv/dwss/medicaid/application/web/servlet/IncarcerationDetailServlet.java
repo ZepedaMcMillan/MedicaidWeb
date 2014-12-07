@@ -1,5 +1,6 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.Incarceration;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
@@ -25,6 +26,9 @@ public class IncarcerationDetailServlet extends HttpServlet {
 	
 	@Autowired
 	private OtherInfoBean otherInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,6 +43,8 @@ public class IncarcerationDetailServlet extends HttpServlet {
 		
 		request.setAttribute("info", incarceration);
 		request.setAttribute("itemIndex", index);
+		navBean.setNavItemSelected("Incarceration");
+		request.setAttribute("navBean", navBean);
 		request.getRequestDispatcher("IncarcerationDetail.jsp").forward(request, response);
 	}
 

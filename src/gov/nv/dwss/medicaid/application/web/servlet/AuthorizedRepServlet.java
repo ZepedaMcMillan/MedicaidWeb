@@ -1,5 +1,6 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
 
@@ -19,6 +20,9 @@ public class AuthorizedRepServlet extends HttpServlet {
 	
 	@Autowired
 	private OtherInfoBean otherInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -26,7 +30,11 @@ public class AuthorizedRepServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();
 		
-		request.setAttribute("otherInfo", otherInfo);
+		request.setAttribute("otherInfo", otherInfo);	
+
+		navBean.setNavItemSelected("AuthRep");		
+		request.setAttribute("navBean", navBean);
+		
 		request.getRequestDispatcher("AuthorizedRep.jsp").forward(request, response);
 	}
 

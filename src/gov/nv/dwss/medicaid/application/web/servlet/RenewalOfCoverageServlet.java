@@ -1,5 +1,6 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.CoverageRenewalAPTC;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
@@ -23,6 +24,9 @@ public class RenewalOfCoverageServlet extends HttpServlet {
 	
 	@Autowired
 	private OtherInfoBean otherInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,6 +36,10 @@ public class RenewalOfCoverageServlet extends HttpServlet {
 		CoverageRenewalAPTC converageRenewalAPTC = otherInfo.getCoverageRenewalAPTC();
 		
 		request.setAttribute("info", converageRenewalAPTC);
+		
+		navBean.setNavItemSelected("");
+		request.setAttribute("navBean", navBean);
+		
 		request.getRequestDispatcher("RenewalOfCoverage.jsp").forward(request, response);
 	}
 

@@ -1,6 +1,7 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
 import gov.nv.dwss.medicaid.application.web.bean.HealthInsuranceInfoBean;
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.HealthInsuranceInfo;
 import gov.nv.dwss.medicaid.application.web.model.OtherInsurance;
 import gov.nv.dwss.medicaid.application.web.model.OtherInsuranceItem;
@@ -26,6 +27,9 @@ public class OtherHealthInsuranceServlet extends HttpServlet {
 	
 	@Autowired
 	private HealthInsuranceInfoBean healthInsuranceInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,6 +47,8 @@ public class OtherHealthInsuranceServlet extends HttpServlet {
 		healthInsuranceInfoBean.updateHealthInsuranceInfo(healthInsuranceInfo);
 		
 		request.setAttribute("otherInsurance", otherInsurance);
+		navBean.setNavItemSelected("OtherInsurance");
+		request.setAttribute("navBean", navBean);
 		request.getRequestDispatcher("OtherHealthInsurance.jsp").forward(request, response);
 	}
 

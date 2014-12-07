@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Properties;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,8 @@ import org.apache.axis.client.Stub;
 import org.apache.axis.configuration.FileProvider;
 import org.apache.commons.codec.binary.Base64;
 //import org.apache.log4j.Logger;
+
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.thunderhead.ws.correspondence.CorrespondenceAPIWeb;
 import com.thunderhead.ws.correspondence.CorrespondenceAPIWebServiceLocator;
@@ -101,6 +104,12 @@ public class SubmitXMLServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	}
+	}	
+	
+	@Override
+    public void init(ServletConfig config) throws ServletException {
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+        super.init(config);
+    }
 
 }

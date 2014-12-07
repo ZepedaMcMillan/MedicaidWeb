@@ -1,6 +1,7 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
 import gov.nv.dwss.medicaid.application.web.bean.HouseHoldInformationBean;
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.model.MemberInfo;
 import gov.nv.dwss.medicaid.application.web.model.RaceEthnicity;
@@ -27,6 +28,9 @@ public class RaceEthnicityServlet extends HttpServlet {
 	
 	@Autowired
 	private HouseHoldInformationBean houseHoldInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -73,6 +77,9 @@ public class RaceEthnicityServlet extends HttpServlet {
 		request.setAttribute("Samoan", (race.contains("Samoan") ? "checked" : ""));
 		request.setAttribute("OtherPacific", (race.contains("Other Pacific") ? "checked" : ""));
 		request.setAttribute("raceOther", (race.contains("other") ? "checked" : ""));
+		
+		navBean.setNavItemSelected("Race");
+		request.setAttribute("navBean", navBean);
 		
 		request.getRequestDispatcher("RaceEthnicity.jsp").forward(request, response);
 	}

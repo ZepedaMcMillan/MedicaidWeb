@@ -1,6 +1,7 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
 import gov.nv.dwss.medicaid.application.web.bean.HouseHoldInformationBean;
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.ContactInfo;
 import gov.nv.dwss.medicaid.application.web.model.GeneralInfo;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
@@ -30,6 +31,9 @@ public class HouseHoldInformationServlet extends HttpServlet {
     
 	@Autowired
 	private HouseHoldInformationBean houseHoldInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,7 +41,9 @@ public class HouseHoldInformationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		HouseHoldInfo houseHoldInfo = houseHoldInfoBean.getHouseholdInfo();
 		
-		request.setAttribute("hh", houseHoldInfo);		
+		request.setAttribute("hh", houseHoldInfo);	
+		navBean.setNavItemSelected("HouseHold");
+		request.setAttribute("navBean", navBean);
 		request.getRequestDispatcher("HouseHoldInformation.jsp").forward(request, response);
 	}
 

@@ -1,6 +1,7 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
 import gov.nv.dwss.medicaid.application.web.bean.HouseHoldInformationBean;
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.Address;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.model.IncomeInfo;
@@ -30,6 +31,9 @@ public class MemberIncomeDetailServlet extends HttpServlet {
 	@Autowired
 	private HouseHoldInformationBean houseHoldInfoBean;
 	
+	@Autowired
+	private NavigationBean navBean;
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -50,6 +54,8 @@ public class MemberIncomeDetailServlet extends HttpServlet {
 		request.setAttribute("info", incomeInfoItem);
 		request.setAttribute("itemIndex", index);
 		request.setAttribute("memberIndex", memberIndex);
+		navBean.setNavItemSelected("MemberIncome");
+		request.setAttribute("navBean", navBean);
 
 		request.getRequestDispatcher("MemberIncomeDetail.jsp").forward(request, response);
 	}

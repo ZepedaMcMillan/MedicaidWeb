@@ -1,6 +1,7 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
 import gov.nv.dwss.medicaid.application.web.bean.HealthInsuranceInfoBean;
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.Address;
 import gov.nv.dwss.medicaid.application.web.model.HealthInsuranceInfo;
 import gov.nv.dwss.medicaid.application.web.model.InsuranceFromJobs;
@@ -28,6 +29,9 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 	
 	@Autowired
 	private HealthInsuranceInfoBean healthInsuranceInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
      
 
 	/**
@@ -51,7 +55,10 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		request.setAttribute("Dependents", (familyMembersCovered.contains("Dependent(s)") ? "checked" : ""));
 		request.setAttribute("info", insuranceFromJobs);
 		request.setAttribute("peopleCovered", peopleCovered);
-		request.setAttribute("itemIndex", index);
+		request.setAttribute("itemIndex", index);		
+
+		navBean.setNavItemSelected("HealthInsurance");		
+		request.setAttribute("navBean", navBean);
 
 		request.getRequestDispatcher("HealthInsuranceDetail.jsp").forward(request, response);
 	}

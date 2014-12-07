@@ -1,5 +1,6 @@
 package gov.nv.dwss.medicaid.application.web.servlet;
 
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
 
@@ -22,6 +23,10 @@ public class ReadAndSignServlet extends HttpServlet {
 
 	@Autowired
 	private OtherInfoBean otherInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -29,6 +34,10 @@ public class ReadAndSignServlet extends HttpServlet {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();
 		
 		request.setAttribute("info", otherInfo);
+		
+		navBean.setNavItemSelected("");
+		request.setAttribute("navBean", navBean);
+		
 		request.getRequestDispatcher("ReadAndSign.jsp").forward(request, response);
 	}
 

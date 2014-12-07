@@ -4,6 +4,7 @@ import gov.nv.dwss.medicaid.application.web.model.Address;
 import gov.nv.dwss.medicaid.application.web.model.ContactInfo;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.bean.HouseHoldInformationBean;
+import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 
 import java.io.IOException;
 
@@ -24,16 +25,22 @@ public class ContactInformationServlet extends HttpServlet {
       
 	@Autowired
 	private HouseHoldInformationBean houseHoldInfoBean;
+	
+	@Autowired
+	private NavigationBean navBean;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HouseHoldInfo houseHoldInfo = houseHoldInfoBean.getHouseholdInfo();
 		ContactInfo contactInfo = (houseHoldInfo.getContactInfo() != null ? houseHoldInfo.getContactInfo() : new ContactInfo());
 		houseHoldInfo.setContactInfo(contactInfo);
 		
 		request.setAttribute("contact", contactInfo);
+		
+		navBean.setNavItemSelected("Contact");		
+		request.setAttribute("navBean", navBean);
 		request.getRequestDispatcher("ContactInformation.jsp").forward(request, response);
 	}
 
