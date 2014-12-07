@@ -108,13 +108,16 @@
 						<td width="80%" valign="middle" class="field-bg">
 							<table id="memberNameTable" width="100%" cellspacing="3">
 								<tr>
-									<td width="15%"><font size="3" color="#0B0B61">Name<span>*</span></font></td>
+									<td width="15%"><font size="3" color="#0B0B61">Name</font></td>
 									<td width="10%"><font size="3" color="#0B0B61">Actions</font></td>
 								</tr>
 								<c:forEach items="${otherInfo.authorizedRep}" var="rep" varStatus="loop">								
 									<tr>
-								        <td width="15%">${rep.repName}</td>								        
-								        <td width="15%">&nbsp;</td>
+								        <td width="60%">${rep.repName}</td>								        
+								        <td width="40%">
+								        	<input id="incomeItemBtnUpdate${loop.index}" class="btnUpdate itemCommandBtn" type="button" value="update" data-index="${loop.index}" />
+											<input id="incomeItemBtnDelete${loop.index}"  class="btnDelete itemCommandBtn" type="button" value="delete" data-index="${loop.index}" />
+										</td>
 								  	</tr>
 							    </c:forEach>
 							</table>

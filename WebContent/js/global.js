@@ -97,4 +97,5 @@ $(function () {
 	$('.formatPhone').mask("999-999-9999");		
 	$('.formatSocial').mask("999-99-9999");
 	$('.formatMoney').maskMoney();
+	$('.formatEIN').mask('99-9999999')
 });

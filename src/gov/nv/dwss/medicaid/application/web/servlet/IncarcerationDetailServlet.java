@@ -38,6 +38,7 @@ public class IncarcerationDetailServlet extends HttpServlet {
 		Incarceration incarceration = (index >= 0 ? incarcerationList.get(index) : new Incarceration());
 		
 		request.setAttribute("info", incarceration);
+		request.setAttribute("itemIndex", index);
 		request.getRequestDispatcher("IncarcerationDetail.jsp").forward(request, response);
 	}
 

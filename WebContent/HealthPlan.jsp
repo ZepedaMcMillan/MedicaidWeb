@@ -41,10 +41,12 @@
 					</td>
 					<td valign="middle" class="field-bg" width="40%">
 						Please choose a health plan <br /> 
-						<input type="radio" class="radio-button" name="selectedHealthPlan" id="selectedHealthPlanA" value="Amerigroup" ${info.selectedHealthPlan != 'Health Plan of Nevada' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="selectedHealthPlan" id="selectedHealthPlanA" value="Amerigroup" ${info.selectedHealthPlan == 'Amerigroup' ? 'checked' : ''} />
 						<label for="">a. Amerigroup: 1-800-600-4441, www.amerigroup.com</label><br /><br />
 						<input type="radio" class="radio-button" name="selectedHealthPlan" id="selectedHealthPlanB" value="Health Plan of Nevada" ${info.selectedHealthPlan == 'Health Plan of Nevada' ? 'checked' : ''} />
-						<label for="">b. Health Plan of Nevada: 1-800-962-8074, www.healthplanofnevada.com</label>
+						<label for="">b. Health Plan of Nevada: 1-800-962-8074, www.healthplanofnevada.com</label><br /><br />
+						<input type="radio" class="radio-button" name="selectedHealthPlan" id="selectedHealthPlanC" value="N/A" ${info.selectedHealthPlan == 'N/A' || info.selectedHealthPlan == null ? 'checked' : ''} />
+						<label for="">c. N/A</label>
 					</td>
 				</tr>
 			</table>

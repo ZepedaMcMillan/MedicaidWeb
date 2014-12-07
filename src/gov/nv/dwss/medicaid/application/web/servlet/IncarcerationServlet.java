@@ -44,7 +44,11 @@ public class IncarcerationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();					
-		otherInfo.setApplicantIncarcerated(request.getParameter("applicantIncarcerated"));		
+		otherInfo.setApplicantIncarcerated(request.getParameter("applicantIncarcerated"));	
+		
+		List<Incarceration> incarcerationList = 
+				(otherInfo.getIncarcerationList() != null ? otherInfo.getIncarcerationList() : new ArrayList<Incarceration>());
+		otherInfo.setIncarcerationList(incarcerationList);
 		otherInfoBean.updateOtherInfo(otherInfo);
 		
 		if(request.getParameter("customAction").equalsIgnoreCase("edit")) {

@@ -14,7 +14,7 @@
 		    customAction = $('#customAction'),
 		    itemIndex = $('#itemIndex');
 		    
-		$("#addEmployment").button().on( "click", function() {
+		$("#addIncarceration").button().on( "click", function() {
 			customAction.val('edit');
 			mainForm.submit();
 		});		
@@ -77,7 +77,7 @@
 									<td width="15%"><font size="3" color="#0B0B61">Disposition Pending</font></td>
 									<td width="10%"><font size="3" color="#0B0B61">Actions</font></td>
 								</tr>
-								<c:forEach items="${otherInfo.insuranceFromJobs}" var="item" varStatus="loop">								
+								<c:forEach items="${otherInfo.incarcerationList}" var="item" varStatus="loop">								
 									<tr>
 								        <td width="30%">${item.personName}</td>
 								        <td width="30%">${item.dispositionPending}</td>

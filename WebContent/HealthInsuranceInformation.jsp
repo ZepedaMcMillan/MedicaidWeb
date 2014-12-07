@@ -14,9 +14,10 @@
 		    customAction = $('#customAction'),
 		    itemIndex = $('#itemIndex');
 		
-		$('#addHealthInsurance').click(function() {
-			customAction.val("add");
-			itemIndex.submit();
+		$('#addHealthInsurance').button().on('click', function(event) {
+			customAction.val("edit");
+			mainForm.submit();
+			
 		});		
 		
 		$(".btnUpdate").on( "click", function(event) {
@@ -41,7 +42,6 @@
 				mainForm.submit();
 			}
 		});	
-	});
 	});
 </script>
 </head>

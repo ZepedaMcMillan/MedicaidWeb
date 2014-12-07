@@ -9,7 +9,43 @@
 <title>Health Insurance Information</title>
 <jsp:include page="template/resources.jsp" />
 <script type="text/javascript">
-  $(function() {
+	$(function() {
+		var mainForm = $('#mainForm'),
+		itemIndex = $('#itemIndex'),
+		subIndex = $('#subIndex'),
+		customAction = $('#customAction');
+		
+	    $('#addPeopleCovered').button().on('click', function() {
+			customAction.val('editPerson');
+			mainForm.submit();
+		});
+	    
+	    $(".btnUpdate").on( "click", function(event) {
+			var id = event.target.id,
+				el = $('#' + id);
+					
+			customAction.val('editPerson');
+			subIndex.val(el.attr('data-index'));
+			
+			mainForm.submit();
+		});		
+		
+		$(".btnDelete").on( "click", function(event) {
+			var id = event.target.id,
+				el = $('#' + id);
+					
+			var conf = confirm("Are you sure you want to delete this Person?");
+			if(conf) {	
+				customAction.val('deletePerson');
+				subIndex.val(el.attr('data-index'));
+				
+				mainForm.submit();
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+  /*$(function() {
     var dialog, form,
     	firstName = $("#firstName"),
     	middleName = $("#middleName"),
@@ -79,14 +115,15 @@
     $( "#addPeopleCovered" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
-  });
+  });*/
   </script>
 </head>
 <body>
 	<jsp:include page="template/header.jsp" />
-	<form id="mainForm" name="mainForm" method="post" action="editHealthInsuranceInfo">
+	<form id="mainForm" name="mainForm" method="post" action="HealthInsuranceDetail">
 		<input type="hidden" name="customAction" id="customAction" value="" />
 		<input type="hidden" name="itemIndex" id="itemIndex" value="${itemIndex}" />
+		<input type="hidden" name="subIndex" id="subIndex" value="" />
 		<div class="content-bg-big">
 			<div align="left" class="main-heading" style="margin-bottom: 20px">Insurance from jobs</div>
 				<table class="form-container" width="100%" border="0" cellspacing="0"
@@ -100,7 +137,7 @@
 							<div class="small-label">Employee Social Security Number<span>*</span></div> 
 							<input type="text" class="width120" name=employerName id="employerName" value="${info.employerName}" required /><br />
 							<div class="small-label">Employer Name<span>*</span></div> 
-							<input type="text" class="width120" name=employerEIN id="employerEIN" value="${info.employerEIN}" required /><br />
+							<input type="text" class="width120 formatEIN" name=employerEIN id="employerEIN" value="${info.employerEIN}" required /><br />
 							<div class="small-label">Employer Identification Number (EIN)<span>*</span></div> 
 							<input type="text" class="width120 formatPhone" name=employerPhone id="employerPhone" value="${info.employerPhone}" required /><br />
 							<div class="small-label">Employer Phone Number<span>*</span></div> 
@@ -108,7 +145,7 @@
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">Employer Address</td>
 						<td valign="middle" class="field-bg">
-							<input type="text" class="width120" name="street" id="street" value="${info.employerAddress.stret}" required /><br />
+							<input type="text" class="width120" name="street" id="street" value="${info.employerAddress.street}" required /><br />
 							<div class="small-label">Street<span>*</span></div>
 							<input type="text" class="width120" name="city" id="city" value="${info.employerAddress.city}" required /><br />
 							<div class="small-label">City<span>*</span></div>
@@ -173,11 +210,11 @@
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">Who can we contact about employee health coverage at this job?</td>
 						<td valign="middle" class="field-bg">
-							<input type="text" class="width120" name="name" id="name" value="${info.jobInsuranceContact.name}" /><br />
+							<input type="text" class="width120" name="name" id="name" value="${info.jobInsuranceContact.name}" required /><br />
 							<div class="small-label">Contact Name<span>*</span></div> 
-							<input type="text" class="width120" name=phone id="phone" value="${info.jobInsuranceContact.phone}" /><br />
+							<input type="text" class="width120 formatPhone" name="phone" id="phone" value="${info.jobInsuranceContact.phone}" required /><br />
 							<div class="small-label">Phone Number<span>*</span></div> 
-							<input type="text" class="width120" name=email id="email" value="${info.jobInsuranceContact.email}" /><br />
+							<input type="text" class="width120" name=email id="email" value="${info.jobInsuranceContact.email}" required /><br />
 							<div class="small-label">Email Address<span>*</span></div> 
 					</tr>
 					<tr>
@@ -192,7 +229,8 @@
 					<tr id="isEligibleYRow" style="display:${info.isEligible != 'y' ? 'none' : ''}">
 						<td width="60%" valign="middle" class="label-bg">When will they be eligible?</td>
 						<td valign="middle" class="field-bg">
-							<input type="text" name="coverageDate" id="coverageDate" value="${info.coverageDate}" class="width120 formatDate" /><br />
+							<fmt:formatDate type="date" var="formatCoverageDate" value="${info.coverageDate}" pattern="MM/dd/yyyy" />
+							<input type="text" name="coverageDate" id="coverageDate" value="${formatCoverageDate}" class="width120 formatDate" /><br />
 							<div class="small-label">Coverage Date<span>*</span></div> 
 						</td>
 					</tr>
@@ -211,16 +249,16 @@
 							<table>
 								<tr>
 									<td><label for="familyMembersCovered">Spouse</label></td>
-									<td><input type="checkbox" name="familyMembersCovered" id="familyMembersCoveredSpouse" value="Spouse" ${Spouse} /></td>
+									<td><input type="checkbox" class="radio-button" name="familyMembersCovered" id="familyMembersCoveredSpouse" value="Spouse" ${Spouse} /></td>
 								</tr>
 								<tr>
 									<td><label for="familyMembersCovered">Domestic Partner</label>
 									</td>
-									<td><input type="checkbox" name="familyMembersCovered" id="familyMembersDomesticPartner" value="Domestic Partner" ${DomesticPartner} /></td>
+									<td><input type="checkbox" class="radio-button" name="familyMembersCovered" id="familyMembersDomesticPartner" value="Domestic Partner" ${DomesticPartner} /></td>
 								</tr>
 								<tr>
 									<td><label for="familyMembersCovered">Dependent(s)</label></td>
-									<td><input type="checkbox" name="familyMembersCovered" id="familyMembersCoveredDependents" value="Dependent(s)" ${Dependents} /></td>
+									<td><input type="checkbox" class="radio-button" name="familyMembersCovered" id="familyMembersCoveredDependents" value="Dependent(s)" ${Dependents} /></td>
 								</tr>
 							</table>
 						</td>
@@ -235,17 +273,20 @@
 							<td width="80%" valign="middle" class="field-bg">
 								<table id="peopleCoveredTable" width="100%" cellspacing="3">
 									<tr>
-										<td width="15%"><font size="3" color="#0B0B61">Name<span>*</span></font></td>
-										<td width="15%"><font size="3" color="#0B0B61">Enrollment</font></td>
-										<td width="15%"><font size="3" color="#0B0B61">Future Changes<span>*</span></font></td>
-										<td width="10%"><font size="3" color="#0B0B61">Delete</font></td>
+										<td width="20%"><font size="3" color="#0B0B61">Name</font></td>
+										<td width="20%"><font size="3" color="#0B0B61">Enrollment</font></td>
+										<td width="20%"><font size="3" color="#0B0B61">Future Changes</font></td>
+										<td width="40%"><font size="3" color="#0B0B61">Actions</font></td>
 									</tr>
 									<c:forEach items="${peopleCovered}" var="item" varStatus="loop">								
 										<tr>
-									        <td width="15%">${item.firstName} ${item.middleName} ${item.lastName}</td>
-									        <td width="15%">${item.enrollmentStatus}</td>
-									        <td width="15%">${item.futureChanges}</td>
-									        <td width="15%">&nbsp;</td>
+									        <td width="20%">${item.firstName} ${item.middleName} ${item.lastName}</td>
+									        <td width="20%">${item.enrollmentStatus}</td>
+									        <td width="20%">${item.futureChanges}</td>
+									        <td width="40%">
+									        	<input id="incomeItemBtnUpdate${loop.index}" class="btnUpdate itemCommandBtn" type="button" value="update" data-index="${loop.index}" />
+											    <input id="incomeItemBtnDelete${loop.index}"  class="btnDelete itemCommandBtn" type="button" value="delete" data-index="${loop.index}" />
+									        </td>
 									  	</tr>
 								    </c:forEach>
 								</table>

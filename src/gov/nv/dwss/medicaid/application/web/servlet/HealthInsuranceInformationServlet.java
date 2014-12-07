@@ -45,9 +45,9 @@ public class HealthInsuranceInformationServlet extends HttpServlet {
 		int index = 
 				(!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
 		
-		if(request.getParameter("customAction").equalsIgnoreCase("editInsurance")) {
+		if(request.getParameter("customAction").equalsIgnoreCase("edit")) {
 			response.sendRedirect("HealthInsuranceDetail?itemIndex="+index);
-		} else if(request.getParameter("customAction").equalsIgnoreCase("deleteInsurance")) {
+		} else if(request.getParameter("customAction").equalsIgnoreCase("delete")) {
 			response.sendRedirect("DeleteHealthInsuranceInfo?itemIndex="+index);
 		} else {					
 			response.sendRedirect("OtherHealthInsurance");

@@ -10,6 +10,7 @@ import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -42,9 +43,12 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		List<PeopleCovered> peopleCovered = 
 				(insuranceFromJobs.getPeopleCovered() != null ? insuranceFromJobs.getPeopleCovered() : new ArrayList<PeopleCovered>());
 		
-		healthInsuranceInfo.setInsuranceFromJobs(insuranceItems);
-		healthInsuranceInfoBean.updateHealthInsuranceInfo(healthInsuranceInfo);
-		
+		// Check box hack
+		List<String> familyMembersCovered = 
+				(insuranceFromJobs.getFamilyMembersCovered() != null ? Arrays.asList(insuranceFromJobs.getFamilyMembersCovered()) : new ArrayList<String>());
+		request.setAttribute("Spouse", (familyMembersCovered.contains("Spouse") ? "checked" : ""));
+		request.setAttribute("DomesticPartner", (familyMembersCovered.contains("Domestic Partner") ? "checked" : ""));
+		request.setAttribute("Dependents", (familyMembersCovered.contains("Dependent(s)") ? "checked" : ""));
 		request.setAttribute("info", insuranceFromJobs);
 		request.setAttribute("peopleCovered", peopleCovered);
 		request.setAttribute("itemIndex", index);
@@ -60,7 +64,9 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		List<InsuranceFromJobs> insuranceItems = 
 				(healthInsuranceInfo.getInsuranceFromJobs() != null ? healthInsuranceInfo.getInsuranceFromJobs() : new ArrayList<InsuranceFromJobs>());
 		
-		int index = (!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
+		int index = 
+				(!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
+		
 		InsuranceFromJobs insuranceFromJobs = (index >= 0 ? insuranceItems.get(index) : new InsuranceFromJobs());
 		insuranceFromJobs.setCoverageDate(FormatHelpers.formatDate(request.getParameter("coverageDate")));
 		insuranceFromJobs.setEmployeeName(request.getParameter("employeeName"));
@@ -89,18 +95,26 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		jobInsuranceContact.setPhone(request.getParameter("phone"));
 		insuranceFromJobs.setJobInsuranceContact(jobInsuranceContact);
 		
+		List<PeopleCovered> peopleList = 
+				(insuranceFromJobs.getPeopleCovered() != null ? insuranceFromJobs.getPeopleCovered() : new ArrayList<PeopleCovered>());
+		insuranceFromJobs.setPeopleCovered(peopleList);
+		
 		if(index >= 0) {
 			insuranceItems.set(index, insuranceFromJobs);
 		} else {
 			insuranceItems.add(insuranceFromJobs);
+			index = 0;
 		}
+		
+		healthInsuranceInfo.setInsuranceFromJobs(insuranceItems);
+		healthInsuranceInfoBean.updateHealthInsuranceInfo(healthInsuranceInfo);
 		
 		if(request.getParameter("customAction").equalsIgnoreCase("add")) {
 			response.sendRedirect("HealthInsuranceDetail?itemIndex="+index);
 		} else if(request.getParameter("customAction").equalsIgnoreCase("editPerson")) {
-			response.sendRedirect("PeopleCoveredDetail?itemIndex="+index);
+			response.sendRedirect("PeopleCoveredDetail?itemIndex="+request.getParameter("subIndex")+"&insIndex="+index);
 		} else if(request.getParameter("customAction").equalsIgnoreCase("deletePerson")) {
-			response.sendRedirect("DeletePeopleCovered?itemIndex="+index);
+			response.sendRedirect("DeletePeopleCovered?itemIndex="+request.getParameter("subIndex")+"&insIndex="+index);
 		}else {
 			response.sendRedirect("HealthInsuranceInformation");
 		}		

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.axis.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -35,7 +36,8 @@ public class PeopleCoveredDetailServlet extends HttpServlet {
 		List<InsuranceFromJobs> insuranceList = healthInsuranceInfo.getInsuranceFromJobs();		
 		
 		int insIndex = (Integer.parseInt(request.getParameter("insIndex")));
-		int index = (request.getParameter("itemIndex") != null ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
+		int index = 
+				(!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
 		
 		InsuranceFromJobs insuranceFromJobs = insuranceList.get(insIndex);
 		List<PeopleCovered> peopleList = insuranceFromJobs.getPeopleCovered();
