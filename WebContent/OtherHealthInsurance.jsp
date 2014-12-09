@@ -10,7 +10,40 @@
 <jsp:include page="template/resources.jsp" />
 
 <script type="text/javascript">
-  $(function() {
+	$(function() {
+	  var mainForm = $("#mainForm"),
+	  	  customAction = $('#customAction'),
+	  	  itemIndex = $('#itemIndex');
+	  
+		$( "#addOtherInsurance" ).button().on( "click", function() {
+		   	customAction.val('edit');
+		   	mainForm.submit();
+		});	
+		
+		$(".btnUpdate").on( "click", function(event) {
+			var id = event.target.id,
+				el = $('#' + id);
+					
+			customAction.val('edit');
+			itemIndex.val(el.attr('data-index'));
+			
+			mainForm.submit();
+		});		
+		
+		$(".btnDelete").on( "click", function(event) {
+			var id = event.target.id,
+				el = $('#' + id);
+			
+			var conf = confirm("Are you sure you want to delete this Insurance?");
+			if(conf) {					
+				customAction.val('delete');
+				itemIndex.val(el.attr('data-index'));
+				
+				mainForm.submit();
+			}
+		});	  
+	});
+  /*$(function() {
     var dialog, form,
     	insName = $("#name"),
     	insType = $("#insuranceType"),
@@ -68,16 +101,16 @@
     $('#otherInsuranceButton').button().on( "click", function() {
       dialog.dialog( "open" );
     });
-  });
-  </script>
+  });*/
+</script>
 </head>
 <body>
 	<jsp:include page="template/header.jsp" />
 	<form id="mainForm" name="mainForm" method="post" action="OtherHealthInsurance">	
-		<input type="hidden" name="customAction" id="customAction" value="" />	
+		<input type="hidden" name="customAction" id="customAction" value="" />		
+		<input type="hidden" name="itemIndex" id="itemIndex" value="" />		
 		<div class="content-bg-big">
 			<div align="left" class="main-heading">Other Health Insurance Information</div>
-			<br> <br>
 			<table class="form-container" width="100%" border="0" cellspacing="0"
 				cellpadding="0" id="OtherHITable">
 				<tr>
@@ -96,7 +129,7 @@
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-container">
 					<tr>
 						<td width="20%" valign="middle" class="label-bg">
-							<input type="button" id="otherInsuranceButton" name="otherInsuranceButton" value="Add Insurance" />
+							<input type="button" id="addOtherInsurance" name="addOtherInsurance" value="Add Insurance" />
 						</td>
 						<td width="80%" valign="middle" class="field-bg">
 							<table id="incomeInfoTable" width="100%" cellspacing="3">
@@ -105,7 +138,7 @@
 									<td width="15%"><font size="3" color="#0B0B61">Type</font></td>
 									<td width="15%"><font size="3" color="#0B0B61">Plan Name<span>*</span></font></td>
 									<td width="15%"><font size="3" color="#0B0B61">Policy Number<span>*</span></font></td>
-									<td width="10%"><font size="3" color="#0B0B61">Delete</font></td>
+									<td width="40%"><font size="3" color="#0B0B61">Actions</font></td>
 								</tr>
 								<c:forEach items="${otherInsurance.otherInsuranceDetails}" var="item" varStatus="loop">								
 									<tr>
@@ -113,7 +146,10 @@
 								        <td width="15%">${item.insuranceType}</td>
 								        <td width="15%">${item.planName}</td>
 								        <td width="15%">${item.policyNumber}</td>
-								        <td width="15%">&nbsp;</td>
+								        <td width="40%">
+										  	<input id="memberItemBtnUpdate${loop.index}" class="btnUpdate itemCommandBtn" type="button" value="update" data-index="${loop.index}" />
+											<input id="memberItemBtnDelete${loop.index}"  class="btnDelete itemCommandBtn" type="button" value="delete" data-index="${loop.index}" />
+										</td>
 								  	</tr>
 							    </c:forEach>
 							</table>

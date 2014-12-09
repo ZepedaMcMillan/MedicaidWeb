@@ -16,13 +16,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.axis.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 /**
- * Servlet implementation class OtherHealthInsuranceServlet
+ * Servlet implementation class OtherHealthInsuranceDetail
  */
-public class OtherHealthInsuranceServlet extends HttpServlet {
+public class OtherHealthInsuranceDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
@@ -30,26 +31,26 @@ public class OtherHealthInsuranceServlet extends HttpServlet {
 	
 	@Autowired
 	private NavigationBean navBean;
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//hasOtherInsurance
 		HealthInsuranceInfo healthInsuranceInfo = healthInsuranceInfoBean.getHealthInsuranceInfo();
 		OtherInsurance otherInsurance = healthInsuranceInfo.getOtherInsurance();
 		
 		List<OtherInsuranceItem> otherInsuranceDetails = 
 				(otherInsurance.getOtherInsuranceDetails() != null ? otherInsurance.getOtherInsuranceDetails() : new ArrayList<OtherInsuranceItem>());
+
+		int index = (!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
+		OtherInsuranceItem otherInsuranceItem = (index >= 0 ? otherInsuranceDetails.get(index) : new OtherInsuranceItem());
 		
-		otherInsurance.setOtherInsuranceDetails(otherInsuranceDetails);
-		healthInsuranceInfo.setOtherInsurance(otherInsurance);
-		healthInsuranceInfoBean.updateHealthInsuranceInfo(healthInsuranceInfo);
-		
-		request.setAttribute("otherInsurance", otherInsurance);
+		request.setAttribute("info", otherInsuranceItem);
+		request.setAttribute("itemIndex", index);		
+
 		navBean.setNavItemSelected("OtherInsurance");
 		request.setAttribute("navBean", navBean);
-		request.getRequestDispatcher("OtherHealthInsurance.jsp").forward(request, response);
+		request.getRequestDispatcher("OtherHealthInsuranceDetail.jsp").forward(request, response);
 	}
 
 	/**
@@ -59,19 +60,27 @@ public class OtherHealthInsuranceServlet extends HttpServlet {
 		HealthInsuranceInfo healthInsuranceInfo = healthInsuranceInfoBean.getHealthInsuranceInfo();
 		OtherInsurance otherInsurance = healthInsuranceInfo.getOtherInsurance();
 		
-		otherInsurance.setHasOtherInsurance(request.getParameter("hasOtherInsurance"));
+		List<OtherInsuranceItem> otherInsuranceDetails = 
+				(otherInsurance.getOtherInsuranceDetails() != null ? otherInsurance.getOtherInsuranceDetails() : new ArrayList<OtherInsuranceItem>());
+
+		int index = (!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
+		OtherInsuranceItem otherInsuranceItem = (index >= 0 ? otherInsuranceDetails.get(index) : new OtherInsuranceItem());
+		otherInsuranceItem.setInsuranceType(request.getParameter("insuranceType"));
+		otherInsuranceItem.setName(request.getParameter("name"));
+		otherInsuranceItem.setPlanName(request.getParameter("planName"));
+		otherInsuranceItem.setPolicyNumber(request.getParameter("policyNumber"));
+		
+		if(index >= 0) {
+			otherInsuranceDetails.set(index, otherInsuranceItem);
+		} else {
+			otherInsuranceDetails.add(otherInsuranceItem);
+		}
+		
+		otherInsurance.setOtherInsuranceDetails(otherInsuranceDetails);
 		healthInsuranceInfo.setOtherInsurance(otherInsurance);
 		healthInsuranceInfoBean.updateHealthInsuranceInfo(healthInsuranceInfo);
 		
-		if(request.getParameter("customAction").equalsIgnoreCase("update")) {
-			response.sendRedirect("OtherHealthInsurance");
-		} else if(request.getParameter("customAction").equalsIgnoreCase("edit")) {
-			response.sendRedirect("OtherHealthInsuranceDetail?itemIndex="+request.getParameter("itemIndex"));
-		} else if(request.getParameter("customAction").equalsIgnoreCase("delete")) {
-			response.sendRedirect("DeleteOtherHealthInsurance?itemIndex="+request.getParameter("itemIndex"));			
-		}
-		
-		response.sendRedirect("RenewalOfCoverage");
+		response.sendRedirect("OtherHealthInsurance");
 	}
 	
 	@Override
@@ -79,4 +88,5 @@ public class OtherHealthInsuranceServlet extends HttpServlet {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
         super.init(config);
     }
+
 }

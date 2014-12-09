@@ -30,7 +30,7 @@
 		<description />
 		<display-name>ExecutePreview</display-name>
 		<servlet-name>ExecutePreviewServlet</servlet-name>
-		<servlet-class>gov.nv.dwss.medicaid.application.web.ExecutePreviewServlet</servlet-class>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.ExecutePreviewServlet</servlet-class>
 	</servlet>	
 	
 	<servlet-mapping>
@@ -468,6 +468,17 @@
 		<url-pattern>/PeopleCoveredDetail</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<description />
+		<display-name>OtherHealthInsuranceDetail</display-name>
+		<servlet-name>OtherHealthInsuranceDetailServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.OtherHealthInsuranceDetailServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>OtherHealthInsuranceDetailServlet</servlet-name>
+		<url-pattern>/OtherHealthInsuranceDetail</url-pattern>
+	</servlet-mapping>
+	
 	<!-- Delete Screens -->
 	<servlet>
 		<description />
@@ -533,6 +544,17 @@
 	<servlet-mapping>
 		<servlet-name>DeleteAuthorizedRepServlet</servlet-name>
 		<url-pattern>/DeleteAuthorizedRep</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description />
+		<display-name>DeleteOtherHealthInsurance</display-name>
+		<servlet-name>DeleteOtherHealthInsuranceServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.servlet.DeleteOtherHealthInsuranceServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>DeleteOtherHealthInsuranceServlet</servlet-name>
+		<url-pattern>/DeleteOtherHealthInsurance</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
