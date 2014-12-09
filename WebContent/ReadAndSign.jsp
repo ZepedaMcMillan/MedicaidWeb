@@ -33,9 +33,8 @@
 						false or untrue information.</label></p>
 
 						<p><input type="checkbox" class="radio-button" name="swear" id="swear" value="y" ${info.swear != 'y' ? '' : 'checked'} />
-						<label for="swear">I swear I have
-						honestly reported the citizenship status of myself and anyone I am
-						applying for</label></p>
+						<label for="swear">I swear I have honestly reported the citizenship status of myself and anyone I am
+						applying for.</label></p>
 					</td>
 					<td valign="middle" class="field-bg" width="40%">
 						<input type="radio" class="radio-button" name="agreeReadSign" id="agreeReadSignY" value="y" ${info.agreeReadSign == 'y' ? 'checked' : ''} />

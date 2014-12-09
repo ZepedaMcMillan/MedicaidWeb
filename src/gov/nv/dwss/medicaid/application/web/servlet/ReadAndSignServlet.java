@@ -52,7 +52,7 @@ public class ReadAndSignServlet extends HttpServlet {
 		otherInfo.setAgreeReadSign(request.getParameter("agreeReadSign"));
 		otherInfoBean.updateOtherInfo(otherInfo);
 
-		response.sendRedirect("ReadAndSign");
+		response.sendRedirect("ExecutePreview");
 	}
 	
 	@Override

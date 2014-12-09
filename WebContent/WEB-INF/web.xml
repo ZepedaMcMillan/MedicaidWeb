@@ -29,12 +29,12 @@
 	<servlet>
 		<description />
 		<display-name>ExecutePreview</display-name>
-		<servlet-name>ExecutePreview</servlet-name>
-		<servlet-class>gov.nv.dwss.medicaid.application.web.ExecutePreview</servlet-class>
+		<servlet-name>ExecutePreviewServlet</servlet-name>
+		<servlet-class>gov.nv.dwss.medicaid.application.web.ExecutePreviewServlet</servlet-class>
 	</servlet>	
 	
 	<servlet-mapping>
-		<servlet-name>ExecutePreview</servlet-name>
+		<servlet-name>ExecutePreviewServlet</servlet-name>
 		<url-pattern>/ExecutePreview</url-pattern>
 	</servlet-mapping>	
 	
