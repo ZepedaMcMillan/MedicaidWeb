@@ -60,7 +60,7 @@
 
 			</table>
 			<jsp:include page="template/footer.jsp">
-				<jsp:param value="Incarceration" name="previousLocation"/>
+				<jsp:param value="OtherHealthInsurance" name="previousLocation"/>
 			</jsp:include>
 		</div>
 	</form>

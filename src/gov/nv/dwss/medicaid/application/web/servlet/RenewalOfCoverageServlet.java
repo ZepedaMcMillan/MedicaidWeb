@@ -54,7 +54,7 @@ public class RenewalOfCoverageServlet extends HttpServlet {
 		coverageRenewalAPTC.setNumberOfYears(request.getParameter("numberOfYears"));
 		
 		// TODO: Wire up the Thunderhead implementation for preview here
-		response.sendRedirect("RenewalOfCoverage");
+		response.sendRedirect("AuthorizedRep");
 	}
 
 	@Override

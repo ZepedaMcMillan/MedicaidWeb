@@ -20,6 +20,7 @@
 	<jsp:include page="template/header.jsp" />
 	<form id="mainForm" name="mainForm" method="post" action="AuthorizedRepDetail">
 		<input type="hidden" name="customAction" id="customAction" value="" />
+		<input type="hidden" name="itemIndex" id="itemIndex" value="${itemIndex}" />
 		<div class="content-bg-big">		
 			<div align="left" class="main-heading">Authorized Representative Details</div>
 			<table class="form-container" width="100%" border="0" cellspacing="0" cellpadding="0">

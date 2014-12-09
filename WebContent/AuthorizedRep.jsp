@@ -8,7 +8,40 @@
 <title>Authorized Representatives</title>
 <jsp:include page="template/resources.jsp" />
 <script type="text/javascript">
-  $(function() {
+	$(function() {
+		var mainForm = $('#mainForm'),
+		    customAction = $('#customAction'),
+		    itemIndex = $('#itemIndex');
+		    
+		$("#addRep").button().on( "click", function() {
+			customAction.val('edit');
+			mainForm.submit();
+		});		
+		
+		$(".btnUpdate").on( "click", function(event) {
+			var id = event.target.id,
+				el = $('#' + id);
+					
+			customAction.val('edit');
+			itemIndex.val(el.attr('data-index'));
+			
+			mainForm.submit();
+		});		
+		
+		$(".btnDelete").on( "click", function(event) {
+			var id = event.target.id,
+				el = $('#' + id);
+					
+			var conf = confirm("Are you sure you want to delete this Representative?");
+			if(conf) {	
+				customAction.val('delete');
+				itemIndex.val(el.attr('data-index'));
+				
+				mainForm.submit();
+			}
+		});	
+	});
+  /*$(function() {
     var dialog, form,
     	employerName = $("#employerName"),
     	address = $("#address"),
@@ -80,13 +113,14 @@
     $( "#addRep" ).button().on( "click", function() {
       dialog.dialog( "open" );
     });
-  });
+  });*/
   </script>
 </head>
 <body>
 	<jsp:include page="template/header.jsp" />
 	<form id="mainForm" name="mainForm" method="post" action="AuthorizedRep">
 		<input type="hidden" name="customAction" id="customAction" value="" />
+		<input type="hidden" name="itemIndex" id="itemIndex" value="" />
 		<div class="content-bg-big">
 			<div align="left" class="main-heading">Authorized Representatives</div>
 			<br> <br>
@@ -126,7 +160,7 @@
 				</table>
 			</div>		
 			<jsp:include page="template/footer.jsp">
-				<jsp:param value="OtherHealthInsurance" name="previousLocation"/>
+				<jsp:param value="RenewalOfCoverage" name="previousLocation"/>
 			</jsp:include>
 		</div>
 	</form>

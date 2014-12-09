@@ -66,7 +66,7 @@ public class OtherHealthInsuranceServlet extends HttpServlet {
 		if(request.getParameter("customAction").equalsIgnoreCase("update")) {
 			response.sendRedirect("OtherHealthInsurance");
 		} else {
-			response.sendRedirect("AuthorizedRep");
+			response.sendRedirect("RenewalOfCoverage");
 		}		
 	}
 	

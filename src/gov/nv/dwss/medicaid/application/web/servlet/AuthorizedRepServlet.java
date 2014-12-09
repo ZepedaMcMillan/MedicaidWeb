@@ -47,9 +47,11 @@ public class AuthorizedRepServlet extends HttpServlet {
 		otherInfo.setIsAuthorizedRepNeeded(request.getParameter("isAuthorizedRepNeeded"));
 		otherInfoBean.updateOtherInfo(otherInfo);
 		
-		if(request.getParameter("customAction").equalsIgnoreCase("update")) {
-			response.sendRedirect("AuthorizedRep");
-		}  else {
+		if(request.getParameter("customAction").equalsIgnoreCase("edit")) {
+			response.sendRedirect("AuthorizedRepDetail?itemIndex="+request.getParameter("itemIndex"));
+		}  else if (request.getParameter("customAction").equalsIgnoreCase("delete")) {
+			response.sendRedirect("DeleteAuthorizedRep?itemIndex="+request.getParameter("itemIndex"));
+		} else {
 			response.sendRedirect("MedicaidEstateRecoveryProgram");
 		}
 	}
