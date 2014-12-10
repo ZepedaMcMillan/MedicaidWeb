@@ -7,10 +7,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class TaxInfo {
 	private ClaimedOnOther claimedOnOther;
 	private String dependents;
-	private String filingFederalTax;
-	private String filingJoint;
-	private String isClaimedOnOther;
-	private String isClaimingDependents;
+	private boolean filingFederalTax;
+	private boolean filingJoint;
+	private boolean isClaimedOnOther;
+	private boolean isClaimingDependents;
 	private String spouseName;
 
 	@XmlElement
@@ -32,38 +32,38 @@ public class TaxInfo {
 	}
 
 	@XmlElement
-	public String getFilingFederalTax() {
+	public boolean getFilingFederalTax() {
 		return filingFederalTax;
 	}
 
-	public void setFilingFederalTax(String filingFederalTax) {
+	public void setFilingFederalTax(boolean filingFederalTax) {
 		this.filingFederalTax = filingFederalTax;
 	}
 
 	@XmlElement
-	public String getFilingJoint() {
+	public boolean getFilingJoint() {
 		return filingJoint;
 	}
 
-	public void setFilingJoint(String filingJoint) {
+	public void setFilingJoint(boolean filingJoint) {
 		this.filingJoint = filingJoint;
 	}
 
 	@XmlElement
-	public String getIsClaimedOnOther() {
+	public boolean getIsClaimedOnOther() {
 		return isClaimedOnOther;
 	}
 
-	public void setIsClaimedOnOther(String isClaimedOnOther) {
+	public void setIsClaimedOnOther(boolean isClaimedOnOther) {
 		this.isClaimedOnOther = isClaimedOnOther;
 	}
 
 	@XmlElement
-	public String getIsClaimingDependents() {
+	public boolean getIsClaimingDependents() {
 		return isClaimingDependents;
 	}
 
-	public void setIsClaimingDependents(String isClaimingDependents) {
+	public void setIsClaimingDependents(boolean isClaimingDependents) {
 		this.isClaimingDependents = isClaimingDependents;
 	}
 
@@ -76,20 +76,5 @@ public class TaxInfo {
 		this.spouseName = spouseName;
 	}
 
-	public TaxInfo() {
-	}
-
-	public TaxInfo(ClaimedOnOther claimedOnOther, String dependents,
-			String filingFederalTax, String filingJoint,
-			String isClaimedOnOther, String isClaimingDependents,
-			String spouseName) {
-		this.claimedOnOther = claimedOnOther;
-		this.dependents = dependents;
-		this.filingFederalTax = filingFederalTax;
-		this.filingJoint = filingJoint;
-		this.isClaimedOnOther = isClaimedOnOther;
-		this.isClaimingDependents = isClaimingDependents;
-		this.spouseName = spouseName;
-	}
-
+	public TaxInfo() { }
 }

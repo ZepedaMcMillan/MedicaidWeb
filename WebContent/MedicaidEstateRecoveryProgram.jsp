@@ -27,9 +27,9 @@
 						after the death of their surviving spouse. (See Form 6160-AF,
 						Program Operation.)</td>
 					<td valign="middle" class="field-bg" width="40%">
-						<input type="radio" class="radio-button" name="agreeMedEstate" id="agreeMedEstateY" value="y" ${info.agreeMedEstate == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeMedEstate" id="agreeMedEstateY" value="true" ${info.agreeMedEstate == 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Agree:</b> During the telephone application process, you accepted and agreed to the above terms</label><br /><br />
-						<input type="radio" class="radio-button" name="agreeMedEstate" id="agreeMedEstateN" value="n" ${info.agreeMedEstate != 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeMedEstate" id="agreeMedEstateN" value="false" ${info.agreeMedEstate != 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Disagree:</b> During the telephone application process, you refused and disagreed to the above terms</label>
 					</td>
 				</tr>

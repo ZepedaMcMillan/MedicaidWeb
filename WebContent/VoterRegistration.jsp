@@ -21,8 +21,8 @@
 					<td width="60%" valign="middle" class="label-bg">Would you like
 						to register to vote at this time?</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="registeredToVote" id="registeredToVoteY" value="y" /><label for="registeredToVote">Yes</label>
-						<input type="radio" class="radio-button" name="registeredToVote" id="registeredToVoteN" value="n" checked /> <label for="registeredToVote">No</label>
+						<input type="radio" class="radio-button" name="registeredToVote" id="registeredToVoteY" value="true" ${info.registeredToVote == 'true' ? 'checked' : ''} /><label for="registeredToVote">Yes</label>
+						<input type="radio" class="radio-button" name="registeredToVote" id="registeredToVoteN" value="false"  ${info.registeredToVote != 'true' ? 'checked' : ''} /> <label for="registeredToVote">No</label>
 					</td>
 				</tr>
 			</table>

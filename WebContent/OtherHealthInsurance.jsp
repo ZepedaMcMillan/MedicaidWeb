@@ -43,65 +43,6 @@
 			}
 		});	  
 	});
-  /*$(function() {
-    var dialog, form,
-    	insName = $("#name"),
-    	insType = $("#insuranceType"),
-    	planName = $("#planName"),
-    	policyNumber = $('#policyNumber')
-    	mainForm = $("#mainForm");
- 
-    function addItem() {
- 		var insuranceItem = new Object();
- 		insuranceItem.name = insName.val();
- 		insuranceItem.insuranceType = insType.val();
- 		insuranceItem.planName = planName.val();
- 		insuranceItem.policyNumber = policyNumber.val(); 		
- 		
- 		$.ajax({
-	        url: "editOtherInsurance",
-	        type: 'POST',
-	        dataType: 'json',
-	        data: JSON.stringify(insuranceItem),
-	        contentType: 'application/json',
-	        mimeType: 'application/json',
-	 
-	        success: function () {
-	        	dialog.dialog( "close" );
-	        	$('#customAction').val('update')
-	        	mainForm.submit();
-	        },
-	        error:function(data,status,er) {
-	            alert("error: "+data+" status: "+status+" er:"+er);
-	        }
-	    });
-    }
- 
-    dialog = $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 300,
-      width: 500,
-      modal: true,
-      buttons: {
-        "Add Other Insurance": addItem,
-        Cancel: function() {
-          dialog.dialog( "close" );
-        }
-      },
-      close: function() {
-        form[ 0 ].reset();
-      }
-    });
- 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addItem();
-    });
- 
-    $('#otherInsuranceButton').button().on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  });*/
 </script>
 </head>
 <body>
@@ -162,36 +103,5 @@
 			</jsp:include>
 		</div>
 	</form>
-	<div id="dialog-form" title="Add Other Health Insurance" style="display:none;">
-		<p class="validateTips">All form fields are required.</p>		
-		<form>
-			<table class="form-container" width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td width="60%" valign="middle" class="label-bg">Name</td>
-					<td width="40%" valign="middle" class="field-bg">
-						<input name="name" type="text" class="width120" id="name" />
-					</td>
-				</tr>
-				<tr>
-					<td width="60%" valign="middle" class="label-bg">Type of Insurance</td>
-					<td width="40%" valign="middle" class="field-bg">
-						<input name="insuranceType" type="text" class="width120" id="insuranceType" />
-					</td>
-				</tr>
-				<tr>
-					<td width="60%" valign="middle" class="label-bg">Name of Plan</td>
-					<td width="40%" valign="middle" class="field-bg">
-						<input name="planName" type="text" class="width120" id="planName" />
-					</td>
-				</tr>
-				<tr>
-					<td width="60%" valign="middle" class="label-bg">Policy Number</td>
-					<td width="40%" valign="middle" class="field-bg">
-						<input name="policyNumber" type="text" class="width120" id="policyNumber" />
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
 </body>
 </html>

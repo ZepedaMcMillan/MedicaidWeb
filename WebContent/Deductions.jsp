@@ -30,13 +30,13 @@
 									cost that you already considered in your answer to net
 									self-employment.</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="haveDeductions" id="deductionsBiqQuestionY" value="y" onclick="toggleConditionalElement('deductionsBiqQuestionYesRow', true);" ${memberInfo.deductions.haveDeductions == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="haveDeductions" id="deductionsBiqQuestionY" value="true" onclick="toggleConditionalElement('deductionsBiqQuestionYesRow', true);" ${memberInfo.deductions.haveDeductions == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label>
-									<input type="radio" class="radio-button" name="haveDeductions" id="deductionsBiqQuestionN" value="n" onclick="toggleConditionalElement('deductionsBiqQuestionYesRow', false);" ${memberInfo.deductions.haveDeductions != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="haveDeductions" id="deductionsBiqQuestionN" value="false" onclick="toggleConditionalElement('deductionsBiqQuestionYesRow', false);" ${memberInfo.deductions.haveDeductions != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
-							<tr style="display: ${memberInfo.deductions.haveDeductions != 'y' ? 'none' : ''};" id="deductionsBiqQuestionYesRow">
+							<tr style="display: ${memberInfo.deductions.haveDeductions != 'true' ? 'none' : ''};" id="deductionsBiqQuestionYesRow">
 								<td>
 									<table>
 										<thead>
@@ -48,52 +48,82 @@
 										</thead>
 										<tr>
 											<td>Educator expenses</td>
-											<td><input type="text" id="educatorExpensesAmt" name="educatorExpensesAmt" value="${memberInfo.deductions.deductionsList[0].amount}"></td>
+											<td>
+												<fmt:formatNumber type="currency" var="deductionsAmt0" value="${memberInfo.deductions.deductionsList[0].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="educatorExpensesAmt" name="educatorExpensesAmt" value="${deductionsAmt0}">
+											</td>
 											<td><input type="text" id="educatorExpensesHowOften" name="educatorExpensesHowOften" value="${memberInfo.deductions.deductionsList[0].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Health savings account</td>
-											<td><input type="text" id="healthSavingsAmt" name="healthSavingsAmt" value="${memberInfo.deductions.deductionsList[1].amount}"></td>
+											<td>
+												<fmt:formatNumber type="currency" var="deductionsAmt1" value="${memberInfo.deductions.deductionsList[1].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="healthSavingsAmt" name="healthSavingsAmt" value="${deductionsAmt1}">
+											</td>
 											<td><input type="text" id="healthSavingsHowOften" name="healthSavingsHowOften" value="${memberInfo.deductions.deductionsList[1].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Moving expenses</td>
-											<td><input type="text" id="movingExpAmt" name="movingExpAmt" value="${memberInfo.deductions.deductionsList[2].amount}"></td>
+											<td>
+												
+												<fmt:formatNumber type="currency" var="deductionsAmt2" value="${memberInfo.deductions.deductionsList[2].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="movingExpAmt" name="movingExpAmt" value="${deductionsAmt2}">
+											</td>
 											<td><input type="text" id="movingExpHowOften" name="movingExpHowOften" value="${memberInfo.deductions.deductionsList[2].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Alimony</td>
-											<td><input type="text" id="alimonyAmt" name="alimonyAmt" value="${memberInfo.deductions.deductionsList[3].amount}"></td>
+											<td>												
+												<fmt:formatNumber type="currency" var="deductionsAmt3" value="${memberInfo.deductions.deductionsList[3].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="alimonyAmt" name="alimonyAmt" value="${deductionsAmt3}"></td>
 											<td><input type="text" id="alimonyHowOften" name="alimonyHowOften" value="${memberInfo.deductions.deductionsList[3].frequency}"></td>
 										</tr>
 										<tr>
 											<td>IRA deductions</td>
-											<td><input type="text" id="IRAAmt" name="IRAAmt" value="${memberInfo.deductions.deductionsList[4].amount}"></td>
+											<td>												
+												<fmt:formatNumber type="currency" var="deductionsAmt4" value="${memberInfo.deductions.deductionsList[4].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="IRAAmt" name="IRAAmt" value="${deductionsAmt4}">
+											</td>
 											<td><input type="text" id="IRAHowOften" name="IRAHowOften" value="${memberInfo.deductions.deductionsList[4].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Business expenses of reservists, performing artists, and fee-basis government officials</td>
-											<td><input type="text" id="businessExpAmt" name="businessExpAmt" value="${memberInfo.deductions.deductionsList[5].amount}"></td>
+											<td>												
+												<fmt:formatNumber type="currency" var="deductionsAmt5" value="${memberInfo.deductions.deductionsList[5].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="businessExpAmt" name="businessExpAmt" value="${deductionsAmt5}">
+											</td>
 											<td><input type="text" id="businessExpHowOften" name="businessExpHowOften" value="${memberInfo.deductions.deductionsList[5].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Penalty paid on early withdrawal of savings</td>
-											<td><input type="text" id="penaltyPaidAmt" name="penaltyPaidAmt" value="${memberInfo.deductions.deductionsList[6].amount}"></td>
+											<td>												
+												<fmt:formatNumber type="currency" var="deductionsAmt6" value="${memberInfo.deductions.deductionsList[6].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="penaltyPaidAmt" name="penaltyPaidAmt" value="${deductionsAmt6}">
+											</td>
 											<td><input type="text" id="penaltyPaidHowOften" name="penaltyPaidHowOften" value="${memberInfo.deductions.deductionsList[6].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Student loan interest</td>
-											<td><input type="text" id="studentLoanIntAmt" name="studentLoanIntAmt" value="${memberInfo.deductions.deductionsList[7].amount}"></td>
+											<td>												
+												<fmt:formatNumber type="currency" var="deductionsAmt7" value="${memberInfo.deductions.deductionsList[7].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="studentLoanIntAmt" name="studentLoanIntAmt" value="${deductionsAmt7}">
+											</td>
 											<td><input type="text" id="studentLoanIntHowOften" name="studentLoanIntHowOften" value="${memberInfo.deductions.deductionsList[7].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Tuition and fees</td>
-											<td><input type="text" id="tuitionAmt" name="tuitionAmt" value="${memberInfo.deductions.deductionsList[8].amount}"></td>
+											<td>												
+												<fmt:formatNumber type="currency" var="deductionsAmt8" value="${memberInfo.deductions.deductionsList[8].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="tuitionAmt" name="tuitionAmt" value="${deductionsAmt8}">
+											</td>
 											<td><input type="text" id="tuitionHowOften" name="tuitionHowOften" value="${memberInfo.deductions.deductionsList[8].frequency}"></td>
 										</tr>
 										<tr>
 											<td>Domestic production activities</td>
-											<td><input type="text" id="domesticProdActAmt" name="domesticProdActAmt" value="${memberInfo.deductions.deductionsList[9].amount}"></td>
+											<td>												
+												<fmt:formatNumber type="currency" var="deductionsAmt9" value="${memberInfo.deductions.deductionsList[9].amount}" currencySymbol="" groupingUsed="false" />
+												<input class="width120 formatMoney" type="text" id="domesticProdActAmt" name="domesticProdActAmt" value="${deductionsAmt9}">
+											</td>
 											<td><input type="text" id="domesticProdActHowOften" name="domesticProdActHowOften" value="${memberInfo.deductions.deductionsList[9].frequency}"></td>
 										</tr>
 									</table>

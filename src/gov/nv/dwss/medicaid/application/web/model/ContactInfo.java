@@ -19,20 +19,20 @@ public class ContactInfo {
 	private String secondaryPhone;
 	private String secondaryExtension;
 	private Address mailingAddress;
-	private String isEmailNeeded;
+	private boolean isEmailNeeded;
 	private String emailAddress;
-	private String isEnglishPreferred;
+	private boolean isEnglishPreferred = true;
 	private String spanishOrOther;
 	private String otherLanguage;
-	private String isInterpreterNeeded;
-	private String isMailingAddress;
+	private boolean isInterpreterNeeded;
+	private boolean isMailingAddress;
 
 	@XmlElement
-	public String getIsMailingAddress() {
+	public boolean getIsMailingAddress() {
 		return isMailingAddress;
 	}
 
-	public void setIsMailingAddress(String isMailingAddress) {
+	public void setIsMailingAddress(boolean isMailingAddress) {
 		this.isMailingAddress = isMailingAddress;
 	}
 
@@ -145,11 +145,11 @@ public class ContactInfo {
 	}
 
 	@XmlElement
-	public String getIsEmailNeeded() {
+	public boolean getIsEmailNeeded() {
 		return isEmailNeeded;
 	}
 
-	public void setIsEmailNeeded(String isEmailNeeded) {
+	public void setIsEmailNeeded(boolean isEmailNeeded) {
 		this.isEmailNeeded = isEmailNeeded;
 	}
 
@@ -163,11 +163,11 @@ public class ContactInfo {
 	}
 
 	@XmlElement
-	public String getIsEnglishPreferred() {
+	public boolean getIsEnglishPreferred() {
 		return isEnglishPreferred;
 	}
 
-	public void setIsEnglishPreferred(String isEnglishPreferred) {
+	public void setIsEnglishPreferred(boolean isEnglishPreferred) {
 		this.isEnglishPreferred = isEnglishPreferred;
 	}
 
@@ -190,11 +190,11 @@ public class ContactInfo {
 	}
 
 	@XmlElement
-	public String getIsInterpreterNeeded() {
+	public boolean getIsInterpreterNeeded() {
 		return isInterpreterNeeded;
 	}
 
-	public void setIsInterpreterNeeded(String isInterpreterNeeded) {
+	public void setIsInterpreterNeeded(boolean isInterpreterNeeded) {
 		this.isInterpreterNeeded = isInterpreterNeeded;
 	}
 
@@ -206,10 +206,10 @@ public class ContactInfo {
 			Address householdAddress, String primaryPhone,
 			String primaryExtension, String secondaryPhone,
 			String secondaryExtension, Address mailingAddress,
-			String isEmailNeeded, String emailAddress,
-			String isEnglishPreferred, String spanishOrOther,
-			String otherLanguage, String isInterpreterNeeded,
-			String isMailingAddress) {
+			boolean isEmailNeeded, String emailAddress,
+			boolean isEnglishPreferred, String spanishOrOther,
+			String otherLanguage, boolean isInterpreterNeeded,
+			boolean isMailingAddress) {
 		// TODO Auto-generated method stub
 
 		this.firstName = firstName;

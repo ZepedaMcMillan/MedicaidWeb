@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CoverageRenewalAPTC {
 
 	private String allowReturnAccess;
-	private String numberOfYears;
+	private int numberOfYears;
 
 	@XmlElement
 	public String getAllowReturnAccess() {
@@ -19,18 +19,18 @@ public class CoverageRenewalAPTC {
 	}
 
 	@XmlElement
-	public String getNumberOfYears() {
+	public int getNumberOfYears() {
 		return numberOfYears;
 	}
 
-	public void setNumberOfYears(String numberOfYears) {
+	public void setNumberOfYears(int numberOfYears) {
 		this.numberOfYears = numberOfYears;
 	}
 
 	public CoverageRenewalAPTC() {
 	}
 
-	public CoverageRenewalAPTC(String allowReturnAccess, String numberOfYears) {
+	public CoverageRenewalAPTC(String allowReturnAccess, int numberOfYears) {
 		this.allowReturnAccess = allowReturnAccess;
 		this.numberOfYears = numberOfYears;
 	}

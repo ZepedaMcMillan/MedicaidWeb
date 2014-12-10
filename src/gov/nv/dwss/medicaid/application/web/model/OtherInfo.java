@@ -8,106 +8,106 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name= "otherInfo")
 public class OtherInfo {
-	private String agreeCSECoop;
-	private String agreeInfoRelease;
-	private String agreeMedEstate;
-	private String agreePrivacy;
-	private String agreeReadSign;
-	private String agreeResp;
-	private String agreeReviews;
-	private String agreeRights;
-	private String agreeThirdParty;
-	private String verballySigning;
-	private String understand;
-	private String swear;
-	private String applicantIncarcerated;
+	private boolean agreeCSECoop;
+	private boolean agreeInfoRelease;
+	private boolean agreeMedEstate;
+	private boolean agreePrivacy;
+	private boolean agreeReadSign;
+	private boolean agreeResp;
+	private boolean agreeReviews;
+	private boolean agreeRights;
+	private boolean agreeThirdParty;
+	private boolean verballySigning;
+	private boolean understand;
+	private boolean swear;
+	private boolean applicantIncarcerated;
 	private List<AuthorizedRep> authorizedRep;
 	private CoverageRenewalAPTC coverageRenewalAPTC;
 	private List<Incarceration> incarcerationList;
-	private String isAuthorizedRepNeeded;
+	private boolean isAuthorizedRepNeeded;
 	private String otherReferral;
-	private String parentLivesOutside;
+	private boolean parentLivesOutside;
 	private String referralInfo;
-	private String registeredToVote;
+	private boolean registeredToVote;
 	private String selectedHealthPlan;
 	
 	@XmlElement
-	public String getAgreeCSECoop() {
+	public boolean getAgreeCSECoop() {
 		return agreeCSECoop;
 	}
-	public void setAgreeCSECoop(String agreeCSECoop) {
+	public void setAgreeCSECoop(boolean agreeCSECoop) {
 		this.agreeCSECoop = agreeCSECoop;
 	}
 	
 	@XmlElement
-	public String getAgreeInfoRelease() {
+	public boolean getAgreeInfoRelease() {
 		return agreeInfoRelease;
 	}
-	public void setAgreeInfoRelease(String agreeInfoRelease) {
+	public void setAgreeInfoRelease(boolean agreeInfoRelease) {
 		this.agreeInfoRelease = agreeInfoRelease;
 	}
 	
 	@XmlElement
-	public String getAgreeMedEstate() {
+	public boolean getAgreeMedEstate() {
 		return agreeMedEstate;
 	}
-	public void setAgreeMedEstate(String agreeMedEstate) {
+	public void setAgreeMedEstate(boolean agreeMedEstate) {
 		this.agreeMedEstate = agreeMedEstate;
 	}
 	
 	@XmlElement
-	public String getAgreePrivacy() {
+	public boolean getAgreePrivacy() {
 		return agreePrivacy;
 	}
-	public void setAgreePrivacy(String agreePrivacy) {
+	public void setAgreePrivacy(boolean agreePrivacy) {
 		this.agreePrivacy = agreePrivacy;
 	}
 	
 	@XmlElement
-	public String getAgreeReadSign() {
+	public boolean getAgreeReadSign() {
 		return agreeReadSign;
 	}
-	public void setAgreeReadSign(String agreeReadSign) {
+	public void setAgreeReadSign(boolean agreeReadSign) {
 		this.agreeReadSign = agreeReadSign;
 	}
 	
 	@XmlElement
-	public String getAgreeResp() {
+	public boolean getAgreeResp() {
 		return agreeResp;
 	}
-	public void setAgreeResp(String agreeResp) {
+	public void setAgreeResp(boolean agreeResp) {
 		this.agreeResp = agreeResp;
 	}
 	
 	@XmlElement
-	public String getAgreeReviews() {
+	public boolean getAgreeReviews() {
 		return agreeReviews;
 	}
-	public void setAgreeReviews(String agreeReviews) {
+	public void setAgreeReviews(boolean agreeReviews) {
 		this.agreeReviews = agreeReviews;
 	}
 	
 	@XmlElement
-	public String getAgreeRights() {
+	public boolean getAgreeRights() {
 		return agreeRights;
 	}
-	public void setAgreeRights(String agreeRights) {
+	public void setAgreeRights(boolean agreeRights) {
 		this.agreeRights = agreeRights;
 	}
 	
 	@XmlElement
-	public String getAgreeThirdParty() {
+	public boolean getAgreeThirdParty() {
 		return agreeThirdParty;
 	}
-	public void setAgreeThirdParty(String agreeThirdParty) {
+	public void setAgreeThirdParty(boolean agreeThirdParty) {
 		this.agreeThirdParty = agreeThirdParty;
 	}
 	
 	@XmlElement
-	public String getApplicantIncarcerated() {
+	public boolean getApplicantIncarcerated() {
 		return applicantIncarcerated;
 	}
-	public void setApplicantIncarcerated(String applicantIncarcerated) {
+	public void setApplicantIncarcerated(boolean applicantIncarcerated) {
 		this.applicantIncarcerated = applicantIncarcerated;
 	}
 	
@@ -138,10 +138,10 @@ public class OtherInfo {
 	}
 	
 	@XmlElement
-	public String getIsAuthorizedRepNeeded() {
+	public boolean getIsAuthorizedRepNeeded() {
 		return isAuthorizedRepNeeded;
 	}
-	public void setIsAuthorizedRepNeeded(String isAuthorizedRepNeeded) {
+	public void setIsAuthorizedRepNeeded(boolean isAuthorizedRepNeeded) {
 		this.isAuthorizedRepNeeded = isAuthorizedRepNeeded;
 	}
 	
@@ -154,10 +154,10 @@ public class OtherInfo {
 	}
 	
 	@XmlElement
-	public String getParentLivesOutside() {
+	public boolean getParentLivesOutside() {
 		return parentLivesOutside;
 	}
-	public void setParentLivesOutside(String parentLivesOutside) {
+	public void setParentLivesOutside(boolean parentLivesOutside) {
 		this.parentLivesOutside = parentLivesOutside;
 	}
 	
@@ -170,10 +170,10 @@ public class OtherInfo {
 	}
 	
 	@XmlElement
-	public String getRegisteredToVote() {
+	public boolean getRegisteredToVote() {
 		return registeredToVote;
 	}
-	public void setRegisteredToVote(String registeredToVote) {
+	public void setRegisteredToVote(boolean registeredToVote) {
 		this.registeredToVote = registeredToVote;
 	}
 	
@@ -186,59 +186,28 @@ public class OtherInfo {
 	}
 	
 	@XmlElement
-	public String getVerballySigning() {
+	public boolean getVerballySigning() {
 		return verballySigning;
 	}
-	public void setVerballySigning(String verballySigning) {
+	public void setVerballySigning(boolean verballySigning) {
 		this.verballySigning = verballySigning;
 	}
 	
 	@XmlElement
-	public String getUnderstand() {
+	public boolean getUnderstand() {
 		return understand;
 	}
-	public void setUnderstand(String understand) {
+	public void setUnderstand(boolean understand) {
 		this.understand = understand;
 	}
 	
 	@XmlElement
-	public String getSwear() {
+	public boolean getSwear() {
 		return swear;
 	}
-	public void setSwear(String swear) {
+	public void setSwear(boolean swear) {
 		this.swear = swear;
 	}
 	
-	public OtherInfo() {};
-	
-	public OtherInfo(String agreeCSECoop, String agreeInfoRelease,
-			String agreeMedEstate, String agreePrivacy, String agreeReadSign,
-			String agreeResp, String agreeReviews, String agreeRights,
-			String agreeThirdParty, String applicantIncarcerated,
-			List<AuthorizedRep> authorizedRep,
-			CoverageRenewalAPTC coverageRenewalAPTC,
-			List<Incarceration> incarcerationList, String isAuthorizedRepNeeded,
-			String otherReferral, String parentLivesOutside,
-			String referralInfo, String registeredToVote,
-			String selectedHealthPlan) {
-		this.agreeCSECoop = agreeCSECoop;
-		this.agreeInfoRelease = agreeInfoRelease;
-		this.agreeMedEstate = agreeMedEstate;
-		this.agreePrivacy = agreePrivacy;
-		this.agreeReadSign = agreeReadSign;
-		this.agreeResp = agreeResp;
-		this.agreeReviews = agreeReviews;
-		this.agreeRights = agreeRights;
-		this.agreeThirdParty = agreeThirdParty;
-		this.applicantIncarcerated = applicantIncarcerated;
-		this.authorizedRep = authorizedRep;
-		this.coverageRenewalAPTC = coverageRenewalAPTC;
-		this.incarcerationList = incarcerationList;
-		this.isAuthorizedRepNeeded = isAuthorizedRepNeeded;
-		this.otherReferral = otherReferral;
-		this.parentLivesOutside = parentLivesOutside;
-		this.referralInfo = referralInfo;
-		this.registeredToVote = registeredToVote;
-		this.selectedHealthPlan = selectedHealthPlan;
-	}
+	public OtherInfo() { }
 }

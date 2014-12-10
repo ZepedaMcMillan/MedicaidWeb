@@ -40,6 +40,28 @@ function toggleConditionalElements(elementIds, alternateElementIds) {
 	}
 }
 
+function toggleWithRequired(elementIds, requiredElementIds, show) {
+	var showElements, reqElements;
+	
+	if(elementIds !== undefined) {
+		showElements = elementIds.split(',');
+		$(showElements).each(function(index, value) {
+			if(show) {
+				$(value).show();
+			} else {
+				$(value).hide();
+			}
+		});
+	}
+	
+	if(requiredElementIds !== undefined) {
+		reqElements = requiredElementIds.split(',');
+		$(reqElements).each(function(index, value) {
+			$(value).prop('required', show);
+		});
+	}
+}
+
 function toggleConditionalElement(elementId, visible, alternateElementId) {
 	
 	var elements, alternateElements;
@@ -96,6 +118,6 @@ $(function () {
     $('.formatDate').mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
 	$('.formatPhone').mask("999-999-9999");		
 	$('.formatSocial').mask("999-99-9999");
-	$('.formatMoney').maskMoney();
+	$('.formatMoney').maskMoney({'thousands':''});
 	$('.formatEIN').mask('99-9999999')
 });

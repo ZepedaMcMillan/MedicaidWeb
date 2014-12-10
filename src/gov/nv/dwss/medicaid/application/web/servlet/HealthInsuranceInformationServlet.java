@@ -3,6 +3,7 @@ package gov.nv.dwss.medicaid.application.web.servlet;
 import gov.nv.dwss.medicaid.application.web.bean.HealthInsuranceInfoBean;
 import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.HealthInsuranceInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 
@@ -47,7 +48,7 @@ public class HealthInsuranceInformationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HealthInsuranceInfo healthInsuranceInfo = healthInsuranceInfoBean.getHealthInsuranceInfo();
-		healthInsuranceInfo.setHasHealthCoverage(request.getParameter("hasHealthCoverage"));
+		healthInsuranceInfo.setHasHealthCoverage(FormatHelpers.formatBool(request.getParameter("hasHealthCoverage")));
 		healthInsuranceInfoBean.updateHealthInsuranceInfo(healthInsuranceInfo);
 		
 		int index = 

@@ -11,7 +11,7 @@ public class HealthInsuranceInfo {
 	
 	private List<InsuranceFromJobs> insuranceFromJobs;
 	private OtherInsurance otherInsurance;
-	private String hasHealthCoverage;
+	private boolean hasHealthCoverage;
 	
 	@XmlElementWrapper(name="insuranceFromJobs")
 	@XmlElement(name="insuranceFromJob")
@@ -31,10 +31,10 @@ public class HealthInsuranceInfo {
 	}
 	
 	@XmlElement
-	public String getHasHealthCoverage() {
+	public boolean getHasHealthCoverage() {
 		return hasHealthCoverage;
 	}
-	public void setHasHealthCoverage(String hasHealthCoverage) {
+	public void setHasHealthCoverage(boolean hasHealthCoverage) {
 		this.hasHealthCoverage = hasHealthCoverage;
 	}	
 	

@@ -114,8 +114,10 @@
 				</tr>
 				<tr>
 					<td valign="middle" class="label-bg">What is the gross wages/tips per pay period?</td>
-					<td valign="middle" class="field-bg">
-						<input type="text" name="wagesPerPayPeriod" id="wagesPerPayPeriod" class="width120 formatMoney" value="${info.wagesPerPayPeriod}"  /></td>
+					<td valign="middle" class="field-bg">												
+						<fmt:formatNumber type="currency" var="wagesPerPayPeriod" value="${info.wagesPerPayPeriod}" currencySymbol="" groupingUsed="false" />
+						<input type="text" name="wagesPerPayPeriod" id="wagesPerPayPeriod" class="width120 formatMoney" value="${wagesPerPayPeriod}"  />
+					</td>
 				</tr>
 				<tr>
 					<td width="60%" valign="middle" class="label-bg">How often are you paid?</td>
@@ -149,22 +151,23 @@
 				<tr>
 					<td width="60%" valign="middle" class="label-bg">Are you self employed?</td>
 					<td width="40%" valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="isSelfEmployed" id="selfEmployedY" value="y" onclick="toggleConditionalElement('selfEmployedYesRow,selfEmployedYesRow2', true)" ${info.isSelfEmployed == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="isSelfEmployed" id="selfEmployedY" value="true" onclick="toggleConditionalElement('selfEmployedYesRow,selfEmployedYesRow2', true)" ${info.isSelfEmployed == 'true' ? 'checked' : ''} />
 						<label for="radio5">Yes</label> 
-						<input type="radio" class="radio-button" name="isSelfEmployed" id="selfEmployedN" value="n" onclick="toggleConditionalElement('selfEmployedYesRow,selfEmployedYesRow2', false)"  ${info.isSelfEmployed != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isSelfEmployed" id="selfEmployedN" value="false" onclick="toggleConditionalElement('selfEmployedYesRow,selfEmployedYesRow2', false)"  ${info.isSelfEmployed != 'true' ? 'checked' : ''} /> 
 						<label for="radio5">No</label>
 					</td>
 				</tr>
-				<tr id="selfEmployedYesRow" style="display: ${info.isSelfEmployed != 'y' ? 'none' : ''}">
+				<tr id="selfEmployedYesRow" style="display: ${info.isSelfEmployed != 'true' ? 'none' : ''}">
 					<td valign="middle" class="label-bg">What is your type of work?</td>
 					<td valign="middle" class="field-bg">
 						<input type="text" name="typeOfWork" class="width120" id="typeOfWork" value="${info.typeOfWork}" />
 					</td>
 				</tr>
-				<tr id="selfEmployedYesRow2" style="display: ${info.isSelfEmployed != 'y' ? 'none' : ''}">
+				<tr id="selfEmployedYesRow2" style="display: ${info.isSelfEmployed != 'true' ? 'none' : ''}">
 					<td valign="middle" class="label-bg">How much net income (profits once expenses are paid) will you receive this month?</td>
 					<td valign="middle" class="field-bg">
-						<input name="monthlyNetIncome" class="width120 formatMoney" id="monthlyNetIncome" value="${info.monthlyNetIncome}" />
+						<fmt:formatNumber type="currency" var="monthlyNetIncome" value="${info.monthlyNetIncome}" currencySymbol="" groupingUsed="false" />
+						<input name="monthlyNetIncome" class="width120 formatMoney" id="monthlyNetIncome" value="${monthlyNetIncome}" />
 					</td>
 				</tr>
 

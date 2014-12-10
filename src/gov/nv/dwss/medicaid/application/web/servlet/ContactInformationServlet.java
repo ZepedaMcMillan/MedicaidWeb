@@ -3,6 +3,7 @@ package gov.nv.dwss.medicaid.application.web.servlet;
 import gov.nv.dwss.medicaid.application.web.model.Address;
 import gov.nv.dwss.medicaid.application.web.model.ContactInfo;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 import gov.nv.dwss.medicaid.application.web.bean.HouseHoldInformationBean;
 import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 
@@ -60,7 +61,7 @@ public class ContactInformationServlet extends HttpServlet {
 		householdAddress.setZip(request.getParameter("zip"));
 		contactInfo.setHouseholdAddress(householdAddress);
 		
-		contactInfo.setIsMailingAddress(request.getParameter("isMailingAddress"));
+		contactInfo.setIsMailingAddress(FormatHelpers.formatBool(request.getParameter("isMailingAddress")));
 		
 		// Mailing Address
 		Address mailAddress = new Address();
@@ -74,14 +75,14 @@ public class ContactInformationServlet extends HttpServlet {
 		contactInfo.setPrimaryPhone(request.getParameter("primaryPhone"));
 		contactInfo.setPrimaryExtension(request.getParameter("primaryExtension"));
 		
-		contactInfo.setIsEmailNeeded(request.getParameter("isEmailNeeded"));
+		contactInfo.setIsEmailNeeded(FormatHelpers.formatBool(request.getParameter("isEmailNeeded")));
 		contactInfo.setEmailAddress(request.getParameter("emailAddress"));
 		
-		contactInfo.setIsEnglishPreferred(request.getParameter("isEnglishPreferred"));
+		contactInfo.setIsEnglishPreferred(FormatHelpers.formatBool(request.getParameter("isEnglishPreferred")));
 		contactInfo.setSpanishOrOther(request.getParameter("spanishOrOther"));
 		contactInfo.setOtherLanguage(request.getParameter("otherLanguage"));
 		
-		contactInfo.setIsInterpreterNeeded(request.getParameter("isInterpreterNeeded"));
+		contactInfo.setIsInterpreterNeeded(FormatHelpers.formatBool(request.getParameter("isInterpreterNeeded")));
 		
 		houseHoldInfo.setContactInfo(contactInfo);		
 		response.sendRedirect("GeneralInformation");		

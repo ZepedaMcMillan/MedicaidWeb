@@ -22,13 +22,13 @@
 							<tr>
 								<td width="40%" valign="middle" class="label-bg">Are you Hispanic, Latino or of Spanish origin?</td>
 								<td width="60%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isHispanicLatino" id="hispanicLatinoY" value="y" onclick="toggleConditionalElement('hispanicLatinoYRow', true)" ${memberInfo.raceEthnicity.isHispanicLatino == 'y' ? 'checked' : ''} />
+									<input type="radio" class="radio-button" name="isHispanicLatino" id="hispanicLatinoY" value="true" onclick="toggleConditionalElement('hispanicLatinoYRow', true)" ${memberInfo.raceEthnicity.isHispanicLatino == 'true' ? 'checked' : ''} />
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="isHispanicLatino" id="hispanicLatinoN" value="n" onclick="toggleConditionalElement('hispanicLatinoYRow', false)" ${memberInfo.raceEthnicity.isHispanicLatino != 'y' ? 'checked' : ''}  /> 
+									<input type="radio" class="radio-button" name="isHispanicLatino" id="hispanicLatinoN" value="false" onclick="toggleConditionalElement('hispanicLatinoYRow', false)" ${memberInfo.raceEthnicity.isHispanicLatino != 'true' ? 'checked' : ''}  /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
-							<tr style="display: ${memberInfo.raceEthnicity.isHispanicLatino != 'y' ? 'none' : ''};" id="hispanicLatinoYRow">
+							<tr style="display: ${memberInfo.raceEthnicity.isHispanicLatino != 'true' ? 'none' : ''};" id="hispanicLatinoYRow">
 								<td width="40%" valign="middle" class="label-bg">Check all that apply</td>
 								<td width="60%" valign="middle" class="field-bg">
 									<table>

@@ -57,14 +57,14 @@
 						applying for health insurance on this application incarcerated
 						(detained or jailed)</td>
 					<td width="40%" valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="applicantIncarcerated" id="IncarcerationRadioY" value="y" onclick="toggleConditionalElement('IncarcerationYesRow', true)" ${otherInfo.applicantIncarcerated == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="applicantIncarcerated" id="IncarcerationRadioY" value="true" onclick="toggleConditionalElement('IncarcerationYesRow', true)" ${otherInfo.applicantIncarcerated == 'true' ? 'checked' : ''} /> 
 						<label for="radio5">Yes</label>
-						<input type="radio" class="radio-button" name="applicantIncarcerated" id="IncarcerationRadioN" value="n" onclick="toggleConditionalElement('IncarcerationYesRow', false)" ${otherInfo.applicantIncarcerated != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="applicantIncarcerated" id="IncarcerationRadioN" value="false" onclick="toggleConditionalElement('IncarcerationYesRow', false)" ${otherInfo.applicantIncarcerated != 'true' ? 'checked' : ''} /> 
 						<label for="radio5">No</label>
 					</td>
 				</tr>
 			</table>
-			<div id="IncarcerationYesRow"  style="display: ${otherInfo.applicantIncarcerated != 'y' ? 'none' : ''};">
+			<div id="IncarcerationYesRow"  style="display: ${otherInfo.applicantIncarcerated != 'true' ? 'none' : ''};">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-container">
 					<tr>
 						<td width="20%" valign="middle" class="label-bg">

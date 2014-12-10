@@ -8,7 +8,7 @@ public class MemberInfo {
 	private Deductions deductions;
 	private GeneralInfo generalInfo;
 	private IncomeInfo incomeInfo;
-	private String isCaseHOH;
+	private boolean isCaseHOH;
 	private OtherAssistance otherAssistance;
 	private OtherIncome otherIncome;
 	private RaceEthnicity raceEthnicity;
@@ -43,11 +43,11 @@ public class MemberInfo {
 	}
 
 	@XmlElement
-	public String getIsCaseHOH() {
+	public boolean getIsCaseHOH() {
 		return isCaseHOH;
 	}
 
-	public void setIsCaseHOH(String isCaseHOH) {
+	public void setIsCaseHOH(boolean isCaseHOH) {
 		this.isCaseHOH = isCaseHOH;
 	}
 
@@ -97,21 +97,5 @@ public class MemberInfo {
 	}
 
 	public MemberInfo() {
-	}
-
-	public MemberInfo(Deductions deductions, GeneralInfo generalInfo,
-			IncomeInfo incomeInfo, String isCaseHOH,
-			OtherAssistance otherAssistance, OtherIncome otherIncome,
-			RaceEthnicity raceEthnicity, TaxInfo taxInfo,
-			YearlyIncome yearlyIncome) {
-		this.deductions = deductions;
-		this.generalInfo = generalInfo;
-		this.incomeInfo = incomeInfo;
-		this.isCaseHOH = isCaseHOH;
-		this.otherAssistance = otherAssistance;
-		this.otherIncome = otherIncome;
-		this.raceEthnicity = raceEthnicity;
-		this.taxInfo = taxInfo;
-		this.yearlyIncome = yearlyIncome;
 	}
 }

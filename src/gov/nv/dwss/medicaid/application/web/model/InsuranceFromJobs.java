@@ -17,12 +17,12 @@ public class InsuranceFromJobs {
 	private String employerName;
 	private String employerPhone;
 	private String[] familyMembersCovered;
-	private String isCoveredNext3Months;
-	private String isCoveredNextYear;
-	private String isEligible;
+	private boolean isCoveredNext3Months;
+	private boolean isCoveredNextYear;
+	private boolean isEligible;
 	private JobInsuranceContact jobInsuranceContact;
-	private String lowCostPremium;
-	private String meetsMinimumStandards;
+	private boolean lowCostPremium;
+	private boolean meetsMinimumStandards;
 	private NewYearPlanChanges newYearPlanChanges;
 	private List<PeopleCovered> peopleCovered;
 	private String premiumFrequency;
@@ -101,29 +101,29 @@ public class InsuranceFromJobs {
 	}
 
 	@XmlElement
-	public String getIsCoveredNext3Months() {
+	public boolean getIsCoveredNext3Months() {
 		return isCoveredNext3Months;
 	}
 
-	public void setIsCoveredNext3Months(String isCoveredNext3Months) {
+	public void setIsCoveredNext3Months(boolean isCoveredNext3Months) {
 		this.isCoveredNext3Months = isCoveredNext3Months;
 	}
 
 	@XmlElement
-	public String getIsCoveredNextYear() {
+	public boolean getIsCoveredNextYear() {
 		return isCoveredNextYear;
 	}
 
-	public void setIsCoveredNextYear(String isCoveredNextYear) {
+	public void setIsCoveredNextYear(boolean isCoveredNextYear) {
 		this.isCoveredNextYear = isCoveredNextYear;
 	}
 
 	@XmlElement
-	public String getIsEligible() {
+	public boolean getIsEligible() {
 		return isEligible;
 	}
 
-	public void setIsEligible(String isEligible) {
+	public void setIsEligible(boolean isEligible) {
 		this.isEligible = isEligible;
 	}
 
@@ -137,20 +137,20 @@ public class InsuranceFromJobs {
 	}
 
 	@XmlElement
-	public String getLowCostPremium() {
+	public boolean getLowCostPremium() {
 		return lowCostPremium;
 	}
 
-	public void setLowCostPremium(String lowCostPremium) {
+	public void setLowCostPremium(boolean lowCostPremium) {
 		this.lowCostPremium = lowCostPremium;
 	}
 
 	@XmlElement
-	public String getMeetsMinimumStandards() {
+	public boolean getMeetsMinimumStandards() {
 		return meetsMinimumStandards;
 	}
 
-	public void setMeetsMinimumStandards(String meetsMinimumStandards) {
+	public void setMeetsMinimumStandards(boolean meetsMinimumStandards) {
 		this.meetsMinimumStandards = meetsMinimumStandards;
 	}
 
@@ -182,34 +182,5 @@ public class InsuranceFromJobs {
 		this.premiumFrequency = premiumFrequency;
 	}
 
-	public InsuranceFromJobs() {
-	}
-
-	public InsuranceFromJobs(Date coverageDate, String employeeName,
-			String employeeSSN, Address employerAddress, String employerEIN,
-			String employerName, String employerPhone,
-			String[] familyMembersCovered, String isCoveredNext3Months,
-			String isCoveredNextYear, String isEligible,
-			JobInsuranceContact jobInsuranceContact, String lowCostPremium,
-			String meetsMinimumStandards,
-			NewYearPlanChanges newYearPlanChanges,
-			List<PeopleCovered> peopleCovered, String premiumFrequency) {
-		this.coverageDate = coverageDate;
-		this.employeeName = employeeName;
-		this.employeeSSN = employeeSSN;
-		this.employerAddress = employerAddress;
-		this.employerEIN = employerEIN;
-		this.employerName = employerName;
-		this.employerPhone = employerPhone;
-		this.familyMembersCovered = familyMembersCovered;
-		this.isCoveredNext3Months = isCoveredNext3Months;
-		this.isCoveredNextYear = isCoveredNextYear;
-		this.isEligible = isEligible;
-		this.jobInsuranceContact = jobInsuranceContact;
-		this.lowCostPremium = lowCostPremium;
-		this.meetsMinimumStandards = meetsMinimumStandards;
-		this.newYearPlanChanges = newYearPlanChanges;
-		this.peopleCovered = peopleCovered;
-		this.premiumFrequency = premiumFrequency;
-	}
+	public InsuranceFromJobs() { }
 }

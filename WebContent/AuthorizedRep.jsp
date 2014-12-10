@@ -128,14 +128,14 @@
 				<tr>
 					<td width="60%" valign="middle" class="label-bg">Do you want to name someone as your authorized representative?</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="isAuthorizedRepNeeded" id="authRepY" value="y" onclick="toggleConditionalElement('authRepYRow', true);" ${otherInfo.isAuthorizedRepNeeded == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isAuthorizedRepNeeded" id="authRepY" value="true" onclick="toggleConditionalElement('authRepYRow', true);" ${otherInfo.isAuthorizedRepNeeded == 'true' ? 'checked' : ''} /> 
 						<label for="authRep">Yes</label> 
-						<input type="radio" class="radio-button" name="isAuthorizedRepNeeded" id="authRepN" value="n" onclick="toggleConditionalElement('authRepYRow', false);"${otherInfo.isAuthorizedRepNeeded != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isAuthorizedRepNeeded" id="authRepN" value="false" onclick="toggleConditionalElement('authRepYRow', false);"${otherInfo.isAuthorizedRepNeeded != 'true' ? 'checked' : ''} /> 
 						<label for="authRep">No</label>
 					</td>
 				</tr>
 			</table>
-			<div style="display: ${otherInfo.isAuthorizedRepNeeded != 'y' ? 'none' : ''};" id="authRepYRow">
+			<div style="display: ${otherInfo.isAuthorizedRepNeeded != 'true' ? 'none' : ''};" id="authRepYRow">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-container">
 					<tr>
 						<td width="20%" valign="middle" class="label-bg"><input type="button" id="addRep" value="Add Rep"></td>

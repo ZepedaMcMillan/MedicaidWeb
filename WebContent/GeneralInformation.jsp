@@ -34,8 +34,8 @@
 							<tr style="display: ${memberInfo.generalInfo.maritalStatus != 'Married' ? 'none' : ''};" id="liveWithSpouseRow">
 								<td valign="middle" class="label-bg">Do you live with your spouse?</td>
 								<td valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="livesWithSpouse" id="liveWithSpouseY" value="y" ${memberInfo.generalInfo.livesWithSpouse == 'y' ? 'checked' : ''} /> <label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="livesWithSpouse" id="liveWithSpouseN" value="n" ${memberInfo.generalInfo.livesWithSpouse == 'n' || memberInfo.generalInfo.livesWithSpouse == null ? 'checked' : ''} /> <label for="radio5">No</label>
+									<input type="radio" class="radio-button" name="livesWithSpouse" id="liveWithSpouseY" value="true" ${memberInfo.generalInfo.livesWithSpouse == 'true' ? 'checked' : ''} /> <label for="radio5">Yes</label> 
+									<input type="radio" class="radio-button" name="livesWithSpouse" id="liveWithSpouseN" value="false" ${memberInfo.generalInfo.livesWithSpouse != 'true' ? 'checked' : ''} /> <label for="radio5">No</label>
 								</td>
 							</tr>
 							<tr>
@@ -46,31 +46,31 @@
 							<tr id="genderFemale" style="display: ${memberInfo.generalInfo.gender != 'Female' ? 'none' : ''};">
 								<td valign="middle" class="label-bg">Are you pregnant?</td>
 								<td valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isPregnant" id="pregnantY" value="y" onclick="$('#pregnantYes').show();" ${memberInfo.generalInfo.isPregnant == 'y' ? 'checked' : ''} /> <label for="radio12">Yes</label> 
-									<input type="radio" class="radio-button" name="isPregnant" id="pregnantN" value="n" onclick="$('#pregnantYes').hide();" ${memberInfo.generalInfo.isPregnant == 'n' || memberInfo.generalInfo.isPregnant == null ? 'checked' : ''} /> <label for="radio12">No</label></td>
+									<input type="radio" class="radio-button" name="isPregnant" id="pregnantY" value="true" onclick="$('#pregnantYes').show();" ${memberInfo.generalInfo.isPregnant == 'true' ? 'checked' : ''} /> <label for="radio12">Yes</label> 
+									<input type="radio" class="radio-button" name="isPregnant" id="pregnantN" value="false" onclick="$('#pregnantYes').hide();" ${memberInfo.generalInfo.isPregnant != 'true' ? 'checked' : ''} /> <label for="radio12">No</label></td>
 							</tr>
-							<tr style="display: ${memberInfo.generalInfo.isPregnant != 'y' ? 'none' : ''};" id="pregnantYes">
+							<tr style="display: ${memberInfo.generalInfo.isPregnant != 'true' ? 'none' : ''};" id="pregnantYes">
 								<td valign="middle" class="field-bg">What is the due date?
 									<fmt:formatDate type="date" var="formatPregnancyDate" value="${memberInfo.generalInfo.pregnancyDueDate}" pattern="MM/dd/yyyy" />
 									<input class="formatDate" name="pregnancyDueDate" id="pregnancyDueDate" value="${formatPregnancyDate}" />
 								</td>
 								<td valign="middle" class="field-bg">How many babies are
-									you expecting? <input name="numberOfBabies" id="numberOfBabies" value="${memberInfo.generalInfo.numberOfBabies}" />
+									you expecting? <input type="number" name="numberOfBabies" id="numberOfBabies" value="${memberInfo.generalInfo.numberOfBabies}" />
 								</td>
 							</tr>
 
 							<tr>
 								<td valign="middle" class="label-bg">Are you legally blind or permanently disabled?</td>
 								<td valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isDisabledBlind" id="legallyBlindY" value="y" ${memberInfo.otherAssistance.isDisabledBlind == 'y' ? 'checked' : ''} /> <label for="radio12">Yes</label> 
-									<input type="radio" class="radio-button" name="isDisabledBlind" id="legallyBlindN" value="n" ${memberInfo.otherAssistance.isDisabledBlind == 'n' || memberInfo.otherAssistance.isDisabledBlind == null ? 'checked' : ''} /> <label for="radio12">No</label>
+									<input type="radio" class="radio-button" name="isDisabledBlind" id="legallyBlindY" value="true" ${memberInfo.otherAssistance.isDisabledBlind == 'true' ? 'checked' : ''} /> <label for="radio12">Yes</label> 
+									<input type="radio" class="radio-button" name="isDisabledBlind" id="legallyBlindN" value="false" ${memberInfo.otherAssistance.isDisabledBlind != 'true' ? 'checked' : ''} /> <label for="radio12">No</label>
 								</td>
 							</tr>
 							<tr>
 								<td valign="middle" class="label-bg">Are you receiving Supplemental Security Income?</td>
 								<td valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="hasSSI" id="supplSecurityIncomeY" value="y" ${memberInfo.otherAssistance.hasSSI == 'y' ? 'checked' : ''} /> <label for="radio12">Yes</label> 
-									<input type="radio" class="radio-button" name="hasSSI" id="supplSecurityIncomeN" value="n" ${memberInfo.otherAssistance.hasSSI == 'n' || memberInfo.otherAssistance.hasSSI == null ? 'checked' : ''} /> <label for="radio12">No</label>
+									<input type="radio" class="radio-button" name="hasSSI" id="supplSecurityIncomeY" value="true" ${memberInfo.otherAssistance.hasSSI == 'true' ? 'checked' : ''} /> <label for="radio12">Yes</label> 
+									<input type="radio" class="radio-button" name="hasSSI" id="supplSecurityIncomeN" value="false" ${memberInfo.otherAssistance.hasSSI != 'true' ? 'checked' : ''} /> <label for="radio12">No</label>
 								</td>
 							</tr>
 							<tr>
@@ -78,8 +78,8 @@
 									activities of daily living through personal assistance services
 									or a medical facility?</td>
 								<td valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="needsDailyAssistance" id="helpWithDailyLivingY" value="y" ${memberInfo.otherAssistance.needsDailyAssistance == 'y' ? 'checked' : ''} /> <label for="radio12">Yes</label>
-									<input type="radio" class="radio-button" name="needsDailyAssistance" id="helpWithDailyLivingN" value="n" ${memberInfo.otherAssistance.needsDailyAssistance == 'n' || memberInfo.otherAssistance.needsDailyAssistance == null ? 'checked' : ''} /> <label for="radio12">No</label>
+									<input type="radio" class="radio-button" name="needsDailyAssistance" id="helpWithDailyLivingY" value="true" ${memberInfo.otherAssistance.needsDailyAssistance == 'true' ? 'checked' : ''} /> <label for="radio12">Yes</label>
+									<input type="radio" class="radio-button" name="needsDailyAssistance" id="helpWithDailyLivingN" value="false" ${memberInfo.otherAssistance.needsDailyAssistance != 'true' ? 'checked' : ''} /> <label for="radio12">No</label>
 								</td>
 							</tr>
 						</table>

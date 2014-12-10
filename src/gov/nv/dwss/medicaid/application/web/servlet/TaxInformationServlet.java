@@ -6,6 +6,7 @@ import gov.nv.dwss.medicaid.application.web.model.ClaimedOnOther;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.model.MemberInfo;
 import gov.nv.dwss.medicaid.application.web.model.TaxInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.List;
@@ -77,12 +78,12 @@ public class TaxInformationServlet extends HttpServlet {
 			taxInfo = new TaxInfo();
 		}
 		
-		taxInfo.setFilingFederalTax(request.getParameter("filingFederalTax"));
-		taxInfo.setFilingJoint(request.getParameter("filingJoint"));
+		taxInfo.setFilingFederalTax(FormatHelpers.formatBool(request.getParameter("filingFederalTax")));
+		taxInfo.setFilingJoint(FormatHelpers.formatBool(request.getParameter("filingJoint")));
 		taxInfo.setSpouseName(request.getParameter("spouseName"));
-		taxInfo.setIsClaimingDependents(request.getParameter("isClaimingDependents"));
+		taxInfo.setIsClaimingDependents(FormatHelpers.formatBool(request.getParameter("isClaimingDependents")));
 		taxInfo.setDependents(request.getParameter("dependents"));
-		taxInfo.setIsClaimedOnOther(request.getParameter("isClaimedOnOther"));
+		taxInfo.setIsClaimedOnOther(FormatHelpers.formatBool(request.getParameter("isClaimedOnOther")));
 		
 		ClaimedOnOther claimed = taxInfo.getClaimedOnOther();
 		if(claimed == null) {

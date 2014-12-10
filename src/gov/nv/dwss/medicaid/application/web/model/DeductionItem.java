@@ -5,16 +5,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="deduction")
 public class DeductionItem {
-	private String amount;
+	private float amount;
 	private String type;
 	private String frequency;
 	
 	@XmlElement
-	public String getAmount() {
+	public float getAmount() {
 		return amount;
 	}
-	public void setAmount(String amount) {
-		this.amount = amount;
+	public void setAmount(float  amount) {
+		this.amount =  amount;
 	}
 	
 	@XmlElement
@@ -35,7 +35,7 @@ public class DeductionItem {
 	
 	public DeductionItem() {}
 	
-	public DeductionItem(String amount, String type, String frequency) {
+	public DeductionItem(float amount, String type, String frequency) {
 		this.amount = amount;
 		this.type = type;
 		this.frequency = frequency;

@@ -4,6 +4,7 @@ import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.Incarceration;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class IncarcerationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();					
-		otherInfo.setApplicantIncarcerated(request.getParameter("applicantIncarcerated"));	
+		otherInfo.setApplicantIncarcerated(FormatHelpers.formatBool(request.getParameter("applicantIncarcerated")));	
 		
 		List<Incarceration> incarcerationList = 
 				(otherInfo.getIncarcerationList() != null ? otherInfo.getIncarcerationList() : new ArrayList<Incarceration>());

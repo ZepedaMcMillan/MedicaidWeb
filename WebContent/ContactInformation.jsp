@@ -101,20 +101,19 @@
 					<td width="60%" valign="middle" class="label-bg">
 						Is your mailing address different from your physical address?</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="isMailingAddress" id="mailPhysicalAddressY" value="y" onclick="toggleConditionalElement('mailAddressRow', true);" ${contact.isMailingAddress == 'y' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">Yes</label> 
-						<input type="radio" class="radio-button" name="isMailingAddress" id="mailPhysicalAddressN" value="n" onclick="toggleConditionalElement('mailAddressRow', false);" ${contact.isMailingAddress != 'y' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">No</label>
+						<input type="radio" class="radio-button" name="isMailingAddress" id="mailPhysicalAddressY" value="true" onclick="toggleWithRequired('#mailAddressRow', '#mailStreet,#mailCity,#mailState,#mailZip', true);" ${contact.isMailingAddress == 'true' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">Yes</label> 
+						<input type="radio" class="radio-button" name="isMailingAddress" id="mailPhysicalAddressN" value="false" onclick="toggleWithRequired('#mailAddressRow', '#mailStreet,#mailCity,#mailState,#mailZip', false);" ${contact.isMailingAddress != 'true' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">No</label>
 					</td>
 				</tr>
-				<tr style="display:${contact.isMailingAddress != 'y' ? 'none' : ''};" id="mailAddressRow">		
+				<tr style="display:${contact.isMailingAddress != 'true' ? 'none' : ''};" id="mailAddressRow">		
 					<td width="60%" valign="middle" class="label-bg">What is your Mailing Address?</td>
 					<td width="40%" valign="middle" class="field-bg">
-						<input name="mailStreet" type="text" class="width120" id="mailStreet" maxlength="100" value="${contact.mailingAddress.street}" /><br />
-						<div class="small-label">Mailing Address</div> 
-						<label for="textfield"></label> 
-						<input name="mailApartment" type="text" class="width120" id="mailApartment" maxlength="50" value="${contact.mailingAddress.apartment}" /><br />
-						<div class="small-label">Apartment Number</div> 
-						<input name="mailCity" type="text" class="width120" id="mailCity" maxlength="50" value="${contact.mailingAddress.city}" /><br />
-						<div class="small-label">City</div> 
+						<input name="mailStreet" type="text" class="width120" id="mailStreet" value="${contact.mailingAddress.street}"  /><br />
+						<div class="small-label">Mailing Address<span>*</span></div> 
+						<input name="mailApartment" type="text" class="width120" id="mailApartment" value="${contact.mailingAddress.apartment}"  /><br />
+						<div class="small-label">Apartment Number<span>*</span></div> 
+						<input name="mailCity" type="text" class="width120" id="mailCity" value="${contact.mailingAddress.city}"  /><br />
+						<div class="small-label">City<span>*</span></div> 
 						<input type="hidden" name="mailStateHidden" id="mailStateHidden" data-id="#mailState" value="${contact.mailingAddress.state}" />
 						<select name="mailState" class="width120" id="mailState">
 							<option value="AL">Alabama</option>
@@ -169,9 +168,9 @@
 							<option value="WI">Wisconsin</option>
 							<option value="WY">Wyoming</option>
 					</select> <br />
-						<div class="small-label">State</div> 
-						<input name="mailZip" class="width120" id="mailZip" maxlength="50" value="${contact.mailingAddress.zip}" /><br />
-						<div class="small-label">Zip Code</div>
+						<div class="small-label">State<span>*</span></div> 
+						<input name="mailZip" class="width120" id="mailZip" value="${contact.mailingAddress.zip}" /><br />
+						<div class="small-label">Zip Code<span>*</span></div>
 					</td>
 				</tr>
 				<tr>
@@ -188,13 +187,13 @@
 						all notifications are sent in paper format. In the future, if
 						available, would you like to receive information by email?</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="isEmailNeeded" id="emailNotificationY" value="y" onclick="toggleConditionalElement('emailNotificationRow', true);" ${contact.isEmailNeeded == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isEmailNeeded" id="emailNotificationY" value="true" onclick="toggleConditionalElement('emailNotificationRow', true);" ${contact.isEmailNeeded == 'true' ? 'checked' : ''} /> 
 						<label for="emailNotification">Yes</label> 
-						<input type="radio" class="radio-button" name="isEmailNeeded" id="emailNotificationN" value="n" onclick="toggleConditionalElement('emailNotificationRow', false);" ${contact.isEmailNeeded == 'n' || contact.isEmailNeeded == null ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isEmailNeeded" id="emailNotificationN" value="false" onclick="toggleConditionalElement('emailNotificationRow', false);" ${contact.isEmailNeeded != 'true' ? 'checked' : ''} /> 
 						<label for="emailNotification">No</label>
 					</td>
 				</tr>
-				<tr style="display: ${contact.isEmailNeeded != 'y' ? 'none' : ''};" id="emailNotificationRow">
+				<tr style="display: ${contact.isEmailNeeded != 'true' ? 'none' : ''};" id="emailNotificationRow">
 					<td width="60%" valign="middle" class="label-bg">What is your Email address?</td>
 					<td width="40%" valign="middle" class="field-bg">
 						<input name="emailAddress" type="email" class="width120" id="emailAddress" maxlength="50" value="${contact.emailAddress}" /><br />
@@ -203,13 +202,13 @@
 				<tr>
 					<td width="60%" valign="middle" class="label-bg">Is English your preferred language?</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="isEnglishPreferred" id="englishPrefLangY" onclick="toggleConditionalElement('prefLangRow', false);" value="y" ${contact.isEnglishPreferred != 'n' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isEnglishPreferred" id="englishPrefLangY" onclick="toggleConditionalElement('prefLangRow', false);" value="true" ${contact.isEnglishPreferred == 'true' ? 'checked' : ''} /> 
 						<label for="englishPrefLang">Yes</label> 
-						<input type="radio" class="radio-button" name="isEnglishPreferred" id="englishPrefLangN" onclick="toggleConditionalElement('prefLangRow', true);"  value="n" ${contact.isEnglishPreferred == 'n' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isEnglishPreferred" id="englishPrefLangN" onclick="toggleConditionalElement('prefLangRow', true);"  value="false" ${contact.isEnglishPreferred == 'false' ? 'checked' : ''} /> 
 						<label for="englishPrefLang">No</label>
 					</td>
 				</tr>
-				<tr style="display: ${contact.isEnglishPreferred != 'n' ? 'none' : ''};" id="prefLangRow">
+				<tr style="display: ${contact.isEnglishPreferred != false ? 'none' : ''};" id="prefLangRow">
 					<td width="60%" valign="middle" class="label-bg">What is your preferred language?</td>
 					<td valign="middle" class="field-bg">							
 						<input type="radio" class="radio-button" name="spanishOrOther" id="prefLangS" value="spanish" onclick="toggleConditionalElement('otherLanguage', false);" ${contact.spanishOrOther != 'other' ? 'checked' : ''} /> 
@@ -222,9 +221,9 @@
 				<tr>
 					<td width="60%" valign="middle" class="label-bg">Do you need an interpreter?</td>
 					<td valign="middle" class="field-bg">				
-						<input type="radio" class="radio-button" name="isInterpreterNeeded" id="interpreterY" value="y" ${contact.isInterpreterNeeded == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isInterpreterNeeded" id="interpreterY" value="true" ${contact.isInterpreterNeeded == 'true' ? 'checked' : ''} /> 
 						<label for="englishPrefLang">Yes</label> 
-						<input type="radio" class="radio-button" name="isInterpreterNeeded" id="interpreterN" value="n" ${contact.isInterpreterNeeded != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="isInterpreterNeeded" id="interpreterN" value="false" ${contact.isInterpreterNeeded != 'true' ? 'checked' : ''} /> 
 						<label for="englishPrefLang">No</label>
 					</td>
 				</tr>

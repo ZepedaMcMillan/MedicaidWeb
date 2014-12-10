@@ -44,7 +44,7 @@
 					
 						<input type="radio" class="radio-button" name="referralInfo" id="howDidYouHearOther" value="Other" ${info.referralInfo == 'Other' ? 'checked' : ''} />
 						<label for="howDidYouHear">Other</label>
-						<input name="otherHowdidYouHear" type="text" class="width120" id="otherHowdidYouHear" />
+						<input name="otherReferral" type="text" class="width120" id="otherReferral" value="${info.otherReferral}" />
 					</td>
 				</tr>
 			</table>

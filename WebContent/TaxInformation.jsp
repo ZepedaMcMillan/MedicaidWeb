@@ -24,12 +24,12 @@
 								<td width="60%" valign="middle" class="label-bg">Do you
 									plan on filing a federal income tax return next year?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxY" value="y" onclick="toggleConditionalElements('#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3');" ${taxInfo.filingFederalTax == 'y' ? 'checked' : ''}  />
+									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxY" value="true" onclick="toggleConditionalElements('#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3');" ${taxInfo.filingFederalTax == 'true' ? 'checked' : ''}  />
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxN" value="n" onclick="toggleConditionalElements('','#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3');" ${taxInfo.filingFederalTax != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxN" value="false" onclick="toggleConditionalElements('','#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3');" ${taxInfo.filingFederalTax != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label></td>
 							</tr>
-							<tr style="display: ${taxInfo.filingFederalTax != 'y' ? 'none' : ''};" id="fileIncomeTaxYes1">
+							<tr style="display: ${taxInfo.filingFederalTax != 'true' ? 'none' : ''};" id="fileIncomeTaxYes1">
 								<td width="60%" valign="middle" class="label-bg">Do you
 									expect to file a joint return with a spouse/partner?</td>
 								<td width="40%" valign="middle" class="field-bg">
@@ -45,7 +45,7 @@
 								</td>
 							</tr>
 
-							<tr style="display: ${taxInfo.filingFederalTax != 'y' ? 'none' : ''};" id="fileIncomeTaxYes2">
+							<tr style="display: ${taxInfo.filingFederalTax != 'true' ? 'none' : ''};" id="fileIncomeTaxYes2">
 								<td width="60%" valign="middle" class="label-bg">Will you
 									claim any dependents on your tax return?</td>
 								<td width="40%" valign="middle" class="field-bg">
@@ -66,19 +66,19 @@
 								<td width="60%" valign="middle" class="label-bg">Are you
 									being claimed as a dependent on someone else's tax return?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isClaimedOnOther" id="youDependantY" value="y" onclick="toggleConditionalElement('youDependentYes,youDependentYes2', true);" ${taxInfo.isClaimedOnOther == 'y' ? 'checked' : ''} />
+									<input type="radio" class="radio-button" name="isClaimedOnOther" id="youDependantY" value="true" onclick="toggleConditionalElement('youDependentYes,youDependentYes2', true);" ${taxInfo.isClaimedOnOther == 'true' ? 'checked' : ''} />
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="isClaimedOnOther" id="youDependantN" value="n" onclick="toggleConditionalElement('youDependentYes,youDependentYes2', false);" ${taxInfo.isClaimedOnOther != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isClaimedOnOther" id="youDependantN" value="false" onclick="toggleConditionalElement('youDependentYes,youDependentYes2', false);" ${taxInfo.isClaimedOnOther != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
-							<tr style="display: ${taxInfo.isClaimedOnOther != 'y' ? 'none' : ''};" id="youDependentYes">
+							<tr style="display: ${taxInfo.isClaimedOnOther != 'true' ? 'none' : ''};" id="youDependentYes">
 								<td valign="middle" class="label-bg">What is the name of the tax filer?</td>
 								<td valign="middle" class="field-bg">
 									<input type="text" name="otherFilerName" class="width120" id="otherFilerName" value="${taxInfo.claimedOnOther.otherFilerName}" />
 								</td>
 							</tr>
-							<tr style="display: ${taxInfo.isClaimedOnOther != 'y' ? 'none' : ''};" id="youDependentYes2">
+							<tr style="display: ${taxInfo.isClaimedOnOther != 'true' ? 'none' : ''};" id="youDependentYes2">
 								<td valign="middle" class="label-bg">How are you related to the tax filer?</td>
 								<td valign="middle" class="field-bg">
 									<input type="text" name="relationToFiler" class="width120" id="relationToFiler" value="${taxInfo.claimedOnOther.relationToFiler}" />

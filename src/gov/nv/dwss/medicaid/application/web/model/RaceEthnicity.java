@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "raceEthnicity")
 public class RaceEthnicity {
 	private String[] hispanicCategory;
-	private String isHispanicLatino;
+	private boolean isHispanicLatino;
 	private String[] race;
 	private String hispanicCategoryOther;
 	private String raceOther;
@@ -23,11 +23,11 @@ public class RaceEthnicity {
 	}
 
 	@XmlElement
-	public String getIsHispanicLatino() {
+	public boolean getIsHispanicLatino() {
 		return isHispanicLatino;
 	}
 
-	public void setIsHispanicLatino(String isHispanicLatino) {
+	public void setIsHispanicLatino(boolean isHispanicLatino) {
 		this.isHispanicLatino = isHispanicLatino;
 	}
 
@@ -59,13 +59,5 @@ public class RaceEthnicity {
 		this.raceOther = raceOther;
 	}
 
-	public RaceEthnicity() {
-	}
-
-	public RaceEthnicity(String[] hispanicCategory, String isHispanicLatino,
-			String[] race) {
-		this.hispanicCategory = hispanicCategory;
-		this.isHispanicLatino = isHispanicLatino;
-		this.race = race;
-	}
+	public RaceEthnicity() { }
 }

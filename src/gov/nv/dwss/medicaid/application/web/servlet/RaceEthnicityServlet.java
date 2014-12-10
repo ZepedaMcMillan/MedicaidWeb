@@ -5,6 +5,7 @@ import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.model.MemberInfo;
 import gov.nv.dwss.medicaid.application.web.model.RaceEthnicity;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class RaceEthnicityServlet extends HttpServlet {
 		MemberInfo memberInfo = memberList.get(index);
 		RaceEthnicity raceEthnicity = (memberInfo.getRaceEthnicity() != null ? memberInfo.getRaceEthnicity() : new RaceEthnicity());
 		
-		raceEthnicity.setIsHispanicLatino(request.getParameter("isHispanicLatino"));
+		raceEthnicity.setIsHispanicLatino(FormatHelpers.formatBool(request.getParameter("isHispanicLatino")));
 		raceEthnicity.setHispanicCategory(request.getParameterValues("hispanicCategory"));
 		raceEthnicity.setHispanicCategoryOther(request.getParameter("hispanicCategoryOther"));
 		raceEthnicity.setRace(request.getParameterValues("race"));

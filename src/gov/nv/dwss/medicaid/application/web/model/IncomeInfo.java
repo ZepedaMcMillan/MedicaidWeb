@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "incomeInfo")
 public class IncomeInfo {
 	private String[] pastThreeMonths;
-	private String isEmployed;
+	private boolean isEmployed;
 	private List<IncomeInfoItem> incomeInfoList;
 
 	@XmlElement(name = "pastThreeMonths")
@@ -23,11 +23,11 @@ public class IncomeInfo {
 	}
 
 	@XmlElement
-	public String getIsEmployed() {
+	public boolean getIsEmployed() {
 		return isEmployed;
 	}
 
-	public void setIsEmployed(String isEmployed) {
+	public void setIsEmployed(boolean isEmployed) {
 		this.isEmployed = isEmployed;
 	}
 

@@ -5,6 +5,7 @@ import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.Address;
 import gov.nv.dwss.medicaid.application.web.model.AuthorizedRep;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.List;
@@ -60,7 +61,7 @@ public class AuthorizedRepDetailServlet extends HttpServlet {
 				(!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
 		
 		AuthorizedRep authorizedRep = (index >= 0 ? repList.get(index) : new AuthorizedRep());
-		authorizedRep.setDoYouAgree(request.getParameter("doYouAgree"));
+		authorizedRep.setDoYouAgree(FormatHelpers.formatBool(request.getParameter("doYouAgree")));
 		authorizedRep.setRepName(request.getParameter("repName"));
 		authorizedRep.setRepPhone(request.getParameter("repPhone"));
 		

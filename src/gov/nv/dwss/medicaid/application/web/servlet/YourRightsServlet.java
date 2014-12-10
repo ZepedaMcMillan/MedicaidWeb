@@ -3,6 +3,7 @@ package gov.nv.dwss.medicaid.application.web.servlet;
 import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 
@@ -46,7 +47,7 @@ public class YourRightsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();		
-		otherInfo.setRegisteredToVote(request.getParameter("registeredToVote"));
+		otherInfo.setAgreeRights(FormatHelpers.formatBool(request.getParameter("agreeRights")));
 		otherInfoBean.updateOtherInfo(otherInfo);
 
 		response.sendRedirect("YourResponsibilities");	

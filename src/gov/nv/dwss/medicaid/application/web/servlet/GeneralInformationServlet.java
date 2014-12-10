@@ -80,17 +80,17 @@ public class GeneralInformationServlet extends HttpServlet {
 		}
 		
 		generalInfo.setMaritalStatus(request.getParameter("maritalStatus"));
-		generalInfo.setLivesWithSpouse(request.getParameter("livesWithSpouse"));
+		generalInfo.setLivesWithSpouse(FormatHelpers.formatBool(request.getParameter("livesWithSpouse")));
 		generalInfo.setSsn(request.getParameter("ssn"));
-		generalInfo.setIsPregnant(request.getParameter("isPregnant"));
+		generalInfo.setIsPregnant(FormatHelpers.formatBool(request.getParameter("isPregnant")));
 		Date pregnancyDate = FormatHelpers.formatDate(request.getParameter("pregnancyDueDate"));
 		generalInfo.setPregnancyDueDate(pregnancyDate);
-		generalInfo.setNumberOfBabies(request.getParameter("numberOfBabies"));		
+		generalInfo.setNumberOfBabies(FormatHelpers.formatNumber(request.getParameter("numberOfBabies")));		
 		memberInfo.setGeneralInfo(generalInfo);
 		
-		otherAssistance.setIsDisabledBlind(request.getParameter("isDisabledBlind"));
-		otherAssistance.setHasSSI(request.getParameter("hasSSI"));
-		otherAssistance.setNeedsDailyAssistance(request.getParameter("needsDailyAssistance"));
+		otherAssistance.setIsDisabledBlind(FormatHelpers.formatBool(request.getParameter("isDisabledBlind")));
+		otherAssistance.setHasSSI(FormatHelpers.formatBool(request.getParameter("hasSSI")));
+		otherAssistance.setNeedsDailyAssistance(FormatHelpers.formatBool(request.getParameter("needsDailyAssistance")));
 		memberInfo.setOtherAssistance(otherAssistance);
 		
 		memberList.set(index, memberInfo);

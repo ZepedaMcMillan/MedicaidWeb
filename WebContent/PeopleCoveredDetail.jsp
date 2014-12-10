@@ -21,13 +21,13 @@
 					<td width="60%" valign="middle" class="label-bg">What is the dependents name? <span>*</span>
 					</td>
 					<td width="40%" valign="middle" class="field-bg">
-						<input name="firstName" type="text" class="width120" id="firstName" maxlength="50" value="${info.firstName}" required /><br />
-						<div class="small-label">First<span>*</span></div> 
+						<input name="firstName" type="text" class="width120" id="firstName" maxlength="50" value="${info.firstName}" /><br />
+						<div class="small-label">First</div> 
 						<label for="textfield"></label> 
 						<input name="middleName" type="text" class="width120" id="middleName" value="${info.middleName}" maxlength="50" /><br />
 						<div class="small-label">Middle</div> 
-						<input name="lastName" type="text" class="width120" id="lastName" value="${info.middleName}" maxlength="50" required /><br />
-						<div class="small-label">Last<span>*</span></div> 
+						<input name="lastName" type="text" class="width120" id="lastName" value="${info.middleName}" maxlength="50" /><br />
+						<div class="small-label">Last</div> 
 					</td>
 				</tr>
 				<tr>

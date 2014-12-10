@@ -6,6 +6,7 @@ import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.model.IncomeInfo;
 import gov.nv.dwss.medicaid.application.web.model.IncomeInfoItem;
 import gov.nv.dwss.medicaid.application.web.model.MemberInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class MemberIncomeServlet extends HttpServlet {
 		
 		MemberInfo memberInfo = memberList.get(index);
 		IncomeInfo incomeInfo = (memberInfo.getIncomeInfo() != null ? memberInfo.getIncomeInfo() : new IncomeInfo());
-		incomeInfo.setIsEmployed(request.getParameter("isEmployed"));
+		incomeInfo.setIsEmployed(FormatHelpers.formatBool(request.getParameter("isEmployed")));
 		incomeInfo.setPastThreeMonths(request.getParameterValues("pastThreeMonths"));
 		
 		if(request.getParameter("customAction").equalsIgnoreCase("update")) {

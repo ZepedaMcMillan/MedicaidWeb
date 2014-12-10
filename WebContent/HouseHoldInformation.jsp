@@ -43,68 +43,6 @@
 		});	
 	  
   });
-  /*$(function() {
-    var dialog, form,
-    	firstName = $("#memberFirstName"),
-    	middleName = $("#memberMiddleName"),
-    	lastName = $("#memberLastName"),
-    	gender = $('input:radio[name=memberGender]:checked'),
-    	relationship = $("#memberRelationship"),
-    	birthDate = $('#memberBirthDate'),
- 
-    function addUser() {
- 		var generalInfo = new Object();
- 		generalInfo.firstName = firstName.val();
- 		generalInfo.middleName = middleName.val();
- 		generalInfo.lastName = lastName.val();
- 		generalInfo.gender = $('input:radio[name=memberGender]:checked').val();
- 		generalInfo.relationship = relationship.val();
- 		generalInfo.birthDate = birthDate.val();
- 		
- 		$.ajax({
-	        url: "editMember",
-	        type: 'POST',
-	        dataType: 'json',
-	        data: JSON.stringify(generalInfo),
-	        contentType: 'application/json',
-	        mimeType: 'application/json',
-	 
-	        success: function () {
-	        	dialog.dialog( "close" );
-	        	$('#customAction').val('update')
-	        	hhForm.submit();
-	        },
-	        error:function(data,status,er) {
-	            alert("error: "+data+" status: "+status+" er:"+er);
-	        }
-	    });
-    }
- 
-    dialog = $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 300,
-      width: 500,
-      modal: true,
-      buttons: {
-        "Add Member": addUser,
-        Cancel: function() {
-          dialog.dialog( "close" );
-        }
-      },
-      close: function() {
-        form[ 0 ].reset();
-      }
-    });
- 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addUser();
-    });
- 
-    $( "#addMemberNames" ).button().on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  });*/
   </script>
 </head>
 <body>
@@ -152,8 +90,8 @@
 					<td valign="middle" class="label-bg">Aside from yourself, are
 						you seeking medical assistance for anyone else in your household?</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button memberGender" name="houseHoldMembers" id="HOHHouseholdMembersY" value="y" onclick="toggleConditionalElement('HOHMemberDetails', true);" ${hh.houseHoldMembers == 'y' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">Yes</label> 
-						<input type="radio" class="radio-button memberGender" name="houseHoldMembers" id="HOHHouseholdMembersN" value="n" onclick="toggleConditionalElement('HOHMemberDetails', false);" ${hh.houseHoldMembers != 'y' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">No</label>				
+						<input type="radio" class="radio-button memberGender" name="houseHoldMembers" id="HOHHouseholdMembersY" value="true" onclick="toggleConditionalElement('HOHMemberDetails', true);" ${hh.houseHoldMembers == 'true' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">Yes</label> 
+						<input type="radio" class="radio-button memberGender" name="houseHoldMembers" id="HOHHouseholdMembersN" value="false" onclick="toggleConditionalElement('HOHMemberDetails', false);" ${hh.houseHoldMembers != 'true' ? 'checked' : ''} /> <label for="HOHHouseholdMembers">No</label>				
 					</td>
 				</tr>
 				<tr>
@@ -161,7 +99,7 @@
 					<td colspan="2" valign="middle" class="field-bg"><input type="text" class="width120" name="self" id="self" value="Self" disabled /></td>
 				</tr>
 			</table>
-			<div id="HOHMemberDetails"  style="display: ${hh.houseHoldMembers != 'y' ? 'none' : ''};">
+			<div id="HOHMemberDetails"  style="display: ${hh.houseHoldMembers != 'true' ? 'none' : ''};">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-container">
 					<tr>
 						<td width="20%" valign="middle" class="label-bg"><input type="button" class="ui-button ui-widget ui-state-default ui-corner-all" id="addMemberNames" value="Add Member"></td>
@@ -200,78 +138,5 @@
 			</jsp:include>
 		</div>
 	</form>
-	
-	<div id="dialog-form" title="Create new user" style="display:none;">
-	  <p class="validateTips">All form fields are required.</p>
-	 
-	  <form>
-	  	<table class="form-container" width="100%" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td width="60%" valign="middle" class="label-bg">What is the member's name? <span>*</span>
-				</td>
-				<td width="40%" valign="middle" class="field-bg">
-					<input name="firstName" type="text" class="width120" id="memberFirstName" maxlength="50" value="" required /><br />
-					<div class="small-label">First<span>*</span></div> 
-					<label for="textfield"></label> 
-					<input name="middleName" type="text" class="width120" id="memberMiddleName" value="" maxlength="50" /><br />
-					<div class="small-label">Middle</div> 
-					<input name="lastName" type="text" class="width120" id="memberLastName" value="" maxlength="50" required /><br />
-					<div class="small-label">Last<span>*</span>
-					</div> 
-				</td>
-			</tr>
-			<tr>
-				<td valign="middle" class="label-bg">What is the member's date of birth? <span>*</span></td>
-				<td colspan="2" valign="middle" class="field-bg">
-					<input class="width120 formatDate" name="memberBirthDate" id="memberBirthDate" value="" required />
-				</td>
-			</tr>
-			<tr>
-				<td valign="middle" class="label-bg">What is the member's relationship to you?</td>
-				<td colspan="2" valign="middle" class="field-bg">
-					<select name="memberRelationship" class="width120" id="memberRelationship" required>
-						<option value="SPOUSE">SPOUSE</option>
-						<option value="PARENT OF APPLICANT'S CHILD">PARENT OF APPLICANT'S CHILD</option>
-						<option value="PARENT OF APPLICANT (NATURAL, ADOPTIVE, OR STEP)">PARENT OF APPLICANT (NATURAL, ADOPTIVE, OR STEP)</option>
-						<option value="CHILD">CHILD</option>
-						<option value="GRANDCHILD">GRANDCHILD</option>
-						<option value="NEPHEW OR NIECE">NEPHEW OR NIECE</option>
-						<option value="SIBLING">SIBLING</option>
-						<option value="FIRST OR SECOND COUSIN">FIRST OR SECOND COUSIN</option>
-						<option value="OTHER RELATIVE">OTHER RELATIVE</option>
-						<option value="BOARDER">BOARDER</option>
-						<option value="FRIEND">FRIEND</option>
-						<option value="UNBORN">UNBORN</option>
-						<option value="FOOD STAMP ATTENDANT ONLY">FOOD STAMP ATTENDANT ONLY</option>
-						<option value="STEP CHILD">STEP CHILD</option>
-						<option value="STEP GRANDCHILD">STEP GRANDCHILD</option>
-						<option value="STEP NEPHEW OR NIECE">STEP NEPHEW OR NIECE</option>
-						<option value="STEP BROTHER OR SISTER">STEP BROTHER OR SISTER</option>
-						<option value="OTHER SPECIFIED ADULT RELATIVE">OTHER SPECIFIED ADULT RELATIVE</option>
-						<option value="FOSTER CHILD">FOSTER CHILD</option>
-						<option value="REQUIRED MEMBER NOT RELATED TO HOH">REQUIRED MEMBER NOT RELATED TO HOH</option>
-						<option value="CHILD UNRELATED TO APPLICANT"">CHILD UNRELATED TO APPLICANT"</option>
-						<option value="UNBORN BUT NOT OF HOH">UNBORN BUT NOT OF HOH</option>
-						<option value="STEP PARENT">STEP PARENT</option>
-						<option value="DOMESTIC PARTNER">DOMESTIC PARTNER</option>
-					</select>
-					<div class="small-label">Relationship<span>*</span></div>
-				</td>
-			</tr>
-			<tr>
-				<td valign="middle" class="label-bg">What is the member's gender?</td>
-				<td colspan="2" valign="middle" class="field-bg">
-					<input type="radio" class="radio-button" name="memberGender" id="memberGenderMale" value="Male" checked /> <label for="memberGender">Male</label> 
-					<input type="radio" class="radio-button" name="memberGender" id="memberGenderFemale" value="Female"  /> <label for="memberGender">Female</label>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-				</td>
-			</tr>
-		</table>
-	  </form>
-	</div>
 </body>
 </html>

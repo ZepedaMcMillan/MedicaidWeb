@@ -47,9 +47,9 @@
 						from the above-mentioned data sources.</p>
 					</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="agreePrivacy" id="agreePrivacyY" value="y" ${info.agreePrivacy == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreePrivacy" id="agreePrivacyY" value="true" ${info.agreePrivacy == 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Agree:</b> During the telephone application process, you accepted and agreed to the above terms</label><br/><br />
-						<input type="radio" class="radio-button" name="agreePrivacy" id="agreePrivacyN" value="n" ${info.agreePrivacy != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="agreePrivacy" id="agreePrivacyN" value="false" ${info.agreePrivacy != 'true' ? 'checked' : ''} /> 
 						<label for="radio5"><b>Disagree:</b> During the telephone application process, you refused and disagreed to the above terms</label>
 					</td>
 				</tr>

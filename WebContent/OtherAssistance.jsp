@@ -34,14 +34,14 @@
 									health insurance premiums (Advanced Premium Tax Credit - APTC)?
 								</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="applyingForOther" id="mainRadioY" value="y" onclick="toggleConditionalElement('OtherAssistanceYesTable', true);" ${otherAssistance.applyingForOther == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="applyingForOther" id="mainRadioY" value="true" onclick="toggleConditionalElement('OtherAssistanceYesTable', true);" ${otherAssistance.applyingForOther == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="applyingForOther" id="mainRadioN" value="n" onclick="toggleConditionalElement('OtherAssistanceYesTable', false);" ${otherAssistance.applyingForOther != 'y' ? 'checked' : ''} />
+									<input type="radio" class="radio-button" name="applyingForOther" id="mainRadioN" value="false" onclick="toggleConditionalElement('OtherAssistanceYesTable', false);" ${otherAssistance.applyingForOther != 'true' ? 'checked' : ''} />
 									<label for="radio5">No</label>
 								</td>
 							</tr>
 						</table>
-						<table class="form-container" style="display: ${otherAssistance.applyingForOther != 'y' ? 'none' : ''};" width="100%" border="0" cellspacing="0" cellpadding="0" id="OtherAssistanceYesTable">
+						<table class="form-container" style="display: ${otherAssistance.applyingForOther != 'true' ? 'none' : ''};" width="100%" border="0" cellspacing="0" cellpadding="0" id="OtherAssistanceYesTable">
 							<tr>
 								<td valign="middle" class="label-bg">What is your SSN?</td>
 								<td valign="middle" class="field-bg">
@@ -53,18 +53,18 @@
 								<td width="60%" valign="middle" class="label-bg">If you are a child, under the age of 19, do you have access to public
 									employee coverage?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="hasPublicEmployeeCoverage" id="underAgeY" ${otherAssistance.hasPublicEmployeeCoverage == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="hasPublicEmployeeCoverage" id="underAgeY" ${otherAssistance.hasPublicEmployeeCoverage == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="hasPublicEmployeeCoverage" id="underAgeN" ${otherAssistance.hasPublicEmployeeCoverage != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="hasPublicEmployeeCoverage" id="underAgeN" ${otherAssistance.hasPublicEmployeeCoverage != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
 							<tr style="display:" id="mainSection2">
 								<td width="50%" valign="middle" class="label-bg">Are you a US citizen?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isUSCitizen" id="USCitizenY" value="y" onclick="toggleConditionalElement('USCitizenNo', false)" ${otherAssistance.isUSCitizen != 'n' ? 'checked' : ''} />
+									<input type="radio" class="radio-button" name="isUSCitizen" id="USCitizenY" value="true" onclick="toggleConditionalElement('USCitizenNo', false)" ${otherAssistance.isUSCitizen != 'false' ? 'checked' : ''} />
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="isUSCitizen" id="USCitizenN" value="n" onclick="toggleConditionalElement('USCitizenNo', true)" ${otherAssistance.isUSCitizen == 'n' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isUSCitizen" id="USCitizenN" value="false" onclick="toggleConditionalElement('USCitizenNo', true)" ${otherAssistance.isUSCitizen == 'false' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
@@ -72,31 +72,31 @@
 							<tr>
 								<td width="60%" valign="middle" class="label-bg">Have you lived in the US since 1996?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" value='y' name="livedSince1996" id="lived1996Y" ${otherAssistance.livedSince1996 == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" value='y' name="livedSince1996" id="lived1996Y" ${otherAssistance.livedSince1996 == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" value="n" name="livedSince1996" id="lived1996N" ${otherAssistance.livedSince1996 != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" value="false" name="livedSince1996" id="lived1996N" ${otherAssistance.livedSince1996 != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
 
-							<tr style="display: ${otherAssistance.isUSCitizen != 'n' ? 'none' : ''};" id="USCitizenNo">
+							<tr style="display: ${otherAssistance.isUSCitizen != 'false' ? 'none' : ''};" id="USCitizenNo">
 								<td width="60%" valign="middle" class="label-bg">Do you
 									have eligible immigration status?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="hasEligibleImmigration" id="immigrationStatusY" value="y" onclick="toggleConditionalElement('ImmigrationStatusYes1,ImmigrationStatusYes2', true);" ${otherAssistance.hasEligibleImmigration == 'y' ? 'checked' : ''} />
+									<input type="radio" class="radio-button" name="hasEligibleImmigration" id="immigrationStatusY" value="true" onclick="toggleConditionalElement('ImmigrationStatusYes1,ImmigrationStatusYes2', true);" ${otherAssistance.hasEligibleImmigration == 'true' ? 'checked' : ''} />
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="hasEligibleImmigration" id="immigrationStatusN" value="n" onclick="toggleConditionalElement('ImmigrationStatusYes1,ImmigrationStatusYes2', false);" ${otherAssistance.hasEligibleImmigration != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="hasEligibleImmigration" id="immigrationStatusN" value="false" onclick="toggleConditionalElement('ImmigrationStatusYes1,ImmigrationStatusYes2', false);" ${otherAssistance.hasEligibleImmigration != 'true' ? 'checked' : ''} /> 
 								<label for="radio5">No</label>
 							</td>
 							</tr>
 
-							<tr style="display: ${otherAssistance.hasEligibleImmigration != 'n' ? 'none' : ''};" id="ImmigrationStatusYes1">
+							<tr style="display: ${otherAssistance.hasEligibleImmigration != 'false' ? 'none' : ''};" id="ImmigrationStatusYes1">
 								<td valign="middle" class="label-bg">What is your
 									immigration type?</td>
 								<td valign="middle" class="field-bg">
 									<input type="text" name="immigrationType" class="width120" id="immigrationType" value="${otherAssistance.immigrationType}" /></td>
 							</tr>
-							<tr style="display: ${otherAssistance.hasEligibleImmigration != 'n' ? 'none' : ''};" id="ImmigrationStatusYes2">
+							<tr style="display: ${otherAssistance.hasEligibleImmigration != 'false' ? 'none' : ''};" id="ImmigrationStatusYes2">
 								<td valign="middle" class="label-bg">What is your
 									immigration ID number?</td>
 								<td valign="middle" class="field-bg">
@@ -108,18 +108,18 @@
 									minor) an honorably discharged veteran or active duty member of
 									the military?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isVeteran" id="veteranY" value="y" ${otherAssistance.isVeteran == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isVeteran" id="veteranY" value="true" ${otherAssistance.isVeteran == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="isVeteran" id="veteranN" value="n" ${otherAssistance.isVeteran != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isVeteran" id="veteranN" value="false" ${otherAssistance.isVeteran != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
 							<tr style="display:" id="mainSection4">
 								<td width="50%" valign="middle" class="label-bg">Are you a full time student?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" value="y" name="isStudent" id="ftStudentY" ${otherAssistance.isStudent == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" value="true" name="isStudent" id="ftStudentY" ${otherAssistance.isStudent == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" value="n" name="isStudent" id="ftStudentN" ${otherAssistance.isStudent != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" value="false" name="isStudent" id="ftStudentN" ${otherAssistance.isStudent != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
@@ -127,13 +127,13 @@
 							<tr style="display:" id="mainSection5">
 								<td width="50%" valign="middle" class="label-bg">Are you an American Indian or Alaskan Native?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isNative" id="AMorAlY" value="y" onclick="toggleConditionalElement('nativeY', true);" ${otherAssistance.isNative == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isNative" id="AMorAlY" value="true" onclick="toggleConditionalElement('nativeY', true);" ${otherAssistance.isNative == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label>
-									<input type="radio" class="radio-button" name="isNative" id="AMorAlN" value="n" onclick="toggleConditionalElement('nativeY', false);" ${otherAssistance.isNative != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isNative" id="AMorAlN" value="false" onclick="toggleConditionalElement('nativeY', false);" ${otherAssistance.isNative != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label></td>
 							</tr>
 
-							<tr style="display: ${otherAssistance.isNative != 'y' ? 'none' : ''}" id="nativeY">
+							<tr style="display: ${otherAssistance.isNative != 'true' ? 'none' : ''}" id="nativeY">
 								<td valign="middle" class="label-bg">What is your tribe?</td>
 								<td valign="middle" class="field-bg"><input type="text" name="tribe" class="width120" id="tribe" value="${otherAssistance.tribe}" /></td>
 							</tr>
@@ -142,13 +142,13 @@
 								<td width="50%" valign="middle" class="label-bg">If under
 									age 26, have you ever been in foster care?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="beenInFosterCare" id="fosterCareY" value="y" onclick="toggleConditionalElement('fosterCareYes1,fosterCareYes2,fosterCareYes3', true);" ${otherAssistance.beenInFosterCare == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="beenInFosterCare" id="fosterCareY" value="true" onclick="toggleConditionalElement('fosterCareYes1,fosterCareYes2,fosterCareYes3', true);" ${otherAssistance.beenInFosterCare == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="beenInFosterCare" id="fosterCareN" value="n" onclick="toggleConditionalElement('fosterCareYes1,fosterCareYes2,fosterCareYes3', false);" ${otherAssistance.beenInFosterCare != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="beenInFosterCare" id="fosterCareN" value="false" onclick="toggleConditionalElement('fosterCareYes1,fosterCareYes2,fosterCareYes3', false);" ${otherAssistance.beenInFosterCare != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
-							<tr style="display:${otherAssistance.beenInFosterCare != 'y' ? 'none' : ''}" id="fosterCareYes1">
+							<tr style="display:${otherAssistance.beenInFosterCare != 'true' ? 'none' : ''}" id="fosterCareYes1">
 								<td valign="middle" class="label-bg">Which US state?</td>
 								<td valign="middle" class="field-bg">
 									<input type="hidden" id="stateFosterHidden" name="stateFosterHidden" data-id="stateFosterCare" value="${otherAssistance.stateFosterCare}" />
@@ -206,19 +206,19 @@
 										<option value="WY">Wyoming</option>
 								</select></td>
 							</tr>
-							<tr style="display:${otherAssistance.beenInFosterCare != 'y' ? 'none' : ''};" id="fosterCareYes2">
+							<tr style="display:${otherAssistance.beenInFosterCare != 'true' ? 'none' : ''};" id="fosterCareYes2">
 								<td valign="middle" class="label-bg">Age when you left the
 									program?</td>
 								<td valign="middle" class="field-bg"><input type="text"
 									name="ageWhenLeft" class="width40" id="ageWhenLeft" value="${otherAssistance.ageWhenLeft}" /></td>
 							</tr>
-							<tr style="display:${otherAssistance.beenInFosterCare != 'y' ? 'none' : ''};" id="fosterCareYes3">
+							<tr style="display:${otherAssistance.beenInFosterCare != 'true' ? 'none' : ''};" id="fosterCareYes3">
 								<td width="50%" valign="middle" class="label-bg">Did you
 									receive health care through a state Medicaid program?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="receivedHealthcare" id="healthCarethroughStateY" value="y" ${otherAssistance.receivedHealthcare == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="receivedHealthcare" id="healthCarethroughStateY" value="true" ${otherAssistance.receivedHealthcare == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label>
-									<input type="radio" class="radio-button" name="receivedHealthcare" id="healthCarethroughStateN" value="n" ${otherAssistance.receivedHealthcare != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="receivedHealthcare" id="healthCarethroughStateN" value="false" ${otherAssistance.receivedHealthcare != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
@@ -228,13 +228,13 @@
 									the parent or primary caretaker relative of any child(ren),
 									under the age of 19, in the household?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isPrimaryCareTaker" id="careTakerY" value="y" onclick="toggleConditionalElement('careTakerYes', true);" ${otherAssistance.isPrimaryCareTaker == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isPrimaryCareTaker" id="careTakerY" value="true" onclick="toggleConditionalElement('careTakerYes', true);" ${otherAssistance.isPrimaryCareTaker == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="isPrimaryCareTaker" id="careTakerN" value="n" onclick="toggleConditionalElement('careTakerYes', false);" ${otherAssistance.isPrimaryCareTaker != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isPrimaryCareTaker" id="careTakerN" value="false" onclick="toggleConditionalElement('careTakerYes', false);" ${otherAssistance.isPrimaryCareTaker != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
-							<tr style="display:${otherAssistance.isPrimaryCareTaker != 'y' ? 'none' : ''};" id="careTakerYes">
+							<tr style="display:${otherAssistance.isPrimaryCareTaker != 'true' ? 'none' : ''};" id="careTakerYes">
 								<td valign="middle" class="label-bg">Who?</td>
 								<td valign="middle" class="field-bg">
 									<input type="text" name="childCare" id="childCare" value="${otherAssistance.childCare}" /></td>
@@ -245,13 +245,13 @@
 									have medical bills for the past three months that you need help
 									with?</td>
 								<td width="50%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="hasPastMedicalBills" id="medBillsY" value="y" onclick="toggleConditionalElement('medBillsYes', true);" ${otherAssistance.hasPastMedicalBills == 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="hasPastMedicalBills" id="medBillsY" value="true" onclick="toggleConditionalElement('medBillsYes', true);" ${otherAssistance.hasPastMedicalBills == 'true' ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="hasPastMedicalBills" id="medBillsN" value="n" onclick="toggleConditionalElement('medBillsYes', true);" ${otherAssistance.hasPastMedicalBills != 'y' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="hasPastMedicalBills" id="medBillsN" value="false" onclick="toggleConditionalElement('medBillsYes', true);" ${otherAssistance.hasPastMedicalBills != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
-							<tr style="display:${otherAssistance.hasPastMedicalBills != 'y' ? 'none' : ''};" id="medBillsYes">
+							<tr style="display:${otherAssistance.hasPastMedicalBills != 'true' ? 'none' : ''};" id="medBillsYes">
 								<td valign="middle" class="label-bg">What Months?</td>
 								<td valign="middle" class="field-bg">
 									<input type="text" name="billMonths" class="width120" id="billMonths" value="${otherAssistance.billMonths}" /></td>

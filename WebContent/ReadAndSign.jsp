@@ -19,28 +19,28 @@
 				cellpadding="0">
 				<tr>
 					<td valign="middle" class="label-bg" width="60%">
-						<p><input type="checkbox" class="radio-button" name="understand" id="understand" value="y" ${info.understand != 'y' ? '' : 'checked'} />
+						<p><input type="checkbox" class="radio-button" name="understand" id="understand" value="true" ${info.understand != 'true' ? '' : 'checked'} />
 						<label for="understand">I understand the information on this application was provided over
 						the phone to an employee of the Division of Welfare and Supportive
 						Services (DWSS). I am responsible for reviewing the information on
 						this document and verifying the information is accurate. If I find
 						a discrepancy, I will notify DWSS immediately.</label></p>
 
-						<p><input type="checkbox" class="radio-button" name="verballySigning" id="verballySigning" value="y" ${info.verballySigning != 'y' ? '' : 'checked'} />
+						<p><input type="checkbox" class="radio-button" name="verballySigning" id="verballySigning" value="true" ${info.verballySigning != 'true' ? '' : 'checked'} />
 						<label for="verballySigning">I'm verbally signing this application under penalty of perjury, which 
 						means I've provided true answers to all of the questions to the best of my knowledge. 
 						I know that I may be subject to penalties under federal law if I intentionally provide 
 						false or untrue information.</label></p>
 
-						<p><input type="checkbox" class="radio-button" name="swear" id="swear" value="y" ${info.swear != 'y' ? '' : 'checked'} />
+						<p><input type="checkbox" class="radio-button" name="swear" id="swear" value="true" ${info.swear != 'true' ? '' : 'checked'} />
 						<label for="swear">I swear I have honestly reported the citizenship status of myself and anyone I am
 						applying for.</label></p>
 					</td>
 					<td valign="middle" class="field-bg" width="40%">
-						<input type="radio" class="radio-button" name="agreeReadSign" id="agreeReadSignY" value="y" ${info.agreeReadSign == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeReadSign" id="agreeReadSignY" value="true" ${info.agreeReadSign == 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Agree:</b> During the telephone application process, you accepted and agreed
 							to the above terms</label><br /><br />
-						<input type="radio" class="radio-button" name="agreeReadSign" id="agreeReadSignN" value="n" ${info.agreeReadSign != 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeReadSign" id="agreeReadSignN" value="false" ${info.agreeReadSign != 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Disagree: </b> During the telephone application process, you refused and disagreed to the above terms</label>
 					</td>
 				</tr>

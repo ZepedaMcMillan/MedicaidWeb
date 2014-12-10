@@ -5,17 +5,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "income")
 public class OtherIncomeItem {
-	private String amount;
+	private float amount;
 	private String frequency;
-	private String isTribal;
+	private boolean isTribal;
 	private String otherIncomeType;
 
 	@XmlElement
-	public String getAmount() {
+	public float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 
@@ -29,11 +29,11 @@ public class OtherIncomeItem {
 	}
 
 	@XmlElement
-	public String getIsTribal() {
+	public boolean getIsTribal() {
 		return isTribal;
 	}
 
-	public void setIsTribal(String isTribal) {
+	public void setIsTribal(boolean isTribal) {
 		this.isTribal = isTribal;
 	}
 
@@ -46,14 +46,5 @@ public class OtherIncomeItem {
 		this.otherIncomeType = otherIncomeType;
 	}
 
-	public OtherIncomeItem() {
-	}
-
-	public OtherIncomeItem(String amount, String frequency, String isTribal,
-			String otherIncomeType) {
-		this.amount = amount;
-		this.frequency = frequency;
-		this.isTribal = isTribal;
-		this.otherIncomeType = otherIncomeType;
-	}
+	public OtherIncomeItem() { }
 }

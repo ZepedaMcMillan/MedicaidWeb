@@ -3,6 +3,7 @@ package gov.nv.dwss.medicaid.application.web.servlet;
 import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 
@@ -46,7 +47,7 @@ public class ReleaseOfInformationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();		
-		otherInfo.setAgreeResp(request.getParameter("agreeResp"));
+		otherInfo.setAgreeInfoRelease(FormatHelpers.formatBool(request.getParameter("agreeInfoRelease")));
 		otherInfoBean.updateOtherInfo(otherInfo);
 
 		response.sendRedirect("ChildSupport");	

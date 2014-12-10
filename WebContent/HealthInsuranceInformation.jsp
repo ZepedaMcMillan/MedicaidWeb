@@ -57,13 +57,13 @@
 				<tr>
 					<td width="60%" valign="middle" class="label-bg">Is anyone offered health coverage from a job?</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="hasHealthCoverage" id="healthCoverageFromJobY" value="y" onclick="toggleConditionalElement('healthCoverageFromJobYRow', true)" ${info.hasHealthCoverage == 'y' ? 'checked' : '' } /> 
+						<input type="radio" class="radio-button" name="hasHealthCoverage" id="healthCoverageFromJobY" value="true" onclick="toggleConditionalElement('healthCoverageFromJobYRow', true)" ${info.hasHealthCoverage == 'true' ? 'checked' : '' } /> 
 						<label for="healthCoverageFromJob">Yes</label> 
-						<input type="radio" class="radio-button" name="hasHealthCoverage" id="healthCoverageFromJobN" value="n" onclick="toggleConditionalElement('healthCoverageFromJobYRow', false)" ${info.hasHealthCoverage != 'y' ? 'checked' : '' } /> 
+						<input type="radio" class="radio-button" name="hasHealthCoverage" id="healthCoverageFromJobN" value="false" onclick="toggleConditionalElement('healthCoverageFromJobYRow', false)" ${info.hasHealthCoverage != 'true' ? 'checked' : '' } /> 
 						<label for="healthCoverageFromJob">No</label></td>
 				</tr>
 			</table>
-			<div id="healthCoverageFromJobYRow"  style="display: ${info.hasHealthCoverage != 'y' ? 'none' : ''};">
+			<div id="healthCoverageFromJobYRow"  style="display: ${info.hasHealthCoverage != 'true' ? 'none' : ''};">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-container">
 					<tr>
 						<td width="20%" valign="middle" class="label-bg">

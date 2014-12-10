@@ -3,6 +3,7 @@ package gov.nv.dwss.medicaid.application.web.servlet;
 import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 
@@ -46,7 +47,7 @@ public class PrivacyPolicyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();		
-		otherInfo.setAgreePrivacy(request.getParameter("agreePrivacy"));
+		otherInfo.setAgreePrivacy(FormatHelpers.formatBool(request.getParameter("agreePrivacy")));
 		otherInfoBean.updateOtherInfo(otherInfo);
 
 		response.sendRedirect("HealthPlan");			

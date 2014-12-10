@@ -8,12 +8,12 @@ public class IncomeInfoItem {
 	private Address employerAddress;
 	private String employerName;
 	private String employerPhone;
-	private String isSelfEmployed;
-	private String monthlyNetIncome;
+	private boolean isSelfEmployed;
+	private float monthlyNetIncome;
 	private String payFrequency;
 	private String typeOfWork;
-	private String wagesPerPayPeriod;
-	private String weekHoursWorked;
+	private float wagesPerPayPeriod;
+	private int weekHoursWorked;
 
 	@XmlElement
 	public Address getEmployerAddress() {
@@ -43,20 +43,20 @@ public class IncomeInfoItem {
 	}
 
 	@XmlElement
-	public String getIsSelfEmployed() {
+	public boolean getIsSelfEmployed() {
 		return isSelfEmployed;
 	}
 
-	public void setIsSelfEmployed(String isSelfEmployed) {
+	public void setIsSelfEmployed(boolean isSelfEmployed) {
 		this.isSelfEmployed = isSelfEmployed;
 	}
 
 	@XmlElement
-	public String getMonthlyNetIncome() {
+	public float getMonthlyNetIncome() {
 		return monthlyNetIncome;
 	}
 
-	public void setMonthlyNetIncome(String monthlyNetIncome) {
+	public void setMonthlyNetIncome(float monthlyNetIncome) {
 		this.monthlyNetIncome = monthlyNetIncome;
 	}
 
@@ -79,39 +79,23 @@ public class IncomeInfoItem {
 	}
 
 	@XmlElement
-	public String getWagesPerPayPeriod() {
+	public float getWagesPerPayPeriod() {
 		return wagesPerPayPeriod;
 	}
 
-	public void setWagesPerPayPeriod(String wagesPerPayPeriod) {
+	public void setWagesPerPayPeriod(float wagesPerPayPeriod) {
 		this.wagesPerPayPeriod = wagesPerPayPeriod;
 	}
 
 	@XmlElement
-	public String getWeekHoursWorked() {
+	public int getWeekHoursWorked() {
 		return weekHoursWorked;
 	}
 
-	public void setWeekHoursWorked(String weekHoursWorked) {
+	public void setWeekHoursWorked(int weekHoursWorked) {
 		this.weekHoursWorked = weekHoursWorked;
 	}
 
 	public IncomeInfoItem() {
-	}
-
-	public IncomeInfoItem(Address employerAddress, String employerName,
-			String employerPhone, String isSelfEmployed,
-			String monthlyNetIncome, String payFrequency, String typeOfWork,
-			String wagesPerPayPeriod, String weekHoursWorked) {
-		super();
-		this.employerAddress = employerAddress;
-		this.employerName = employerName;
-		this.employerPhone = employerPhone;
-		this.isSelfEmployed = isSelfEmployed;
-		this.monthlyNetIncome = monthlyNetIncome;
-		this.payFrequency = payFrequency;
-		this.typeOfWork = typeOfWork;
-		this.wagesPerPayPeriod = wagesPerPayPeriod;
-		this.weekHoursWorked = weekHoursWorked;
 	}
 }

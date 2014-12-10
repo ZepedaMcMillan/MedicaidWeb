@@ -11,14 +11,14 @@ public class HouseHoldInfo {
 
 	private ContactInfo contactInfo;
 	private List<MemberInfo> memberInfo;
-	private String houseHoldMembers;
+	private boolean houseHoldMembers;
 
 	@XmlElement
-	public String getHouseHoldMembers() {
+	public boolean getHouseHoldMembers() {
 		return houseHoldMembers;
 	}
 
-	public void setHouseHoldMembers(String houseHoldMembers) {
+	public void setHouseHoldMembers(boolean houseHoldMembers) {
 		this.houseHoldMembers = houseHoldMembers;
 	}
 
@@ -41,13 +41,5 @@ public class HouseHoldInfo {
 		this.memberInfo = memberInfo;
 	}
 
-	public HouseHoldInfo() {
-	}
-
-	public HouseHoldInfo(ContactInfo contactInfo, List<MemberInfo> memberInfo,
-			String houseHoldMembers) {
-		this.contactInfo = contactInfo;
-		this.memberInfo = memberInfo;
-		this.houseHoldMembers = houseHoldMembers;
-	}
+	public HouseHoldInfo() { }
 }

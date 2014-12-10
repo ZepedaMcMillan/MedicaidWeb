@@ -5,15 +5,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "incarceration")
 public class Incarceration {
-	private String dispositionPending;
+	private boolean dispositionPending;
 	private String personName;
 
 	@XmlElement
-	public String getDispositionPending() {
+	public boolean getDispositionPending() {
 		return dispositionPending;
 	}
 
-	public void setDispositionPending(String dispositionPending) {
+	public void setDispositionPending(boolean dispositionPending) {
 		this.dispositionPending = dispositionPending;
 	}
 
@@ -29,7 +29,7 @@ public class Incarceration {
 	public Incarceration() {
 	}
 
-	public Incarceration(String dispositionPending, String personName) {
+	public Incarceration(boolean dispositionPending, String personName) {
 		this.setDispositionPending(dispositionPending);
 		this.personName = personName;
 	}

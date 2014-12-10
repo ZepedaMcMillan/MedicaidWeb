@@ -6,25 +6,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "otherAssistance")
 public class OtherAssistance {
 	private String ageWhenLeft;
-	private String applyingForOther;
-	private String beenInFosterCare;
+	private boolean applyingForOther;
+	private boolean beenInFosterCare;
 	private String billMonths;
 	private String childCare;
-	private String hasEligibleImmigration;
-	private String hasPastMedicalBills;
-	private String hasPublicEmployeeCoverage;
-	private String hasSSI;
+	private boolean hasEligibleImmigration;
+	private boolean hasPastMedicalBills;
+	private boolean hasPublicEmployeeCoverage;
+	private boolean hasSSI;
 	private String immigrationIdNumber;
 	private String immigrationType;
-	private String isDisabledBlind;
-	private String isNative;
-	private String isPrimaryCareTaker;
-	private String isStudent;
-	private String isUSCitizen;
-	private String isVeteran;
-	private String livedSince1996;
-	private String needsDailyAssistance;
-	private String receivedHealthcare;
+	private boolean isDisabledBlind;
+	private boolean isNative;
+	private boolean isPrimaryCareTaker;
+	private boolean isStudent;
+	private boolean isUSCitizen = true;
+	private boolean isVeteran;
+	private boolean livedSince1996;
+	private boolean needsDailyAssistance;
+	private boolean receivedHealthcare;
 	private String ssn;
 	private String stateFosterCare;
 	private String tribe;
@@ -39,20 +39,20 @@ public class OtherAssistance {
 	}
 
 	@XmlElement
-	public String getApplyingForOther() {
+	public boolean getApplyingForOther() {
 		return applyingForOther;
 	}
 
-	public void setApplyingForOther(String applyingForOther) {
+	public void setApplyingForOther(boolean applyingForOther) {
 		this.applyingForOther = applyingForOther;
 	}
 
 	@XmlElement
-	public String getBeenInFosterCare() {
+	public boolean getBeenInFosterCare() {
 		return beenInFosterCare;
 	}
 
-	public void setBeenInFosterCare(String beenInFosterCare) {
+	public void setBeenInFosterCare(boolean beenInFosterCare) {
 		this.beenInFosterCare = beenInFosterCare;
 	}
 
@@ -75,38 +75,38 @@ public class OtherAssistance {
 	}
 
 	@XmlElement
-	public String getHasEligibleImmigration() {
+	public boolean getHasEligibleImmigration() {
 		return hasEligibleImmigration;
 	}
 
-	public void setHasEligibleImmigration(String hasEligibleImmigration) {
+	public void setHasEligibleImmigration(boolean hasEligibleImmigration) {
 		this.hasEligibleImmigration = hasEligibleImmigration;
 	}
 
 	@XmlElement
-	public String getHasPastMedicalBills() {
+	public boolean getHasPastMedicalBills() {
 		return hasPastMedicalBills;
 	}
 
-	public void setHasPastMedicalBills(String hasPastMedicalBills) {
+	public void setHasPastMedicalBills(boolean hasPastMedicalBills) {
 		this.hasPastMedicalBills = hasPastMedicalBills;
 	}
 
 	@XmlElement
-	public String getHasPublicEmployeeCoverage() {
+	public boolean getHasPublicEmployeeCoverage() {
 		return hasPublicEmployeeCoverage;
 	}
 
-	public void setHasPublicEmployeeCoverage(String hasPublicEmployeeCoverage) {
+	public void setHasPublicEmployeeCoverage(boolean hasPublicEmployeeCoverage) {
 		this.hasPublicEmployeeCoverage = hasPublicEmployeeCoverage;
 	}
 
 	@XmlElement
-	public String getHasSSI() {
+	public boolean getHasSSI() {
 		return hasSSI;
 	}
 
-	public void setHasSSI(String hasSSI) {
+	public void setHasSSI(boolean hasSSI) {
 		this.hasSSI = hasSSI;
 	}
 
@@ -129,83 +129,83 @@ public class OtherAssistance {
 	}
 
 	@XmlElement
-	public String getIsDisabledBlind() {
+	public boolean getIsDisabledBlind() {
 		return isDisabledBlind;
 	}
 
-	public void setIsDisabledBlind(String isDisabledBlind) {
+	public void setIsDisabledBlind(boolean isDisabledBlind) {
 		this.isDisabledBlind = isDisabledBlind;
 	}
 
 	@XmlElement
-	public String getIsNative() {
+	public boolean getIsNative() {
 		return isNative;
 	}
 
-	public void setIsNative(String isNative) {
+	public void setIsNative(boolean isNative) {
 		this.isNative = isNative;
 	}
 
 	@XmlElement
-	public String getIsPrimaryCareTaker() {
+	public boolean getIsPrimaryCareTaker() {
 		return isPrimaryCareTaker;
 	}
 
-	public void setIsPrimaryCareTaker(String isPrimaryCareTaker) {
+	public void setIsPrimaryCareTaker(boolean isPrimaryCareTaker) {
 		this.isPrimaryCareTaker = isPrimaryCareTaker;
 	}
 
 	@XmlElement
-	public String getIsStudent() {
+	public boolean getIsStudent() {
 		return isStudent;
 	}
 
-	public void setIsStudent(String isStudent) {
+	public void setIsStudent(boolean isStudent) {
 		this.isStudent = isStudent;
 	}
 
 	@XmlElement
-	public String getIsUSCitizen() {
+	public boolean getIsUSCitizen() {
 		return isUSCitizen;
 	}
 
-	public void setIsUSCitizen(String isUSCitizen) {
+	public void setIsUSCitizen(boolean isUSCitizen) {
 		this.isUSCitizen = isUSCitizen;
 	}
 
 	@XmlElement
-	public String getIsVeteran() {
+	public boolean getIsVeteran() {
 		return isVeteran;
 	}
 
-	public void setIsVeteran(String isVeteran) {
+	public void setIsVeteran(boolean isVeteran) {
 		this.isVeteran = isVeteran;
 	}
 
 	@XmlElement
-	public String getLivedSince1996() {
+	public boolean getLivedSince1996() {
 		return livedSince1996;
 	}
 
-	public void setLivedSince1996(String livedSince1996) {
+	public void setLivedSince1996(boolean livedSince1996) {
 		this.livedSince1996 = livedSince1996;
 	}
 
 	@XmlElement
-	public String getNeedsDailyAssistance() {
+	public boolean getNeedsDailyAssistance() {
 		return needsDailyAssistance;
 	}
 
-	public void setNeedsDailyAssistance(String needsDailyAssistance) {
+	public void setNeedsDailyAssistance(boolean needsDailyAssistance) {
 		this.needsDailyAssistance = needsDailyAssistance;
 	}
 
 	@XmlElement
-	public String getReceivedHealthcare() {
+	public boolean getReceivedHealthcare() {
 		return receivedHealthcare;
 	}
 
-	public void setReceivedHealthcare(String receivedHealthcare) {
+	public void setReceivedHealthcare(boolean receivedHealthcare) {
 		this.receivedHealthcare = receivedHealthcare;
 	}
 
@@ -236,41 +236,5 @@ public class OtherAssistance {
 		this.tribe = tribe;
 	}
 
-	public OtherAssistance() {
-	}
-
-	public OtherAssistance(String ageWhenLeft, String applyingForOther,
-			String beenInFosterCare, String billMonths, String childCare,
-			String hasEligibleImmigration, String hasPastMedicalBills,
-			String hasPublicEmployeeCoverage, String hasSSI,
-			String immigrationIdNumber, String immigrationType,
-			String isDisabledBlind, String isNative, String isPrimaryCareTaker,
-			String isStudent, String isUSCitizen, String isVeteran,
-			String livedSince1996, String needsDailyAssistance,
-			String receivedHealthcare, String ssn, String stateFosterCare,
-			String tribe) {
-		this.ageWhenLeft = ageWhenLeft;
-		this.applyingForOther = applyingForOther;
-		this.beenInFosterCare = beenInFosterCare;
-		this.billMonths = billMonths;
-		this.childCare = childCare;
-		this.hasEligibleImmigration = hasEligibleImmigration;
-		this.hasPastMedicalBills = hasPastMedicalBills;
-		this.hasPublicEmployeeCoverage = hasPublicEmployeeCoverage;
-		this.hasSSI = hasSSI;
-		this.immigrationIdNumber = immigrationIdNumber;
-		this.immigrationType = immigrationType;
-		this.isDisabledBlind = isDisabledBlind;
-		this.isNative = isNative;
-		this.isPrimaryCareTaker = isPrimaryCareTaker;
-		this.isStudent = isStudent;
-		this.isUSCitizen = isUSCitizen;
-		this.isVeteran = isVeteran;
-		this.livedSince1996 = livedSince1996;
-		this.needsDailyAssistance = needsDailyAssistance;
-		this.receivedHealthcare = receivedHealthcare;
-		this.ssn = ssn;
-		this.stateFosterCare = stateFosterCare;
-		this.tribe = tribe;
-	}
+	public OtherAssistance() { }
 }

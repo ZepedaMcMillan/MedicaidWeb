@@ -25,9 +25,9 @@
 				<tr>
 					<td class="label-bg">Is this person pending disposition of charges? </td>
 					<td class="field-bg">
-						<input type="radio" class="radio-button" name="dispositionPending" id="pendingDispY" value="y" ${info.dispositionPending == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="dispositionPending" id="pendingDispY" value="true" ${info.dispositionPending == 'true' ? 'checked' : ''} /> 
 						<label for="radio5">Yes</label> 
-						<input type="radio" class="radio-button" name="dispositionPending" id="pendingDispN" value="n" ${info.dispositionPending != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="dispositionPending" id="pendingDispN" value="false" ${info.dispositionPending != 'true' ? 'checked' : ''} /> 
 						<label for="radio5">No</label>
 					</td>
 				</tr>

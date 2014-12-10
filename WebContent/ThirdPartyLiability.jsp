@@ -34,9 +34,9 @@
 						will give DHHS notice of any settlements or legal action.<p>
 					</td>
 					<td valign="middle" class="field-bg" width="40%">
-						<input type="radio" class="radio-button" name="agreeThirdParty" id="agreeThirdPartyY" value="y" ${info.agreeThirdParty == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeThirdParty" id="agreeThirdPartyY" value="true" ${info.agreeThirdParty == 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Agree: </b> During the telephone application process, you accepted and agreed to the above terms</label><br /><br />
-						<input type="radio" class="radio-button" name="agreeThirdParty" id="agreeThirdPartyN" value="n" ${info.agreeThirdParty != 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeThirdParty" id="agreeThirdPartyN" value="false" ${info.agreeThirdParty != 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Disagree: </b> During the telephone application process, you refused and disagreed to the above terms</label>
 					</td>
 				</tr>

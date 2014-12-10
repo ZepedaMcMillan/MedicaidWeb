@@ -47,6 +47,7 @@ public class ReferralInformationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();		
 		otherInfo.setReferralInfo(request.getParameter("referralInfo"));
+		otherInfo.setOtherReferral(request.getParameter("otherReferral"));
 		otherInfoBean.updateOtherInfo(otherInfo);
 
 		response.sendRedirect("NonDiscrimination");	

@@ -16,9 +16,9 @@ public class GeneralInfo {
 	private String relationship;
 	private String gender;
 	private String maritalStatus;
-	private String livesWithSpouse;
-	private String isPregnant;
-	private String numberOfBabies;
+	private boolean livesWithSpouse;
+	private boolean isPregnant;
+	private int numberOfBabies;
 	private Date pregnancyDueDate;
 	private String ssn;
 
@@ -95,29 +95,29 @@ public class GeneralInfo {
 	}
 
 	@XmlElement
-	public String getLivesWithSpouse() {
+	public boolean getLivesWithSpouse() {
 		return livesWithSpouse;
 	}
 
-	public void setLivesWithSpouse(String livesWithSpouse) {
+	public void setLivesWithSpouse(Boolean livesWithSpouse) {
 		this.livesWithSpouse = livesWithSpouse;
 	}
 
 	@XmlElement
-	public String getIsPregnant() {
+	public boolean getIsPregnant() {
 		return isPregnant;
 	}
 
-	public void setIsPregnant(String isPregnant) {
+	public void setIsPregnant(boolean isPregnant) {
 		this.isPregnant = isPregnant;
 	}
 
 	@XmlElement
-	public String getNumberOfBabies() {
+	public int getNumberOfBabies() {
 		return numberOfBabies;
 	}
 
-	public void setNumberOfBabies(String numberOfBabies) {
+	public void setNumberOfBabies(int numberOfBabies) {
 		this.numberOfBabies = numberOfBabies;
 	}
 
@@ -144,7 +144,7 @@ public class GeneralInfo {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
@@ -153,8 +153,8 @@ public class GeneralInfo {
 
 	public GeneralInfo(Date birthDate, String firstName, String middleName,
 			String lastName, String suffix, String relationship, String gender,
-			String maritalStatus, String livesWithSpouse, String isPregnant,
-			String numberOfBabies, Date pregnancyDueDate, String ssn) {
+			String maritalStatus, boolean livesWithSpouse, boolean isPregnant,
+			int numberOfBabies, Date pregnancyDueDate, String ssn) {
 		this.birthDate = birthDate;
 		this.firstName = firstName;
 		this.middleName = middleName;

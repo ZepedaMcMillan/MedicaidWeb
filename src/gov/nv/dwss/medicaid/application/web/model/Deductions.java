@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Deductions {
 
 	private List<DeductionItem> deductionsList;
-	private String haveDeductions;
+	private boolean haveDeductions;
 
 	@XmlElementWrapper(name="deductionItems")
 	@XmlElement(name = "deductionItem")
@@ -23,18 +23,18 @@ public class Deductions {
 	}
 
 	@XmlElement
-	public String getHaveDeductions() {
+	public boolean getHaveDeductions() {
 		return haveDeductions;
 	}
 
-	public void setHaveDeductions(String haveDeductions) {
+	public void setHaveDeductions(boolean haveDeductions) {
 		this.haveDeductions = haveDeductions;
 	}
 
 	public Deductions() {
 	}
 
-	public Deductions(List<DeductionItem> deductionsList, String haveDeductions) {
+	public Deductions(List<DeductionItem> deductionsList, boolean haveDeductions) {
 		super();
 		this.deductionsList = deductionsList;
 		this.haveDeductions = haveDeductions;

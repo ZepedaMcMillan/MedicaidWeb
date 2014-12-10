@@ -7,6 +7,7 @@ import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.model.IncomeInfo;
 import gov.nv.dwss.medicaid.application.web.model.IncomeInfoItem;
 import gov.nv.dwss.medicaid.application.web.model.MemberInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -78,12 +79,12 @@ public class MemberIncomeDetailServlet extends HttpServlet {
 		IncomeInfoItem incomeInfoItem = (index >= 0 ? incomeList.get(0) : new IncomeInfoItem());
  		incomeInfoItem.setEmployerName(request.getParameter("employerName"));
  		incomeInfoItem.setEmployerPhone(request.getParameter("employerPhone"));
- 		incomeInfoItem.setIsSelfEmployed(request.getParameter("isSelfEmployed"));
- 		incomeInfoItem.setMonthlyNetIncome(request.getParameter("monthlyNetIncome"));
+ 		incomeInfoItem.setIsSelfEmployed(FormatHelpers.formatBool(request.getParameter("isSelfEmployed")));
+ 		incomeInfoItem.setMonthlyNetIncome(FormatHelpers.formatMoney(request.getParameter("monthlyNetIncome")));
  		incomeInfoItem.setPayFrequency(request.getParameter("payFrequency"));
  		incomeInfoItem.setTypeOfWork(request.getParameter("typeOfWork"));
- 		incomeInfoItem.setWeekHoursWorked(request.getParameter("weekHoursWorked"));
- 		incomeInfoItem.setWagesPerPayPeriod(request.getParameter("wagesPerPayPeriod"));
+ 		incomeInfoItem.setWeekHoursWorked(FormatHelpers.formatNumber(request.getParameter("weekHoursWorked")));
+ 		incomeInfoItem.setWagesPerPayPeriod(FormatHelpers.formatMoney(request.getParameter("wagesPerPayPeriod")));
  		
  		Address employerAddress = 
  				(incomeInfoItem.getEmployerAddress() != null ?  incomeInfoItem.getEmployerAddress() : new Address());

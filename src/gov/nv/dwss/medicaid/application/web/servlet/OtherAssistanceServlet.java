@@ -5,6 +5,7 @@ import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.HouseHoldInfo;
 import gov.nv.dwss.medicaid.application.web.model.MemberInfo;
 import gov.nv.dwss.medicaid.application.web.model.OtherAssistance;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.List;
@@ -75,28 +76,28 @@ public class OtherAssistanceServlet extends HttpServlet {
 			otherAssistance = new OtherAssistance();
 		}
 		
-		otherAssistance.setApplyingForOther(request.getParameter("applyingForOther"));
+		otherAssistance.setApplyingForOther(FormatHelpers.formatBool(request.getParameter("applyingForOther")));
 		otherAssistance.setSsn(request.getParameter("ssn"));
-		otherAssistance.setHasPublicEmployeeCoverage(request.getParameter("hasPublicEmployeeCoverage"));
-		otherAssistance.setIsUSCitizen(request.getParameter("isUSCitizen"));
-		otherAssistance.setLivedSince1996(request.getParameter("livedSince1996"));
-		otherAssistance.setHasEligibleImmigration(request.getParameter("hasEligibleImmigration"));
+		otherAssistance.setHasPublicEmployeeCoverage(FormatHelpers.formatBool(request.getParameter("hasPublicEmployeeCoverage")));
+		otherAssistance.setIsUSCitizen(FormatHelpers.formatBool(request.getParameter("isUSCitizen")));
+		otherAssistance.setLivedSince1996(FormatHelpers.formatBool(request.getParameter("livedSince1996")));
+		otherAssistance.setHasEligibleImmigration(FormatHelpers.formatBool(request.getParameter("hasEligibleImmigration")));
 		otherAssistance.setImmigrationType(request.getParameter("immigrationType"));
 		otherAssistance.setImmigrationIdNumber(request.getParameter("immigrationIdNumber"));
-		otherAssistance.setIsVeteran(request.getParameter("isVeteran"));
-		otherAssistance.setIsStudent(request.getParameter("isStudent"));
-		otherAssistance.setIsNative(request.getParameter("isNative"));
+		otherAssistance.setIsVeteran(FormatHelpers.formatBool(request.getParameter("isVeteran")));
+		otherAssistance.setIsStudent(FormatHelpers.formatBool(request.getParameter("isStudent")));
+		otherAssistance.setIsNative(FormatHelpers.formatBool(request.getParameter("isNative")));
 		otherAssistance.setTribe(request.getParameter("tribe"));
-		otherAssistance.setBeenInFosterCare(request.getParameter("beenInFosterCare"));
+		otherAssistance.setBeenInFosterCare(FormatHelpers.formatBool(request.getParameter("beenInFosterCare")));
 		otherAssistance.setStateFosterCare(request.getParameter("stateFosterCare"));
 		otherAssistance.setAgeWhenLeft(request.getParameter("ageWhenLeft"));
-		otherAssistance.setReceivedHealthcare(request.getParameter("receivedHealthcare"));
-		otherAssistance.setIsPrimaryCareTaker(request.getParameter("isPrimaryCareTaker"));
+		otherAssistance.setReceivedHealthcare(FormatHelpers.formatBool(request.getParameter("receivedHealthcare")));
+		otherAssistance.setIsPrimaryCareTaker(FormatHelpers.formatBool(request.getParameter("isPrimaryCareTaker")));
 		otherAssistance.setChildCare(request.getParameter("childCare"));
 		// TODO: implement children list interface for caretaker who
 		// was not implemented in original code
 		
-		otherAssistance.setHasPastMedicalBills(request.getParameter("hasPastMedicalBills"));
+		otherAssistance.setHasPastMedicalBills(FormatHelpers.formatBool(request.getParameter("hasPastMedicalBills")));
 		otherAssistance.setBillMonths(request.getParameter("hasPastMedicalBills"));
 		
 		

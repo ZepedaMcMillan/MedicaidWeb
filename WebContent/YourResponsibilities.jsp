@@ -24,9 +24,9 @@
 						month. I understand that a change in my information could affect
 						my eligibility for member(s) of my household.</td>
 					<td valign="middle" class="field-bg" width="40%">
-						<input type="radio" class="radio-button" name="agreeResp" id="agreeRespY" value="y" ${info.agreeResp == 'y' ? 'checked' : ''}  />
+						<input type="radio" class="radio-button" name="agreeResp" id="agreeRespY" value="true" ${info.agreeResp == 'true' ? 'checked' : ''}  />
 						<label for="radio5"><b>Agree: </b> During the telephone application process, you accepted and agreed to the above terms</label><br /><br />
-						<input type="radio" class="radio-button" name="agreeResp" id="agreeRespN" value="n" ${info.agreeResp != 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeResp" id="agreeRespN" value="false" ${info.agreeResp != 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Disagree: </b> During the telephone application process, you refused and disagreed to the above terms</label>
 					</td>
 				</tr>

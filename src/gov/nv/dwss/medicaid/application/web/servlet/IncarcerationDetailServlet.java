@@ -4,6 +4,7 @@ import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.Incarceration;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.List;
@@ -58,7 +59,7 @@ public class IncarcerationDetailServlet extends HttpServlet {
 				(!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
 		
 		Incarceration incarceration = (index >= 0 ? incarcerationList.get(index) : new Incarceration());
-		incarceration.setDispositionPending(request.getParameter("dispositionPending"));
+		incarceration.setDispositionPending(FormatHelpers.formatBool(request.getParameter("dispositionPending")));
 		incarceration.setPersonName(request.getParameter("personName"));
 		
 		if(index >= 0) {

@@ -110,11 +110,11 @@
 						on all future matters with this agency
 					</td>
 					<td class="field-bg">
-						<input type="radio" class="radio-button" name="doYouAgree" id="agreeAuthRep" ${info.doYouAgree != 'y' ? '' : checked} /> 
+						<input type="radio" class="radio-button" name="doYouAgree" id="agreeAuthRep" value="true" ${info.doYouAgree == 'true' ? '' : checked} /> 
 						<label for="radio5"> <b>Agree:</b> During the telephone application process, you accepted and agreed to
 							the above terms</label><br />
 							<br />					
-						<input type="radio" class="radio-button" name="doYouAgree" id="disAgreeAuthRep" ${info.doYouAgree != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="doYouAgree" id="disAgreeAuthRep" value="false" ${info.doYouAgree != 'true' ? 'checked' : ''} /> 
 						<label for="radio5"> <b>Disagree:</b> During the telephone application process, you
 							refused and disagreed to the above terms</label>
 					</td>

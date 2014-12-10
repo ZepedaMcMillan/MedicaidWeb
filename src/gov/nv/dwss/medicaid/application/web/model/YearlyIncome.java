@@ -5,32 +5,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "yearlyIncome")
 public class YearlyIncome {
-	private String currentAnnualIncome;
-	private String nextAnnualIncome;
+	private float currentAnnualIncome;
+	private float nextAnnualIncome;
 
 	@XmlElement
-	public String getCurrentAnnualIncome() {
+	public float getCurrentAnnualIncome() {
 		return currentAnnualIncome;
 	}
 
-	public void setCurrentAnnualIncome(String currentAnnualIncome) {
+	public void setCurrentAnnualIncome(float currentAnnualIncome) {
 		this.currentAnnualIncome = currentAnnualIncome;
 	}
 
 	@XmlElement
-	public String getNextAnnualIncome() {
+	public float getNextAnnualIncome() {
 		return nextAnnualIncome;
 	}
 
-	public void setNextAnnualIncome(String nextAnnualIncome) {
+	public void setNextAnnualIncome(float nextAnnualIncome) {
 		this.nextAnnualIncome = nextAnnualIncome;
 	}
 
-	public YearlyIncome() {
-	}
-
-	public YearlyIncome(String currentAnnualIncome, String nextAnnualIncome) {
-		this.currentAnnualIncome = currentAnnualIncome;
-		this.nextAnnualIncome = nextAnnualIncome;
-	}
+	public YearlyIncome() { }
 }

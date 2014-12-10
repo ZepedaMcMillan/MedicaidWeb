@@ -40,9 +40,9 @@
 						benefits and be criminally prosecuted or penalized according to
 						state and federal law.</p>
 					<td valign="middle" class="field-bg" width="40%">
-						<input type="radio" class="radio-button" name="agreeReviews" id="agreeReviewsY" value="y" ${info.agreeReviews == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeReviews" id="agreeReviewsY" value="true" ${info.agreeReviews == 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Agree: </b> During the telephone application process, you accepted and agreed to the above terms</label><br /><br />
-						<input type="radio" class="radio-button" name="agreeReviews" id="agreeReviewsN" value="n" ${info.agreeReviews != 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeReviews" id="agreeReviewsN" value="false" ${info.agreeReviews != 'true' ? 'checked' : ''} />
 						<label for="radio5"><b>Disagree: </b> During the telephone application process, you refused and disagreed to the above terms</label>
 					</td>
 				</tr>

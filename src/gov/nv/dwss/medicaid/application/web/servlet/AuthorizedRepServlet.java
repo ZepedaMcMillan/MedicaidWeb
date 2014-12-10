@@ -3,6 +3,7 @@ package gov.nv.dwss.medicaid.application.web.servlet;
 import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 
@@ -44,7 +45,7 @@ public class AuthorizedRepServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();
 		
-		otherInfo.setIsAuthorizedRepNeeded(request.getParameter("isAuthorizedRepNeeded"));
+		otherInfo.setIsAuthorizedRepNeeded(FormatHelpers.formatBool(request.getParameter("isAuthorizedRepNeeded")));
 		otherInfoBean.updateOtherInfo(otherInfo);
 		
 		if(request.getParameter("customAction").equalsIgnoreCase("edit")) {

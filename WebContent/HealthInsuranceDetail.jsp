@@ -44,79 +44,6 @@
 		});
 	});
 </script>
-<script type="text/javascript">
-  /*$(function() {
-    var dialog, form,
-    	firstName = $("#firstName"),
-    	middleName = $("#middleName"),
-    	lastName = $("#lastName"),
-    	coverageDropDate = $('#coverageDropDate'),
-    	eligibilityStartDate = $("#eligibilityStartDate"),
-    	enrollmentStartDate = $('#enrollmentStartDate'),
-    	enrollmentStatus = $('#enrollmentStatus'),
-    	futureChanges = $('#futureChanges'),
-    	mainForm = $("#mainForm");
- 
-    function addItem() {
- 		var peopleCovered = new Object();
- 		peopleCovered.firstName = firstName.val();
- 		peopleCovered.middleName = middleName.val();
- 		peopleCovered.lastName = lastName.val();
- 		peopleCovered.coverageDropDate = coverageDropDate.val();
- 		peopleCovered.eligibilityStartDate = eligibilityStartDate.val();
- 		peopleCovered.enrollmentStartDate = enrollmentStartDate.val();
- 		peopleCovered.enrollmentStatus = enrollmentStatus.val();
- 		peopleCovered.futureChanges = futureChanges.val();
-
- 		$.ajax({
-	        url: "editPeopleCovered?insuranceIndex=" + $('#itemIndex').val(),
-	        type: 'POST',
-	        dataType: 'json',
-	        data: JSON.stringify(peopleCovered),
-	        contentType: 'application/json',
-	        mimeType: 'application/json',
-	 
-	        success: function () {
-	        	dialog.dialog( "close" );
-	        	$('#customAction').val('add')
-	        	var itemIndex = $('#itemIndex');
-	        	if(itemIndex.val() == "-1") {
-	        		itemIndex.val("0");
-	        	}
-	        	mainForm.submit();
-	        },
-	        error:function(data,status,er) {
-	            alert("error: "+data+" status: "+status+" er:"+er);
-	        }
-	    });
-    }
- 
-    dialog = $( "#dialog-form" ).dialog({
-      autoOpen: false,
-      height: 300,
-      width: 500,
-      modal: true,
-      buttons: {
-        "Add Person": addItem,
-        Cancel: function() {
-          dialog.dialog( "close" );
-        }
-      },
-      close: function() {
-        form[ 0 ].reset();
-      }
-    });
- 
-    form = dialog.find( "form" ).on( "submit", function( event ) {
-      event.preventDefault();
-      addItem();
-    });
- 
-    $( "#addPeopleCovered" ).button().on( "click", function() {
-      dialog.dialog( "open" );
-    });
-  });*/
-  </script>
 </head>
 <body>
 	<jsp:include page="template/header.jsp" />
@@ -126,31 +53,30 @@
 		<input type="hidden" name="subIndex" id="subIndex" value="" />
 		<div class="content-bg-big">
 			<div align="left" class="main-heading" style="margin-bottom: 20px">Insurance from jobs</div>
-				<table class="form-container" width="100%" border="0" cellspacing="0"
-					cellpadding="0">
+				<table class="form-container" width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">We need to know about any health coverage you could get through a job.</td>
 						<td valign="middle" class="field-bg">
-							<input type="text" class="width120" name="employeeName" id="employeeName" value="${info.employeeName}" required /><br />
-							<div class="small-label">Employee Name<span>*</span></div> 
-							<input type="text" class="width120 formatSocial" name=employeeSSN id="employeeSSN" value="${info.employeeSSN}" required /><br />
-							<div class="small-label">Employee Social Security Number<span>*</span></div> 
-							<input type="text" class="width120" name=employerName id="employerName" value="${info.employerName}" required /><br />
-							<div class="small-label">Employer Name<span>*</span></div> 
-							<input type="text" class="width120 formatEIN" name=employerEIN id="employerEIN" value="${info.employerEIN}" required /><br />
-							<div class="small-label">Employer Identification Number (EIN)<span>*</span></div> 
-							<input type="text" class="width120 formatPhone" name=employerPhone id="employerPhone" value="${info.employerPhone}" required /><br />
-							<div class="small-label">Employer Phone Number<span>*</span></div> 
+							<input type="text" class="width120" name="employeeName" id="employeeName" value="${info.employeeName}" /><br />
+							<div class="small-label">Employee Name</div> 
+							<input type="text" class="width120 formatSocial" name=employeeSSN id="employeeSSN" value="${info.employeeSSN}" /><br />
+							<div class="small-label">Employee Social Security Number</div> 
+							<input type="text" class="width120" name=employerName id="employerName" value="${info.employerName}" /><br />
+							<div class="small-label">Employer Name</div> 
+							<input type="text" class="width120 formatEIN" name=employerEIN id="employerEIN" value="${info.employerEIN}" /><br />
+							<div class="small-label">Employer Identification Number (EIN)</div> 
+							<input type="text" class="width120 formatPhone" name=employerPhone id="employerPhone" value="${info.employerPhone}" /><br />
+							<div class="small-label">Employer Phone Number</div> 
 					</tr>
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">Employer Address</td>
 						<td valign="middle" class="field-bg">
-							<input type="text" class="width120" name="street" id="street" value="${info.employerAddress.street}" required /><br />
-							<div class="small-label">Street<span>*</span></div>
-							<input type="text" class="width120" name="city" id="city" value="${info.employerAddress.city}" required /><br />
-							<div class="small-label">City<span>*</span></div>
+							<input type="text" class="width120" name="street" id="street" value="${info.employerAddress.street}" /><br />
+							<div class="small-label">Street</div>
+							<input type="text" class="width120" name="city" id="city" value="${info.employerAddress.city}" /><br />
+							<div class="small-label">City</div>
 							<input type="hidden" name="stateHidden" id="stateHidden" data-id="#state" value="${info.employerAddress.state}" />
-							<select name="state" class="width120" id="state" required>
+							<select name="state" class="width120" id="state">
 								<option value="AL">Alabama</option>
 								<option value="AK">Alaska</option>
 								<option value="AZ">Arizona</option>
@@ -204,42 +130,42 @@
 								<option value="WY">Wyoming</option>
 							</select> <br />
 							<div class="small-label">State<span>*</span>
-							<input type="text" class="width40" name="zip" id="zip" value="${info.employerAddress.zip}" required /><br />
-							<div class="small-label">Zip<span>*</span></div> 
+							<input type="text" class="width40" name="zip" id="zip" value="${info.employerAddress.zip}" /><br />
+							<div class="small-label">Zip</div> 
 					</tr>
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">Who can we contact about employee health coverage at this job?</td>
 						<td valign="middle" class="field-bg">
-							<input type="text" class="width120" name="name" id="name" value="${info.jobInsuranceContact.name}" required /><br />
-							<div class="small-label">Contact Name<span>*</span></div> 
-							<input type="text" class="width120 formatPhone" name="phone" id="phone" value="${info.jobInsuranceContact.phone}" required /><br />
-							<div class="small-label">Phone Number<span>*</span></div> 
-							<input type="text" class="width120" name=email id="email" value="${info.jobInsuranceContact.email}" required /><br />
-							<div class="small-label">Email Address<span>*</span></div> 
+							<input type="text" class="width120" name="name" id="name" value="${info.jobInsuranceContact.name}" /><br />
+							<div class="small-label">Contact Name</div> 
+							<input type="text" class="width120 formatPhone" name="phone" id="phone" value="${info.jobInsuranceContact.phone}" /><br />
+							<div class="small-label">Phone Number</div> 
+							<input type="text" class="width120" name=email id="email" value="${info.jobInsuranceContact.email}" /><br />
+							<div class="small-label">Email Address</div> 
 					</tr>
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">Is the employee currently eligible for coverage offered by this employer?</td>
 						<td valign="middle" class="field-bg">
-							<input type="radio" class="radio-button" name="isEligible" id="isEligibleY" value="y" onclick="toggleConditionalElement('isEligibleYRow', true, 'isEligibleYRow')" ${info.isEligible == 'y' ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isEligible" id="isEligibleY" value="true" onclick="toggleConditionalElement('isEligibleYRow', true, 'isEligibleYRow')" ${info.isEligible == 'true' ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">Yes</label> 
-							<input type="radio" class="radio-button" name="isEligible" id="isEligibleN" value="n" onclick="toggleConditionalElement('isEligibleNRow', false, 'isEligibleYRow')" ${info.isEligible != 'y' ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isEligible" id="isEligibleN" value="false" onclick="toggleConditionalElement('isEligibleNRow', false, 'isEligibleYRow')" ${info.isEligible != 'true' ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">No</label>
 						</td>
 					</tr>					
-					<tr id="isEligibleYRow" style="display:${info.isEligible != 'y' ? 'none' : ''}">
+					<tr id="isEligibleYRow" style="display:${info.isEligible != 'true' ? 'none' : ''}">
 						<td width="60%" valign="middle" class="label-bg">When will they be eligible?</td>
 						<td valign="middle" class="field-bg">
 							<fmt:formatDate type="date" var="formatCoverageDate" value="${info.coverageDate}" pattern="MM/dd/yyyy" />
 							<input type="text" name="coverageDate" id="coverageDate" value="${formatCoverageDate}" class="width120 formatDate" /><br />
-							<div class="small-label">Coverage Date<span>*</span></div> 
+							<div class="small-label">Coverage Date</div> 
 						</td>
 					</tr>
-					<tr id="isEligibleNoRow" style="display:${info.isEligible != 'y' ? '' : 'none'}">
+					<tr id="isEligibleNoRow" style="display:${info.isEligible != 'true' ? '' : 'none'}">
 						<td width="60%" valign="middle" class="label-bg">Will they be eligible in the NEXT 3 months?</td>
 						<td valign="middle" class="field-bg">
-							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsY" value="y" ${info.isCoveredNext3Months == 'y' ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsY" value="true" ${info.isCoveredNext3Months == 'y' ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">Yes</label> 
-							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsN" value="n"  ${info.isCoveredNext3Months != 'y' ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsN" value="false"  ${info.isCoveredNext3Months != 'true' ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">No</label>
 						</td>
 					</tr>
@@ -300,63 +226,5 @@
 				</jsp:include>
 			</div>
 	</form>
-	<div id="dialog-form" title="Add Member Income" style="display:none;">
-		<p class="validateTips">All form fields are required.</p>
-		
-		<form>
-			<input type="hidden" name="insuranceIndex" id="insuranceIndex" value="${itemIndex}" />
-			<table class="form-container" width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td width="60%" valign="middle" class="label-bg">What is the dependents name? <span>*</span>
-					</td>
-					<td width="40%" valign="middle" class="field-bg">
-						<input name="firstName" type="text" class="width120" id="firstName" maxlength="50" value="" required /><br />
-						<div class="small-label">First<span>*</span></div> 
-						<label for="textfield"></label> 
-						<input name="middleName" type="text" class="width120" id="middleName" value="" maxlength="50" /><br />
-						<div class="small-label">Middle</div> 
-						<input name="lastName" type="text" class="width120" id="lastName" value="" maxlength="50" required /><br />
-						<div class="small-label">Last<span>*</span></div> 
-					</td>
-				</tr>
-				<tr>
-					<td valign="middle" class="label-bg">Enrolled now, plans to enroll, or not enrolled? <span>*</span></td>
-					<td colspan="2" valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="enrollmentStatus" id="enrollmentStatusEnrolled" onclick="toggleConditionalElement('plansToEnroll', false)" value="Enrolled Now" />
-						<label for="enrollmentStatus">Enrolled Now</label><br />
-						<input type="radio" class="radio-button" name="enrollmentStatus" id="enrollmentStatusPlans" onclick="toggleConditionalElement('plansToEnroll', true)" value="Plans to Enroll" />
-						<label for="enrollmentStatus">Plans to Enroll</label><br />
-						<div id="plansToEnroll" style="display:none; float:right;">
-							<input type="text" name="enrollmentStartDate" id="enrollmentStartDate" class="width120 formatDate" /><br />
-							<div class="small-label">Enrollment Start Date<span>*</span></div> 
-						</div>
-						<div style="clear:both"></div>
-						<input type="radio" class="radio-button" name="enrollmentStatus" id="enrollmentStatusNot" onclick="toggleConditionalElement('plansToEnroll', false)" value="Not Enrolled" />
-						<label for="enrollmentStatus">Semi Monthly</label><br />
-					</td>
-				</tr>
-				<tr>
-					<td valign="middle" class="label-bg">Changes you plan to make next year?<span>*</span></td>
-					<td colspan="2" valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="futureChanges" id="futureChangesDrop" onclick="toggleConditionalElements('plansToDrop', true, 'willBecomeEligble')" value="Plans to drop coverage" />
-						<label for="futureChanges">Plans to drop coverage</label><br />
-						<div id="plansToDrop" style="display:none; float:right;">
-							<input type="text" name="coverageDropDate" id="coverageDropDate" class="width120 formatDate" /><br />
-							<div class="small-label">Coverage Drop Date<span>*</span></div>
-						</div>						
-						<div style="clear:both"></div>
-						<input type="radio" class="radio-button" name="futureChanges" id="futureChangesEligible" onclick="toggleConditionalElement('willBecomeEligible', true, 'plansToDrop')" value="Will become eligible" />
-						<label for="futureChanges">Will become eligible</label><br />
-						<div id="willBecomeEligible" style="display:none; float: right;">
-							<input type="text" name="eligibilityStartDate" id="eligibilityStartDate" class="width120 formatDate" /><br />
-							<div class="small-label">Eligibility Start Date<span>*</span></div>
-						</div>
-						<div style="clear:both"></div>				
-					</td>
-				</tr>
-			</table>
-		</form>
-	  </div>
-
 </body>
 </html>

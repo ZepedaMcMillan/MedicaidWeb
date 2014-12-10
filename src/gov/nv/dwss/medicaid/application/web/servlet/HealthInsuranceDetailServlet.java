@@ -83,10 +83,10 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		insuranceFromJobs.setEmployerName(request.getParameter("employerName"));
 		insuranceFromJobs.setEmployerPhone(request.getParameter("employerPhone"));
 		insuranceFromJobs.setFamilyMembersCovered(request.getParameterValues("familyMembersCovered"));
-		insuranceFromJobs.setIsCoveredNext3Months(request.getParameter("isCoveredNext3Months"));
-		insuranceFromJobs.setIsEligible(request.getParameter("isEligible"));
-		insuranceFromJobs.setLowCostPremium(request.getParameter("lowCostPremium"));
-		insuranceFromJobs.setMeetsMinimumStandards(request.getParameter("meetsMinimumStandards"));
+		insuranceFromJobs.setIsCoveredNext3Months(FormatHelpers.formatBool(request.getParameter("isCoveredNext3Months")));
+		insuranceFromJobs.setIsEligible(FormatHelpers.formatBool(request.getParameter("isEligible")));
+		insuranceFromJobs.setLowCostPremium(FormatHelpers.formatBool(request.getParameter("lowCostPremium")));
+		insuranceFromJobs.setMeetsMinimumStandards(FormatHelpers.formatBool(request.getParameter("meetsMinimumStandards")));
 		insuranceFromJobs.setPremiumFrequency(request.getParameter("premiumFrequency"));
 
 		Address employerAddress = new Address();

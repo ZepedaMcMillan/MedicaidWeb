@@ -36,10 +36,10 @@
 						information.</p>
 					</td>
 					<td valign="middle" class="field-bg" width="40%">
-						<input type="radio" class="radio-button" name="agreeInfoRelease" id="agreeInfoReleaseY" value="y" ${info.agreeInfoRelease == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="agreeInfoRelease" id="agreeInfoReleaseY" value="true" ${info.agreeInfoRelease == 'true' ? 'checked' : ''} /> 
 						<label for="radio5"> <b>Agree: </b> During the telephone application process, you accepted and agreed
 							to the above terms</label><br /><br />
-						<input type="radio" class="radio-button" name="agreeInfoRelease" id="agreeInfoReleaseN" value="n" ${info.agreeInfoRelease != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="agreeInfoRelease" id="agreeInfoReleaseN" value="false" ${info.agreeInfoRelease != 'true' ? 'checked' : ''} /> 
 						<label for="radio5"> <b>Disagree: </b> During the telephone
 							application process, you refused and disagreed to the above terms</label>
 					</td>

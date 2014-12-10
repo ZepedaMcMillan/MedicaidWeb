@@ -51,7 +51,8 @@ public class RenewalOfCoverageServlet extends HttpServlet {
 		CoverageRenewalAPTC coverageRenewalAPTC = otherInfo.getCoverageRenewalAPTC();
 		
 		coverageRenewalAPTC.setAllowReturnAccess(request.getParameter("allowReturnAccess"));
-		coverageRenewalAPTC.setNumberOfYears(request.getParameter("numberOfYears"));
+		coverageRenewalAPTC.setNumberOfYears(
+				request.getParameter("numberOfYears") != null ? Integer.parseInt(request.getParameter("numberOfYears")) : null);
 		
 		// TODO: Wire up the Thunderhead implementation for preview here
 		response.sendRedirect("AuthorizedRep");

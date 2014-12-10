@@ -5,16 +5,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="authorizedRep")
 public class AuthorizedRep {
-	private String doYouAgree;
+	private boolean doYouAgree;
 	private Address repAddress;
 	private String repName;
 	private String repPhone;
 	
 	@XmlElement
-	public String getDoYouAgree() {
+	public boolean getDoYouAgree() {
 		return doYouAgree;
 	}
-	public void setDoYouAgree(String doYouAgree) {
+	public void setDoYouAgree(boolean doYouAgree) {
 		this.doYouAgree = doYouAgree;
 	}
 	
@@ -44,7 +44,7 @@ public class AuthorizedRep {
 	
 	public AuthorizedRep() {}
 	
-	public AuthorizedRep(String doYouAgree, Address repAddress, String repName, String repPhone) {
+	public AuthorizedRep(boolean doYouAgree, Address repAddress, String repName, String repPhone) {
 		this.doYouAgree = doYouAgree;
 		this.repAddress = repAddress;
 		this.repName = repName;

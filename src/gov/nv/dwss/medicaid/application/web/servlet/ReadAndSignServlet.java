@@ -3,6 +3,7 @@ package gov.nv.dwss.medicaid.application.web.servlet;
 import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 
@@ -46,10 +47,10 @@ public class ReadAndSignServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();		
-		otherInfo.setVerballySigning(request.getParameter("verballySigning"));
-		otherInfo.setUnderstand(request.getParameter("understand"));
-		otherInfo.setSwear(request.getParameter("swear"));
-		otherInfo.setAgreeReadSign(request.getParameter("agreeReadSign"));
+		otherInfo.setVerballySigning(FormatHelpers.formatBool(request.getParameter("verballySigning")));
+		otherInfo.setUnderstand(FormatHelpers.formatBool(request.getParameter("understand")));
+		otherInfo.setSwear(FormatHelpers.formatBool(request.getParameter("swear")));
+		otherInfo.setAgreeReadSign(FormatHelpers.formatBool(request.getParameter("agreeReadSign")));
 		otherInfoBean.updateOtherInfo(otherInfo);
 
 		response.sendRedirect("ExecutePreview");
