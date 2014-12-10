@@ -181,11 +181,6 @@ public class ExecutePreviewServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
         super.init(config);
-    }
-    
-    @Override
-    public void init() throws ServletException {
-    	super.init();
     	props = new PropertiesFileReader().getProperties();
     }
     
