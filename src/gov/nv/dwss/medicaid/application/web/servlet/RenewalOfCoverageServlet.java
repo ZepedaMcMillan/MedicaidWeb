@@ -4,6 +4,7 @@ import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.bean.OtherInfoBean;
 import gov.nv.dwss.medicaid.application.web.model.CoverageRenewalAPTC;
 import gov.nv.dwss.medicaid.application.web.model.OtherInfo;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 
@@ -50,7 +51,7 @@ public class RenewalOfCoverageServlet extends HttpServlet {
 		OtherInfo otherInfo = otherInfoBean.getOtherInfo();
 		CoverageRenewalAPTC coverageRenewalAPTC = otherInfo.getCoverageRenewalAPTC();
 		
-		coverageRenewalAPTC.setAllowReturnAccess(request.getParameter("allowReturnAccess"));
+		coverageRenewalAPTC.setAllowReturnAccess(FormatHelpers.formatBool(request.getParameter("allowReturnAccess")));
 		coverageRenewalAPTC.setNumberOfYears(
 				request.getParameter("numberOfYears") != null ? Integer.parseInt(request.getParameter("numberOfYears")) : null);
 		

@@ -8,15 +8,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "otherInsurance")
 public class OtherInsurance {
-	private String hasOtherInsurance;
+	private boolean hasOtherInsurance;
 	private List<OtherInsuranceItem> otherInsuranceDetails;
 
 	@XmlElement
-	public String getHasOtherInsurance() {
+	public boolean getHasOtherInsurance() {
 		return hasOtherInsurance;
 	}
 
-	public void setHasOtherInsurance(String hasOtherInsurance) {
+	public void setHasOtherInsurance(boolean hasOtherInsurance) {
 		this.hasOtherInsurance = hasOtherInsurance;
 	}
 	
@@ -31,12 +31,5 @@ public class OtherInsurance {
 		this.otherInsuranceDetails = otherInsuranceDetails;
 	}
 
-	public OtherInsurance() {
-	}
-
-	public OtherInsurance(String hasOtherInsurance,
-			List<OtherInsuranceItem> otherInsuranceDetails) {
-		this.hasOtherInsurance = hasOtherInsurance;
-		this.otherInsuranceDetails = otherInsuranceDetails;
-	}
+	public OtherInsurance() { }
 }

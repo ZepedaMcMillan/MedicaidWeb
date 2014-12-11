@@ -5,6 +5,7 @@ import gov.nv.dwss.medicaid.application.web.bean.NavigationBean;
 import gov.nv.dwss.medicaid.application.web.model.HealthInsuranceInfo;
 import gov.nv.dwss.medicaid.application.web.model.OtherInsurance;
 import gov.nv.dwss.medicaid.application.web.model.OtherInsuranceItem;
+import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class OtherHealthInsuranceServlet extends HttpServlet {
 		HealthInsuranceInfo healthInsuranceInfo = healthInsuranceInfoBean.getHealthInsuranceInfo();
 		OtherInsurance otherInsurance = healthInsuranceInfo.getOtherInsurance();
 		
-		otherInsurance.setHasOtherInsurance(request.getParameter("hasOtherInsurance"));
+		otherInsurance.setHasOtherInsurance(FormatHelpers.formatBool(request.getParameter("hasOtherInsurance")));
 		healthInsuranceInfo.setOtherInsurance(otherInsurance);
 		healthInsuranceInfoBean.updateHealthInsuranceInfo(healthInsuranceInfo);
 		

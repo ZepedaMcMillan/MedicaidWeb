@@ -35,14 +35,14 @@
 				<tr>
 					<td width="60%" valign="middle" class="label-bg">I give permission for tax return access at renewal time</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="allowReturnAccess" id="allowReturnAccessY" value="y" onclick="toggleConditionalElement('fnRenewalPermissionYRow',true)" ${info.allowReturnAccess == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="allowReturnAccess" id="allowReturnAccessY" value="true" onclick="toggleConditionalElement('fnRenewalPermissionYRow',true)" ${info.allowReturnAccess ? 'checked' : ''} /> 
 						<label for="renewalPermission">Yes</label>
 						<br /> 
-						<input type="radio" class="radio-button" name="allowReturnAccess" id="allowReturnAccessN" value="n" onclick="toggleConditionalElement('fnRenewalPermissionYRow',false)" ${info.allowReturnAccess != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="allowReturnAccess" id="allowReturnAccessN" value="false" onclick="toggleConditionalElement('fnRenewalPermissionYRow',false)" ${!info.allowReturnAccess ? 'checked' : ''} /> 
 						<label for="renewalPermission">No, do not renew my eligibility for help paying health insurance</label>
 					</td>
 				</tr>
-				<tr style="display:  ${info.allowReturnAccess != 'y' ? 'none' : ''};" id="fnRenewalPermissionYRow">
+				<tr style="display:  ${!info.allowReturnAccess ? 'none' : ''};" id="fnRenewalPermissionYRow">
 					<td width="60%" valign="middle" class="label-bg">How many
 						years?</td>
 					<td width="40%" valign="middle" class="field-bg">

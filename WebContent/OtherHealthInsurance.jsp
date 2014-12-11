@@ -60,13 +60,13 @@
 						Check-Up, Medicare, COBRA, Private, or other Retiree Health Plan?
 					</td>
 					<td valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="hasOtherInsurance" id="otherHealthInsuranceY" value="y" onclick="toggleConditionalElement('otherHealhInsuranceRow', true)" ${otherInsurance.hasOtherInsurance == 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="hasOtherInsurance" id="otherHealthInsuranceY" value="true" onclick="toggleConditionalElement('otherHealhInsuranceRow', true)" ${otherInsurance.hasOtherInsurance == 'true' ? 'checked' : ''} /> 
 						<label for="otherHealthInsurance">Yes</label> 
-						<input type="radio" class="radio-button" name="hasOtherInsurance" id="otherHealthInsuranceN" value="n" onclick="toggleConditionalElement('otherHealhInsuranceRow', true)" ${otherInsurance.hasOtherInsurance != 'y' ? 'checked' : ''} /> 
+						<input type="radio" class="radio-button" name="hasOtherInsurance" id="otherHealthInsuranceN" value="false" onclick="toggleConditionalElement('otherHealhInsuranceRow', true)" ${otherInsurance.hasOtherInsurance != 'false' ? 'checked' : ''} /> 
 						<label for="otherHealthInsurance">No</label></td>
 				</tr>
 			</table>
-			<div id="otherHealhInsuranceRow"  style="display:  ${otherInsurance.hasOtherInsurance != 'y' ? 'none' : ''};">
+			<div id="otherHealhInsuranceRow"  style="display:  ${otherInsurance.hasOtherInsurance != 'true' ? 'none' : ''};">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-container">
 					<tr>
 						<td width="20%" valign="middle" class="label-bg">

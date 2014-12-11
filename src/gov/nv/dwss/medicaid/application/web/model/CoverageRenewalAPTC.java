@@ -6,15 +6,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="coverageRenewal")
 public class CoverageRenewalAPTC {
 
-	private String allowReturnAccess;
+	private boolean allowReturnAccess;
 	private int numberOfYears;
 
 	@XmlElement
-	public String getAllowReturnAccess() {
+	public boolean getAllowReturnAccess() {
 		return allowReturnAccess;
 	}
 
-	public void setAllowReturnAccess(String allowReturnAccess) {
+	public void setAllowReturnAccess(boolean allowReturnAccess) {
 		this.allowReturnAccess = allowReturnAccess;
 	}
 
@@ -27,11 +27,5 @@ public class CoverageRenewalAPTC {
 		this.numberOfYears = numberOfYears;
 	}
 
-	public CoverageRenewalAPTC() {
-	}
-
-	public CoverageRenewalAPTC(String allowReturnAccess, int numberOfYears) {
-		this.allowReturnAccess = allowReturnAccess;
-		this.numberOfYears = numberOfYears;
-	}
+	public CoverageRenewalAPTC() { }
 }
