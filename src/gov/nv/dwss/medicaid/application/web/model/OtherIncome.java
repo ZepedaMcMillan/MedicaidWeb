@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "otherIncome")
 public class OtherIncome {
-	private boolean isIncomeSteady;
+	private boolean isIncomeSteady = true;
 	private List<OtherIncomeItem> otherIncomeList;
 	private boolean otherIncomeReceived;
 	private float expectedIncomeThisYear;

@@ -98,7 +98,7 @@ public class OtherAssistanceServlet extends HttpServlet {
 		// was not implemented in original code
 		
 		otherAssistance.setHasPastMedicalBills(FormatHelpers.formatBool(request.getParameter("hasPastMedicalBills")));
-		otherAssistance.setBillMonths(request.getParameter("hasPastMedicalBills"));
+		otherAssistance.setBillMonths(request.getParameter("billMonths"));
 		
 		
 		memberInfo.setOtherAssistance(otherAssistance);

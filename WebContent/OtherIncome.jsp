@@ -195,35 +195,35 @@
 											<td><input type="text" id="gamblingWinHowOften" name="gamblingWinHowOften" value="${memberInfo.otherIncome.otherIncomeList[12].frequency}" /></td>
 										</tr>
 										<tr>
-											<td>Other <input name="otherIncomeOther" type="text" class="width120" id="otherIncomeOther" /></td>
+											<td>Other <input name="otherIncomeOther" type="text" class="width120" id="otherIncomeOther" value="${memberInfo.otherIncome.otherIncomeList[13].otherIncomeType}" /></td>
 											<td>												
 												<fmt:formatNumber type="currency" var="otherIncome13" value="${memberInfo.otherIncome.otherIncomeList[13].amount}" currencySymbol="" groupingUsed="false" />
 												<input type="text" class="formatMoney" id="otherAmt" name="otherAmt" value="${otherIncome13}" /></td>
 											<td><input type="text" id="otherHowOften" name="otherHowOften" value="${memberInfo.otherIncome.otherIncomeList[13].frequency}" /></td>
 											<td>
-												<input type="radio" class="radio-button" name="otherTribal" id="otherTribalY" value="true" ${memberInfo.otherIncome.otherIncomeList[13].isTribal == 'true' ? 'checked' : ''} /> <label>Yes</label>
-												<input type="radio" class="radio-button" name="otherTribal" id="otherTribalN" value="false" ${memberInfo.otherIncome.otherIncomeList[13].isTribal != 'true' ? 'checked' : ''} /> <label>No</label>
+												<input type="radio" class="radio-button" name="otherTribal" id="otherTribalY" value="true" ${memberInfo.otherIncome.otherIncomeList[13].isTribal ? 'checked' : ''} /> <label>Yes</label>
+												<input type="radio" class="radio-button" name="otherTribal" id="otherTribalN" value="false" ${!memberInfo.otherIncome.otherIncomeList[13].isTribal ? 'checked' : ''} /> <label>No</label>
 											</td>
 										</tr>
 									</table>
 								</td>
 							</tr>
-							<tr id="otherIncomeBigQYesRow2" style="display: ${memberInfo.otherIncome.otherIncomeReceived != 'true' ? 'none' : ''}">
+							<tr id="otherIncomeBigQYesRow2" style="display: ${!memberInfo.otherIncome.otherIncomeReceived ? 'none' : ''}">
 								<td width="60%" valign="middle" class="label-bg">Is the income you listed steady from month to month?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isIncomeSteady" id="steadyIncomeY" value="true" onclick="toggleConditionalElement('steadyIncomeNoRow,steadyIncomeNoRow2', false)" ${memberInfo.otherIncome.isIncomeSteady == 'true' ? 'checked' : ''}  /> 
+									<input type="radio" class="radio-button" name="isIncomeSteady" id="steadyIncomeY" value="true" onclick="toggleConditionalElement('steadyIncomeNoRow,steadyIncomeNoRow2', false)" ${memberInfo.otherIncome.isIncomeSteady ? 'checked' : ''}  /> 
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="isIncomeSteady" id="steadyIncomeN" value="false" onclick="toggleConditionalElement('steadyIncomeNoRow,steadyIncomeNoRow2', true)" ${memberInfo.otherIncome.isIncomeSteady != 'true' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isIncomeSteady" id="steadyIncomeN" value="false" onclick="toggleConditionalElement('steadyIncomeNoRow,steadyIncomeNoRow2', true)" ${!memberInfo.otherIncome.isIncomeSteady ? 'checked' : ''} /> 
 									<label for="radio5">No</label></td>
 							</tr>
-							<tr id="steadyIncomeNoRow" style="display: ${memberInfo.otherIncome.isIncomeSteady != 'true' ? '' : 'none'}">
+							<tr id="steadyIncomeNoRow" style="display: ${!memberInfo.otherIncome.isIncomeSteady ? '' : 'none'}">
 								<td valign="middle" class="label-bg">Total annual income expected this year</td>
 								<td valign="middle" class="field-bg">
 									<fmt:formatNumber type="currency" var="expectedIncomeThisYear" value="${memberInfo.otherIncome.expectedIncomeThisYear}" currencySymbol="" groupingUsed="false" />
 									<input type="text" name="expectedIncomeThisYear" class="width120 formatMoney" id="expectedIncomeThisYear" value="${expectedIncomeThisYear}" />
 								</td>
 							</tr>
-							<tr id="steadyIncomeNoRow2" style="display: ${memberInfo.otherIncome.isIncomeSteady != 'true' ? '' : 'none'}">
+							<tr id="steadyIncomeNoRow2" style="display: ${!memberInfo.otherIncome.isIncomeSteady ? '' : 'none'}">
 								<td valign="middle" class="label-bg">Total annual income expected next year</td>
 								<td valign="middle" class="field-bg">
 									<fmt:formatNumber type="currency" var="expectedIncomeNextYear" value="${memberInfo.otherIncome.expectedIncomeNextYear}" currencySymbol="" groupingUsed="false" />
