@@ -71,6 +71,7 @@ public class HouseHoldInformationServlet extends HttpServlet {
 		contactInfo.setGender(request.getParameter("gender"));
 		generalInfo.setGender(request.getParameter("gender"));
 		houseHoldInfo.setHouseHoldMembers(FormatHelpers.formatBool(request.getParameter("houseHoldMembers")));
+		head.setIsCaseHOH(true);
 		
 		// set age for icon population
 		int age = 0;

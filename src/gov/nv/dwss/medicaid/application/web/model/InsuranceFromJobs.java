@@ -21,7 +21,7 @@ public class InsuranceFromJobs {
 	private boolean isCoveredNextYear;
 	private boolean isEligible;
 	private JobInsuranceContact jobInsuranceContact;
-	private boolean lowCostPremium;
+	private float lowCostPremium;
 	private boolean meetsMinimumStandards;
 	private NewYearPlanChanges newYearPlanChanges;
 	private List<PeopleCovered> peopleCovered;
@@ -137,11 +137,11 @@ public class InsuranceFromJobs {
 	}
 
 	@XmlElement
-	public boolean getLowCostPremium() {
+	public float getLowCostPremium() {
 		return lowCostPremium;
 	}
 
-	public void setLowCostPremium(boolean lowCostPremium) {
+	public void setLowCostPremium(float lowCostPremium) {
 		this.lowCostPremium = lowCostPremium;
 	}
 

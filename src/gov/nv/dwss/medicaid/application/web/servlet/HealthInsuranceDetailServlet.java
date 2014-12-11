@@ -85,7 +85,7 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		insuranceFromJobs.setFamilyMembersCovered(request.getParameterValues("familyMembersCovered"));
 		insuranceFromJobs.setIsCoveredNext3Months(FormatHelpers.formatBool(request.getParameter("isCoveredNext3Months")));
 		insuranceFromJobs.setIsEligible(FormatHelpers.formatBool(request.getParameter("isEligible")));
-		insuranceFromJobs.setLowCostPremium(FormatHelpers.formatBool(request.getParameter("lowCostPremium")));
+		insuranceFromJobs.setLowCostPremium(FormatHelpers.formatMoney(request.getParameter("lowCostPremium")));
 		insuranceFromJobs.setMeetsMinimumStandards(FormatHelpers.formatBool(request.getParameter("meetsMinimumStandards")));
 		insuranceFromJobs.setPremiumFrequency(request.getParameter("premiumFrequency"));
 
