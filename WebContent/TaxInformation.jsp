@@ -33,12 +33,12 @@
 								<td width="60%" valign="middle" class="label-bg">Do you
 									expect to file a joint return with a spouse/partner?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseY" value="Yes" onclick="toggleConditionalElement('jointReturnWithSpouseYes', true);" ${taxInfo.filingJoint == 'Yes' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseY" value="true" onclick="toggleConditionalElement('jointReturnWithSpouseYes', true);" ${taxInfo.filingJoint ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label>
-									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseN" value="No" onclick="toggleConditionalElement('jointReturnWithSpouseYes', true);" ${taxInfo.filingJoint != 'Yes' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseN" value="false" onclick="toggleConditionalElement('jointReturnWithSpouseYes', true);" ${!taxInfo.filingJoint ? 'checked' : ''} /> 
 									<label for="radio5">No</label></td>
 							</tr>
-							<tr style="display: ${taxInfo.filingJoint != 'Yes' ? 'none' : ''};" id="jointReturnWithSpouseYes">
+							<tr style="display: ${!taxInfo.filingJoint ? 'none' : ''};" id="jointReturnWithSpouseYes">
 								<td valign="middle" class="label-bg">What is the name of your Spouse/Partner?</td>
 								<td valign="middle" class="field-bg">
 									<input type="text" name="spouseName" class="width120" id="spouseName" value="${taxInfo.spouseName}" />
@@ -49,13 +49,13 @@
 								<td width="60%" valign="middle" class="label-bg">Will you
 									claim any dependents on your tax return?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="isClaimingDependents" id="taxDependantsY" value="Yes" onclick="toggleConditionalElement('taxDependentsYes', true);" ${taxInfo.isClaimingDependents == 'Yes' ? 'checked' : ''} />
+									<input type="radio" class="radio-button" name="isClaimingDependents" id="taxDependantsY" value="true" onclick="toggleConditionalElement('taxDependentsYes', true);" ${taxInfo.isClaimingDependents ? 'checked' : ''} />
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="isClaimingDependents" id="taxDependantsN" value="No" onclick="toggleConditionalElement('taxDependentsYes', false);" ${taxInfo.isClaimingDependents != 'Yes' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="isClaimingDependents" id="taxDependantsN" value="false" onclick="toggleConditionalElement('taxDependentsYes', false);" ${!taxInfo.isClaimingDependents ? 'checked' : ''} /> 
 									<label for="radio5">No</label>
 								</td>
 							</tr>
-							<tr style="display: ${taxInfo.isClaimingDependents == 'Yes' ? '' : 'none'};" id="taxDependentsYes">
+							<tr style="display: ${!taxInfo.isClaimingDependents ? 'none' : ''};" id="taxDependentsYes">
 								<td valign="middle" class="label-bg">Who are they?</td>
 								<td valign="middle" class="field-bg" id="taxDependantsValues">
 									<input type="text" name="dependents" id="dependents" value="${taxInfo.dependents}" />

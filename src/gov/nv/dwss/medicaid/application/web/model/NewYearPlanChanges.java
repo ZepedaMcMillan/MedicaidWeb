@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class NewYearPlanChanges {
 	private Date minCoverageDateChange;
 	private String minCoverageOffered;
-	private String minCoveragePremium;
+	private float minCoveragePremium;
 	private String minPremiumFrequency;
-	private String noCoverageOffered;
+	private boolean noCoverageOffered;
 
 	@XmlElement
 	public Date getMinCoverageDateChange() {
@@ -32,11 +32,11 @@ public class NewYearPlanChanges {
 	}
 
 	@XmlElement
-	public String getMinCoveragePremium() {
+	public float getMinCoveragePremium() {
 		return minCoveragePremium;
 	}
 
-	public void setMinCoveragePremium(String minCoveragePremium) {
+	public void setMinCoveragePremium(float minCoveragePremium) {
 		this.minCoveragePremium = minCoveragePremium;
 	}
 
@@ -50,25 +50,13 @@ public class NewYearPlanChanges {
 	}
 
 	@XmlElement
-	public String getNoCoverageOffered() {
+	public boolean getNoCoverageOffered() {
 		return noCoverageOffered;
 	}
 
-	public void setNoCoverageOffered(String noCoverageOffered) {
+	public void setNoCoverageOffered(boolean noCoverageOffered) {
 		this.noCoverageOffered = noCoverageOffered;
 	}
 
-	public NewYearPlanChanges() {
-	}
-
-	public NewYearPlanChanges(Date minCoverageDateChange,
-			String minCoverageOffered, String minCoveragePremium,
-			String minPremiumFrequency, String noCoverageOffered) {
-		super();
-		this.minCoverageDateChange = minCoverageDateChange;
-		this.minCoverageOffered = minCoverageOffered;
-		this.minCoveragePremium = minCoveragePremium;
-		this.minPremiumFrequency = minPremiumFrequency;
-		this.noCoverageOffered = noCoverageOffered;
-	}
+	public NewYearPlanChanges() { }
 }

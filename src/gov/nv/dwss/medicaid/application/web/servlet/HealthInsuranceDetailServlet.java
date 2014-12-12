@@ -6,6 +6,7 @@ import gov.nv.dwss.medicaid.application.web.model.Address;
 import gov.nv.dwss.medicaid.application.web.model.HealthInsuranceInfo;
 import gov.nv.dwss.medicaid.application.web.model.InsuranceFromJobs;
 import gov.nv.dwss.medicaid.application.web.model.JobInsuranceContact;
+import gov.nv.dwss.medicaid.application.web.model.NewYearPlanChanges;
 import gov.nv.dwss.medicaid.application.web.model.PeopleCovered;
 import gov.nv.dwss.medicaid.application.web.utils.FormatHelpers;
 
@@ -44,6 +45,9 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		int index = 
 				(!StringUtils.isEmpty(request.getParameter("itemIndex")) ? Integer.parseInt(request.getParameter("itemIndex")) : -1);
 		InsuranceFromJobs insuranceFromJobs = (index >= 0 ? insuranceItems.get(index) : new InsuranceFromJobs());
+		if(insuranceFromJobs.getNewYearPlanChanges() == null) {
+			insuranceFromJobs.setNewYearPlanChanges(new NewYearPlanChanges());
+		}
 		List<PeopleCovered> peopleCovered = 
 				(insuranceFromJobs.getPeopleCovered() != null ? insuranceFromJobs.getPeopleCovered() : new ArrayList<PeopleCovered>());
 		
@@ -101,6 +105,15 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		jobInsuranceContact.setEmail(request.getParameter("email"));
 		jobInsuranceContact.setPhone(request.getParameter("phone"));
 		insuranceFromJobs.setJobInsuranceContact(jobInsuranceContact);
+		
+		NewYearPlanChanges newYearPlanChanges = 
+				(insuranceFromJobs.getNewYearPlanChanges() != null ? insuranceFromJobs.getNewYearPlanChanges() : new NewYearPlanChanges());
+		newYearPlanChanges.setMinCoverageDateChange(FormatHelpers.formatDate(request.getParameter("minCoverageDateChange")));
+		newYearPlanChanges.setMinCoveragePremium(FormatHelpers.formatMoney(request.getParameter("minCoveragePremium")));
+		newYearPlanChanges.setMinPremiumFrequency(request.getParameter("minPremiumFrequency"));
+		//newYearPlanChanges.setNoCoverageOffered(noCoverageOffered);
+		newYearPlanChanges.setMinCoverageOffered(request.getParameter("minCoverageOffered"));
+		insuranceFromJobs.setNewYearPlanChanges(newYearPlanChanges);
 		
 		List<PeopleCovered> peopleList = 
 				(insuranceFromJobs.getPeopleCovered() != null ? insuranceFromJobs.getPeopleCovered() : new ArrayList<PeopleCovered>());

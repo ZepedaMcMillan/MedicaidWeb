@@ -177,7 +177,195 @@
 							<input type="text" name="coverageDate" id="coverageDate" value="${formatCoverageDate}" class="width120 formatDate" /><br />
 							<div class="small-label">Coverage Date</div> 
 						</td>
-					</tr>
+					</tr>									
+					<tr>
+						<td width="60%" valign="middle" class="label-bg">Does the employer offer a health plan that meets the minimum value standard? An employer-sponsored 
+						health plan meets the “minimum value standard” if the plan’s share of the total allowed benefit costs covered by the plan is no less than 60 percent 
+						of such costs (Section 36B(c)(2)(C)(ii) of the Internal Revenue Code of 1986.)</td>
+						<td valign="middle" class="field-bg">
+							<table>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="meetsMinimumStandards" id="meetsMinimumStandardsY" onclick="toggleConditionalElements('#meetsMinimumStandardsYes1,#meetsMinimumStandardsYes2', null);" value="true" ${info.meetsMinimumStandards ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="meetsMinimumStandards">Yes</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="meetsMinimumStandards" id="meetsMinimumStandardsN" onclick="toggleConditionalElements(null,'#meetsMinimumStandardsYes1,#meetsMinimumStandardsYes2');" value="false"  ${!info.meetsMinimumStandards ? 'checked' : ''} /> 
+									</td>
+									<td>										
+										<label for="meetsMinimumStandards">No</label>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>									
+					<tr id="meetsMinimumStandardsYes1" style="display:${!info.meetsMinimumStandards ? 'none' : ''}">
+						<td width="60%" valign="middle" class="label-bg">How much would the employee have to pay in premiums for this plan?</td>
+						<td valign="middle" class="field-bg">							
+							<fmt:formatNumber type="currency" var="lowCostPremium" value="${info.lowCostPremium}" currencySymbol="" groupingUsed="false" />
+							<input type="text" class="width120 formatMoney" name="lowCostPremium" id="lowCostPremium" value="${lowCostPremium}" /> 
+						</td>
+					</tr>														
+					<tr id="meetsMinimumStandardsYes2" style="display:${!info.meetsMinimumStandards ? 'none' : ''}">
+						<td width="60%" valign="middle" class="label-bg">How often?</td>
+						<td valign="middle" class="field-bg">
+							<table>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="premiumFrequency" id="meetsMinimumStandardsWeekly" value="Weekly" ${info.premiumFrequency == 'Weekly' || info.premiumFrequency == null ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Weekly</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="premiumFrequency" id="meetsMinimumStandardsBiWeekly" value="Every 2 Weeks"  ${info.premiumFrequency == 'Every 2 Weeks'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Every 2 Weeks</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="premiumFrequency" id="meetsMinimumStandardsTwiceMonthly" value="Twice a Month"  ${info.premiumFrequency == 'Twice a Month'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Twice a Month</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="premiumFrequency" id="meetsMinimumStandardsMonthly" value="Once a Month"  ${info.premiumFrequency == 'Once a Month'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Once a Month</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="premiumFrequency" id="meetsMinimumStandardsQuarterly" value="Quarterly"  ${info.premiumFrequency == 'Quarterly'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Quarterly</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="premiumFrequency" id="meetsMinimumStandardsYearly" value="Yearly"  ${info.premiumFrequency == 'Yearly'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Yearly</label>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>									
+					<tr>
+						<td width="60%" valign="middle" class="label-bg">What change will the employer make for the new plan year (if known)?</td>
+						<td valign="middle" class="field-bg">
+							<table>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" onclick="toggleConditionalElements(null,'#newYearChangesYes1,#newYearChangesYes2,#newYearChangesYes3');" name="minCoverageOffered" id="newYearPlanChangesA" value="Employer won’t offer health coverage" ${info.newYearPlanChanges.minCoverageOffered == 'Employer won’t offer health coverage' ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Employer won’t offer health coverage</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" onclick="toggleConditionalElements('#newYearChangesYes1,#newYearChangesYes2,#newYearChangesYes3', null);" name="minCoverageOffered" id="newYearPlanChangesB" value="Employer will start offering health coverage to employees or change the premium for the lowest-cost plan available only to the employee that meets the minimum value standard."  ${info.newYearPlanChanges.minCoverageOffered == 'Employer will start offering health coverage to employees or change the premium for the lowest-cost plan available only to the employee that meets the minimum value standard.'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Employer will start offering health coverage to employees or change the premium for the lowest-cost plan available only to the employee that meets the minimum value standard. 
+											*(Premium should reflect the discount for wellness programs.)</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" onclick="toggleConditionalElements(null,'#newYearChangesYes1,#newYearChangesYes2,#newYearChangesYes3');" name="minCoverageOffered" id="newYearPlanChangesC" value="N/A"  ${info.newYearPlanChanges.minCoverageOffered == 'N/A' || info.newYearPlanChanges.minCoverageOffered == null   ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">N/A</label>
+									</td>
+								</tr>
+							</table>							
+						</td>
+					</tr>															
+					<tr id="newYearChangesYes1" style="display:${info.newYearPlanChanges.minCoverageOffered != 'Employer will start offering health coverage to employees or change the premium for the lowest-cost plan available only to the employee that meets the minimum value standard.'  ? 'none' : ''}">
+						<td width="60%" valign="middle" class="label-bg">How often?</td>
+						<td valign="middle" class="field-bg">
+							<table>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="minPremiumFrequency" id="minPremiumFrequencyWeekly" value="Weekly" ${info.newYearPlanChanges.minPremiumFrequency == 'Weekly' || info.newYearPlanChanges.minPremiumFrequency == null ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Weekly</label>							
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name=minPremiumFrequency id="minPremiumFrequencyBiWeekly" value="Every 2 Weeks"  ${info.newYearPlanChanges.minPremiumFrequency == 'Every 2 Weeks'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Every 2 Weeks</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="minPremiumFrequency" id="minPremiumFrequencyTwiceMonthly" value="Twice a Month"  ${info.newYearPlanChanges.minPremiumFrequency == 'Twice a Month'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Twice a Month</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="minPremiumFrequency" id="minPremiumFrequencyMonthly" value="Once a Month"  ${info.newYearPlanChanges.minPremiumFrequency == 'Once a Month'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Once a Month</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="minPremiumFrequency" id="minPremiumFrequencyQuarterly" value="Quarterly"  ${info.newYearPlanChanges.minPremiumFrequency == 'Quarterly'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Quarterly</label> 
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="radio" class="radio-button" name="minPremiumFrequency" id="minPremiumFrequencyYearly" value="Yearly"  ${info.newYearPlanChanges.minPremiumFrequency == 'Yearly'  ? 'checked' : ''} /> 
+									</td>
+									<td>
+										<label for="healthCoverageFromJob">Yearly</label>
+									</td>
+								</tr>								
+							</table>							
+						</td>
+					</tr>									
+					<tr id="newYearChangesYes2" style="display:${info.newYearPlanChanges.minCoverageOffered != 'Employer will start offering health coverage to employees or change the premium for the lowest-cost plan available only to the employee that meets the minimum value standard.'  ? 'none' : ''}">
+						<td width="60%" valign="middle" class="label-bg">How much would the employee have to pay in premiums for this plan?</td>
+						<td valign="middle" class="field-bg">							
+							<fmt:formatNumber type="currency" var="minCoveragePremium" value="${info.newYearPlanChanges.minCoveragePremium}" currencySymbol="" groupingUsed="false" />
+							<input type="text" class="width120 formatMoney" name="minCoveragePremium" id="minCoveragePremium" value="${minCoveragePremium}" /> 
+						</td>
+					</tr>									
+					<tr id="newYearChangesYes3" style="display:${info.newYearPlanChanges.minCoverageOffered != 'Employer will start offering health coverage to employees or change the premium for the lowest-cost plan available only to the employee that meets the minimum value standard.'  ? 'none' : ''}">
+						<td width="60%" valign="middle" class="label-bg">Date of Change</td>
+						<td valign="middle" class="field-bg">							
+							<fmt:formatDate type="date" var="minCoverageDateChange" value="${info.newYearPlanChanges.minCoverageDateChange}" pattern="MM/dd/yyyy" />
+							<input type="text" class="width120 formatDate" name="minCoverageDateChange" id="minCoverageDateChange" value="${minCoverageDateChange}" /> 
+						</td>
+					</tr>	
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">Who in the employee's family will the health plan cover?</td>
 						<td valign="middle" class="field-bg">
