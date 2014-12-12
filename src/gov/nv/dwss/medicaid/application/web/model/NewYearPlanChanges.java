@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "newYearPlanChanges")
 public class NewYearPlanChanges {
 	private Date minCoverageDateChange;
-	private String minCoverageOffered;
+	private boolean minCoverageOffered;
 	private float minCoveragePremium;
 	private String minPremiumFrequency;
 	private boolean noCoverageOffered;
@@ -23,11 +23,11 @@ public class NewYearPlanChanges {
 	}
 
 	@XmlElement
-	public String getMinCoverageOffered() {
+	public boolean getMinCoverageOffered() {
 		return minCoverageOffered;
 	}
 
-	public void setMinCoverageOffered(String minCoverageOffered) {
+	public void setMinCoverageOffered(boolean minCoverageOffered) {
 		this.minCoverageOffered = minCoverageOffered;
 	}
 

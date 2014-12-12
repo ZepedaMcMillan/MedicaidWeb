@@ -112,7 +112,9 @@ public class HealthInsuranceDetailServlet extends HttpServlet {
 		newYearPlanChanges.setMinCoveragePremium(FormatHelpers.formatMoney(request.getParameter("minCoveragePremium")));
 		newYearPlanChanges.setMinPremiumFrequency(request.getParameter("minPremiumFrequency"));
 		//newYearPlanChanges.setNoCoverageOffered(noCoverageOffered);
-		newYearPlanChanges.setMinCoverageOffered(request.getParameter("minCoverageOffered"));
+		newYearPlanChanges.setMinCoverageOffered(FormatHelpers.formatBool(request.getParameter("minCoverageOffered")));
+		newYearPlanChanges.setNoCoverageOffered(FormatHelpers.formatBool(request.getParameter("minCoverageOffered")));
+		//newYearPlanChanges.setMinCoverageOffered();
 		insuranceFromJobs.setNewYearPlanChanges(newYearPlanChanges);
 		
 		List<PeopleCovered> peopleList = 

@@ -23,10 +23,10 @@
 						children, I can tell the agency and I may not have to cooperate.
 					</td>
 					<td valign="middle" class="field-bg" width="40%">
-						<input type="radio" class="radio-button" name="agreeCSECoop" id="agreeCSECoopY" value="y" ${info.agreeCSECoop == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeCSECoop" id="agreeCSECoopY" value="true" ${info.agreeCSECoop ? 'checked' : ''} />
 						<label for="radio5"> <b>Agree:</b> During the telephone application process, you accepted and agreed
 							to the above terms</label><br /><br />
-						<input type="radio" class="radio-button" name="agreeCSECoop" id="agreeCSECoopN" value="n" ${info.agreeCSECoop != 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="agreeCSECoop" id="agreeCSECoopN" value="false" ${!info.agreeCSECoop ? 'checked' : ''} />
 						<label for="radio5"><b>Disagree:</b> During the telephone application process, you refused and disagreed to the above terms</label>
 					</td>
 				</tr>
@@ -38,9 +38,9 @@
 						child on this application have a parent living outside of the
 						home?</td>
 					<td width="40%" valign="middle" class="field-bg">
-						<input type="radio" class="radio-button" name="parentLivesOutside" id="parentLivingOutsideY" value="y" ${info.parentLivesOutside == 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="parentLivesOutside" id="parentLivingOutsideY" value="true" ${info.parentLivesOutside ? 'checked' : ''} />
 						<label for="radio5">Yes</label><br />
-						<input type="radio" class="radio-button" name="parentLivesOutside" id="parentLivingOutsideN" value="n" ${info.parentLivesOutside != 'y' ? 'checked' : ''} />
+						<input type="radio" class="radio-button" name="parentLivesOutside" id="parentLivingOutsideN" value="false" ${!info.parentLivesOutside ? 'checked' : ''} />
 						<label for="radio5">No</label></td>
 				</tr>
 			</table>					
