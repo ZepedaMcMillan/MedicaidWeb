@@ -146,9 +146,9 @@
 					<tr>
 						<td width="60%" valign="middle" class="label-bg">Is the employee currently eligible for coverage offered by this employer?</td>
 						<td valign="middle" class="field-bg">
-							<input type="radio" class="radio-button" name="isEligible" id="isEligibleY" value="true" onclick="toggleConditionalElements('#isEligibleYRow', null);" ${info.isEligible ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isEligible" id="isEligibleY" value="true" onclick="toggleConditionalElements('#isEligibleYRow', '#isEligibleNRow');" ${info.isEligible ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">Yes</label> 
-							<input type="radio" class="radio-button" name="isEligible" id="isEligibleN" value="false" onclick="toggleConditionalElements(null, '#isEligibleYRow');" ${!info.isEligible ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isEligible" id="isEligibleN" value="false" onclick="toggleConditionalElements('#isEligibleNRow', '#isEligibleYRow');" ${!info.isEligible ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">No</label>
 						</td>
 					</tr>											
@@ -161,16 +161,16 @@
 							<label for="healthCoverageFromJob">No</label>
 						</td>
 					</tr>
-					<tr id="isEligibleNRow">
+					<tr id="isEligibleNRow" style="display:${info.isEligible ? 'none' : ''}">
 						<td width="60%" valign="middle" class="label-bg">Will they be eligible in the NEXT 3 months?</td>
 						<td valign="middle" class="field-bg">
-							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsY" onclick="toggleConditionalElements(null, '#isCoveredNext3MonthsNRow');" value="true" ${info.isCoveredNext3Months ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsY" onclick="toggleConditionalElements('#isCoveredNext3MonthsYesRow', null);" value="true" ${info.isCoveredNext3Months ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">Yes</label> 
-							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsN" onclick="toggleConditionalElements('#isCoveredNext3MonthsNRow', null);" value="false"  ${!info.isCoveredNext3Months ? 'checked' : ''} /> 
+							<input type="radio" class="radio-button" name="isCoveredNext3Months" id="isCoveredNext3MonthsN" onclick="toggleConditionalElements(null, '#isCoveredNext3MonthsYesRow');" value="false"  ${!info.isCoveredNext3Months ? 'checked' : ''} /> 
 							<label for="healthCoverageFromJob">No</label>
 						</td>
 					</tr>				
-					<tr id="isCoveredNext3MonthsNRow" style="display:${info.isCoveredNext3Months ? 'none' : ''}">
+					<tr id="isCoveredNext3MonthsYesRow" style="display:${!info.isCoveredNext3Months ? 'none' : ''}">
 						<td width="60%" valign="middle" class="label-bg">When will they be eligible?</td>
 						<td valign="middle" class="field-bg">
 							<fmt:formatDate type="date" var="formatCoverageDate" value="${info.coverageDate}" pattern="MM/dd/yyyy" />

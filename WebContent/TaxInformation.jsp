@@ -24,18 +24,18 @@
 								<td width="60%" valign="middle" class="label-bg">Do you
 									plan on filing a federal income tax return next year?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxY" value="true" onclick="toggleConditionalElements('#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3');" ${taxInfo.filingFederalTax == 'true' ? 'checked' : ''}  />
+									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxY" value="true" onclick="toggleConditionalElements('#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3', null);" ${taxInfo.filingFederalTax == 'true' ? 'checked' : ''}  />
 									<label for="radio5">Yes</label> 
-									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxN" value="false" onclick="toggleConditionalElements('','#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3');" ${taxInfo.filingFederalTax != 'true' ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="filingFederalTax" id="fileFedIncomeTaxN" value="false" onclick="toggleConditionalElements(null,'#fileIncomeTaxYes1,#fileIncomeTaxYes2,#fileIncomeTaxYes3');" ${taxInfo.filingFederalTax != 'true' ? 'checked' : ''} /> 
 									<label for="radio5">No</label></td>
 							</tr>
-							<tr style="display: ${taxInfo.filingFederalTax != 'true' ? 'none' : ''};" id="fileIncomeTaxYes1">
+							<tr style="display: ${!taxInfo.filingFederalTax ? 'none' : ''};" id="fileIncomeTaxYes1">
 								<td width="60%" valign="middle" class="label-bg">Do you
 									expect to file a joint return with a spouse/partner?</td>
 								<td width="40%" valign="middle" class="field-bg">
-									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseY" value="true" onclick="toggleConditionalElement('jointReturnWithSpouseYes', true);" ${taxInfo.filingJoint ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseY" value="true" onclick="toggleConditionalElements('#jointReturnWithSpouseYes', null);" ${taxInfo.filingJoint ? 'checked' : ''} /> 
 									<label for="radio5">Yes</label>
-									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseN" value="false" onclick="toggleConditionalElement('jointReturnWithSpouseYes', true);" ${!taxInfo.filingJoint ? 'checked' : ''} /> 
+									<input type="radio" class="radio-button" name="filingJoint" id="jointReturnWithSpouseN" value="false" onclick="toggleConditionalElements(null, '#jointReturnWithSpouseYes');" ${!taxInfo.filingJoint ? 'checked' : ''} /> 
 									<label for="radio5">No</label></td>
 							</tr>
 							<tr style="display: ${!taxInfo.filingJoint ? 'none' : ''};" id="jointReturnWithSpouseYes">
@@ -45,7 +45,7 @@
 								</td>
 							</tr>
 
-							<tr style="display: ${taxInfo.filingFederalTax != 'true' ? 'none' : ''};" id="fileIncomeTaxYes2">
+							<tr style="display: ${!taxInfo.filingFederalTax ? 'none' : ''};" id="fileIncomeTaxYes2">
 								<td width="60%" valign="middle" class="label-bg">Will you
 									claim any dependents on your tax return?</td>
 								<td width="40%" valign="middle" class="field-bg">
